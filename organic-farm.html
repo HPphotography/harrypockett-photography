@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitopia Farm — Harry Pockett Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18;
+    --paper: #f7f5f0;
+    --muted: #888880;
+    --accent: #c8b89a;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Archivo', sans-serif;
+  }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.08); }
+  .nav-logo { font-family: var(--serif); font-weight: 300; font-size: 1.1rem; letter-spacing: 0.08em; text-decoration: none; color: var(--ink); }
+  .nav-back { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .nav-back:hover { color: var(--ink); }
+  header { padding: 10rem 3rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .project-eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .project-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
+  .project-title em { font-style: italic; color: var(--muted); }
+  .project-details-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-top: 0.5px solid rgba(26,26,24,0.1); padding-top: 2rem; }
+  .project-desc { font-size: 1rem; color: #4a4a46; max-width: 650px; line-height: 1.8; }
+  .project-meta-list { list-style: none; font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.8rem; color: var(--muted); }
+  .project-meta-list strong { color: var(--ink); font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; display: block; font-size: 0.7rem; margin-bottom: 0.1rem; }
+  .gallery { padding: 2rem 3rem 8rem; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem; }
+  .gallery-row-full { width: 100%; aspect-ratio: 16 / 10; background: #e8e4dc; overflow: hidden; border-radius: 2px; }
+  .gallery-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .gallery-portrait { width: 100%; aspect-ratio: 2 / 3; background: #e8e4dc; overflow: hidden; border-radius: 2px; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .gallery img.visible { opacity: 1; transform: translateY(0); }
+  .project-footer { border-top: 0.5px solid rgba(26,26,24,0.1); padding: 5rem 3rem; text-align: center; background: var(--paper); }
+  .next-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .next-link { font-family: var(--serif); font-size: 2rem; color: var(--ink); text-decoration: none; font-style: italic; transition: color 0.2s; }
+  .next-link:hover { color: var(--accent); }
+  @media (max-width: 768px) {
+    header { padding: 8rem 1.5rem 3rem; }
+    .project-details-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .gallery { padding: 1rem 1.5rem 4rem; gap: 1.5rem; }
+    .gallery-row-split { grid-template-columns: 1fr; gap: 1.5rem; }
+    nav { padding: 1.2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Harry Pockett</a>
+  <a href="index.html#commercial" class="nav-back">← Back to Overview</a>
+</nav>
+<header>
+  <p class="project-eyebrow">Documentary &amp; Culture</p>
+  <h1 class="project-title">Sitopia Farm: <em>Grown in London.</em></h1>
+  <div class="project-details-grid">
+    <p class="project-desc">An editorial documentary story tracking the rhythm of Sitopia Farm, an urban agricultural movement. The series captures human hands operating within organic textures, the stark beauty of food growing against municipal edges, and unposed portraits of community volunteers.</p>
+    <ul class="project-meta-list">
+      <li><strong>Client</strong> Sitopia Farm</li>
+      <li><strong>Deliverables</strong> Documentary Essay, Editorial Campaign Kit</li>
+      <li><strong>Format</strong> 35mm Color Film (Cinestill / Portra)</li>
+    </ul>
+  </div>
+</header>
+<main class="gallery">
+  <div class="gallery-row-full"><img src="farm-shot-1.jpg" alt="Wide field perspective morning fog" class="reveal"></div>
+  <div class="gallery-row-split">
+    <div class="gallery-portrait"><img src="farm-shot-2.jpg" alt="Hands sorting harvested greens" class="reveal"></div>
+    <div class="gallery-portrait"><img src="farm-shot-3.jpg" alt="Candid portrait of volunteer working" class="reveal"></div>
+  </div>
+  <div class="gallery-row-full"><img src="farm-shot-4.jpg" alt="Macro texture close up of produce leaves" class="reveal"></div>
+</main>
+<div class="project-footer">
+  <p class="next-label">Next Project</p>
+  <a href="wedding-venue.html" class="next-link">Tipis at Mapledurham →</a>
+</div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
