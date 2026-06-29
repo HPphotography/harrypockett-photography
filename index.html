@@ -27,7 +27,7 @@
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--ink); }
   
-  /* Upgraded Image Hero Section */
+  /* Hero Section */
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 4rem; position: relative; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; z-index: 0; background: #e8e4dc; }
   .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.9); }
@@ -44,22 +44,22 @@
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   @keyframes scaleDown { 0%, 100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(0.4); opacity: 0.4; } }
   section { padding: 6rem 3rem; }
-  .section-label { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
-  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--accent); opacity: 0.4; max-width: 60px; }
+  
+  /* Confident, Scaled Section Headers */
+  .section-label { font-size: 0.82rem; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 4rem; display: flex; align-items: center; gap: 1.5rem; }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--accent); opacity: 0.4; max-width: 80px; }
   
   /* Commercial Grid Styles */
-  #commercial { background: var(--paper); color: var(--ink); padding-bottom: 4rem; position: relative; z-index: 3; }
+  #commercial { background: var(--paper); color: var(--ink); padding-bottom: 6rem; position: relative; z-index: 3; }
   .commercial-intro { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.35; max-width: 560px; margin-bottom: 4rem; color: var(--ink); }
   .commercial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
   .project-card { text-decoration: none; color: inherit; display: block; }
-  .brand-logo-container { width: 100%; height: 50px; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 1rem; }
+  .brand-logo-container { width: 100%; height: 50px; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 1.5rem; }
   .brand-logo-container img { max-height: 100%; max-width: 160px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: opacity 0.3s ease; }
   .project-card:hover .brand-logo-container img { opacity: 1; filter: none; }
-  .card-image-wrapper { width: 100%; aspect-ratio: 2 / 3; overflow: hidden; background: #e8e4dc; border-radius: 2px; margin-bottom: 1.2rem; }
+  .card-image-wrapper { width: 100%; aspect-ratio: 2 / 3; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
   .card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-  .project-card:hover .card-image-wrapper img { transform: scale(1.03); }
-  .project-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.3rem; }
-  .project-meta { font-size: 0.8rem; line-height: 1.4; color: var(--muted); font-weight: 300; }
+  .project-card:hover .card-image-wrapper img { transform: scale(1.02); }
 
   /* Personal Work Styles */
   #work { background: var(--ink); color: var(--paper); }
@@ -82,7 +82,7 @@
   .img-fill img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease; }
   .grid-item:hover .img-fill img { transform: scale(1.03); }
   
-  /* Cleaned Up Profile Styles */
+  /* Profile Styles */
   #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .about-left { padding-top: 0.5rem; }
   .about-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 2rem; }
@@ -152,7 +152,6 @@
 
 <section class="hero">
   <div class="hero-bg">
-    <!-- REPLACE 'hero-shot.jpg' with your masterwork background image file path -->
     <img src="hero-shot.jpg" alt="Harry Pockett Photography Showcase Background">
   </div>
   <div class="hero-overlay"></div>
@@ -180,8 +179,6 @@
       <div class="card-image-wrapper">
         <img src="venue-cover.jpg" alt="Tipis at Mapledurham Showcase Portfolio">
       </div>
-      <h3 class="project-title">Tipis at Mapledurham</h3>
-      <p class="project-meta">Brand showcase for wedding venue suppliers</p>
     </a>
 
     <!-- 2. BlåBär Nordic Living -->
@@ -192,8 +189,6 @@
       <div class="card-image-wrapper">
         <img src="cafe-cover.jpg" alt="BlåBär Nordic Living Café Portfolio">
       </div>
-      <h3 class="project-title">BlåBär: Nordic Living</h3>
-      <p class="project-meta">Hospitality, lifestyle shots for an independent café in Putney</p>
     </a>
 
     <!-- 3. Sitopia Farm -->
@@ -204,8 +199,6 @@
       <div class="card-image-wrapper">
         <img src="farm-cover.jpg" alt="Sitopia Farm Portfolio">
       </div>
-      <h3 class="project-title">Sitopia Farm</h3>
-      <p class="project-meta">Documentary community shots</p>
     </a>
   </div>
 </section>
