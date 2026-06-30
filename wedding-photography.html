@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candid Second Shooter Wedding Photography — Harry Pockett</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a18; --paper: #f7f5f0; --muted: #888880; --accent: #c8b89a; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Archivo', sans-serif; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; }
+    
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.1); }
+    .nav-logo { font-family: var(--serif); font-size: 1.1rem; letter-spacing: 0.08em; text-decoration: none; color: var(--ink); }
+    .back-link { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--ink); }
+
+    header { padding: 6rem 3rem 4rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: end; }
+    .project-title { font-family: var(--serif); font-size: clamp(2.5rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; }
+    .project-title em { font-style: italic; color: var(--muted); }
+    .project-description { color: #4a4a46; font-size: 1.02rem; line-height: 1.8; }
+    
+    .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 4rem; display: flex; flex-direction: column; gap: 3.5rem; }
+    
+    .landscape-frame { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
+    .landscape-frame img, .grid-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .three-split-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5rem; }
+    .two-split-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem; }
+    .grid-frame { width: 100%; aspect-ratio: 2 / 3; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
+
+    .project-pagination { max-width: 1200px; margin: 0 auto; padding: 4rem 3rem 8rem; border-top: 0.5px solid rgba(26,26,24,0.1); display: flex; justify-content: flex-end; }
+    .next-project-btn { text-decoration: none; color: var(--ink); display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; }
+    .next-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .next-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; transition: color 0.2s; }
+    .next-project-btn:hover .next-title { color: var(--accent); }
+
+    footer { background: var(--ink); color: rgba(247,245,240,0.3); padding: 4rem 3rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
+    footer a { color: rgba(247,245,240,0.5); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.5rem; }
+      header { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 3rem; }
+      .media-container { padding: 0 1.5rem 2rem; gap: 2rem; }
+      .three-split-grid, .two-split-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .grid-frame { aspect-ratio: 1 / 1; }
+      .project-pagination { padding: 3rem 1.5rem 4rem; }
+      footer { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Harry Pockett</a>
+  <a href="index.html#commercial" class="back-link">← Overview</a>
+</nav>
+
+<header>
+  <div>
+    <h1 class="project-title">The Secondary Perspective.<br><em>Candid Wedding Photography.</em></h1>
+  </div>
+  <div>
+    <p class="project-description">Operating strictly as a dedicated second shooter, my focus remains entirely on capturing unscripted moments among guests, fleeting ambient interactions, and quiet venue details while your primary photographer conducts formal family configurations. Shot selectively on fine-grain 35mm film formats and premium digital files to preserve an authentic, natural atmosphere.</p>
+  </div>
+</header>
+
+<main class="media-container">
+  <div class="landscape-frame">
+    <img src="wedding-photo-1.jpg" alt="Candid wedding guest atmosphere landscape capture">
+  </div>
+
+  <div class="three-split-grid">
+    <div class="grid-frame"><img src="wedding-photo-2.jpg" alt="Unposed wedding interaction portrait"></div>
+    <div class="grid-frame"><img src="wedding-photo-3.jpg" alt="Documentary wedding atmosphere asset"></div>
+    <div class="grid-frame"><img src="wedding-photo-4.jpg" alt="35mm film wedding celebration moment"></div>
+  </div>
+
+  <div class="landscape-frame">
+    <img src="wedding-photo-5.jpg" alt="Ambient documentary ceremony landscape view">
+  </div>
+
+  <div class="two-split-grid">
+    <div class="grid-frame"><img src="wedding-photo-6.jpg" alt="Candid guest reception portrait"></div>
+    <div class="grid-frame"><img src="wedding-photo-7.jpg" alt="Fine-art detail wedding environment framing"></div>
+  </div>
+
+  <div class="landscape-frame">
+    <img src="wedding-photo-8.jpg" alt="Closing candid wedding sunset documentary landscape">
+  </div>
+</main>
+
+<div class="project-pagination">
+  <a href="organic-farm.html" class="next-project-btn">
+    <span class="next-label">Next Project →</span>
+    <span class="next-title">Sitopia Farm</span>
+  </a>
+</div>
+
+<footer>
+  <span>© 2026 Harry Pockett Photography</span>
+  <a href="mailto:photography@harrypockett.com">photography@harrypockett.com</a>
+</footer>
+
+</body>
+</html>
