@@ -27,15 +27,11 @@
   
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: transparent; transition: background 0.3s, border-color 0.3s; }
   nav.scrolled { background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
-  nav.scrolled .logo-group a { color: var(--ink); }
-  nav.scrolled .logo-group span { color: var(--muted); }
+  nav.scrolled .nav-logo { color: var(--ink); }
   nav.scrolled .nav-links a { color: var(--muted); }
   nav.scrolled .nav-links a:hover { color: var(--ink); }
   
-  /* Dual-Line Logo Branding Structure */
-  .logo-group { display: flex; flex-direction: column; line-height: 1.1; text-decoration: none; }
   .nav-logo { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; text-decoration: none; color: #ffffff; transition: color 0.3s; }
-  .nav-logo-sub { font-family: var(--sans); font-size: 0.62rem; font-weight: 300; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 0.15rem; transition: color 0.3s; }
   
   .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
@@ -159,8 +155,7 @@
   
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; background: var(--paper) !important; }
-    nav .logo-group a { color: var(--ink); }
-    nav .logo-group span { color: var(--muted); }
+    nav .nav-logo { color: var(--ink); }
     nav .nav-links a { color: var(--muted); }
     section { padding: 5rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
@@ -179,10 +174,7 @@
 </head>
 <body>
 <nav id="nav">
-  <div class="logo-group">
-    <a href="#" class="nav-logo">Harry Pockett</a>
-    <span class="nav-logo-sub">Photography</span>
-  </div>
+  <a href="#" class="nav-logo">Harry Pockett</a>
   <ul class="nav-links">
     <li><a href="#commercial">Commercial</a></li>
     <li><a href="#work">Personal</a></li>
