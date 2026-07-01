@@ -6,6 +6,7 @@
 <meta name="description" content="Harry Pockett — Honest and observational photographer based in London. Available for brand, portrait, and documentary photography.">
 <title>Harry Pockett — Photographer</title>
 
+<!-- Custom Tab Icon (Favicon) -->
 <link rel="icon" type="image/png" href="hp-logo.png?v=2">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +27,15 @@
   
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: transparent; transition: background 0.3s, border-color 0.3s; }
   nav.scrolled { background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
-  nav.scrolled .nav-logo-group .logo-main, nav.scrolled .nav-logo-group .logo-sub { color: var(--ink); }
+  nav.scrolled .nav-logo-group .logo-main { color: var(--ink); }
+  nav.scrolled .nav-logo-group .logo-sub { color: #2b4236; } /* Dark forest green on white banner */
   nav.scrolled .nav-links a { color: var(--muted); }
   nav.scrolled .nav-links a:hover { color: var(--ink); }
   
   /* Brand Navigation Header Styles */
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
   .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: #ffffff; transition: color 0.3s; line-height: 1.2; }
-  .logo-sub { font-family: var(--serif); font-weight: 300; font-size: 1rem; letter-spacing: 0.06em; color: #ffffff; transition: color 0.3s; line-height: 1.2; margin-top: 2px; }
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: -2px; } /* Dirty mustard yellow over hero */
   
   .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
@@ -162,7 +164,8 @@
   
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; background: var(--paper) !important; flex-direction: column; gap: 1rem; }
-    nav .nav-logo-group .logo-main, nav .nav-logo-group .logo-sub { color: var(--ink); }
+    nav .nav-logo-group .logo-main { color: var(--ink); }
+    nav .nav-logo-group .logo-sub { color: #2b4236 !important; }
     nav .nav-links a { color: var(--muted); }
     section { padding: 5rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
