@@ -74,7 +74,7 @@
   #commercial { background: var(--paper); color: var(--ink); padding-bottom: 4rem; position: relative; z-index: 3; }
   .commercial-intro { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.4; max-width: 820px; margin-bottom: 5rem; color: var(--ink); }
   .commercial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-  .project-card { text-decoration: none; color: inherit; display: block; position: relative; }
+  .project-card { display: block; position: relative; text-decoration: none; color: inherit; }
   
   .card-image-wrapper { width: 100%; aspect-ratio: 2 / 3; overflow: hidden; background: #e8e4dc; border-radius: 2px; position: relative; }
   .card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); transition: transform 0.6s ease, filter 0.6s ease; }
@@ -86,12 +86,10 @@
   .project-card:hover .brand-logo-overlay img { filter: grayscale(100%) brightness(0.3); opacity: 0.8; }
 
   #wedding-promo { background: var(--paper); padding: 4rem 3rem 8rem; position: relative; z-index: 3; }
-  .wedding-promo-card { text-decoration: none; color: inherit; display: block; max-width: 1100px; margin: 0; text-align: left; }
-  .wedding-promo-heading { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1rem; color: var(--ink); text-transform: capitalize; }
-  .wedding-promo-intro { max-width: 600px; margin: 0 0 3.5rem 0; font-size: 0.85rem; color: var(--muted); font-weight: 300; text-transform: uppercase; letter-spacing: 0.15em; line-height: 1.8; }
+  .wedding-promo-intro { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.4; max-width: 820px; margin-bottom: 5rem; color: var(--ink); }
   .wedding-promo-image-frame { width: 100%; aspect-ratio: 16 / 9; max-height: 520px; overflow: hidden; background: #e8e4dc; border-radius: 2px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
   .wedding-promo-image-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-  .wedding-promo-card:hover .wedding-promo-image-frame img { transform: scale(1.015); }
+  .wedding-promo-image-frame:hover img { transform: scale(1.015); }
 
   #work { background: var(--ink); color: var(--paper); }
   #work .section-label { color: var(--accent); }
@@ -162,9 +160,8 @@
     .hero { padding: 0 1.5rem 4rem; }
     .hero-content { padding: 1.5rem; max-width: 100%; }
     .commercial-grid { grid-template-columns: 1fr; gap: 3rem; }
-    #wedding-promo { padding: 2rem 1.5rem 5rem; }
-    .wedding-promo-heading { font-size: 1.8rem; margin-bottom: 1.2rem; }
-    .wedding-promo-intro { font-size: 0.78rem; letter-spacing: 0.12em; margin-bottom: 2rem; }
+    #wedding-promo { padding: 5rem 1.5rem; }
+    .wedding-promo-intro { font-size: 1.4rem; line-height: 1.4; margin-bottom: 3rem; }
     .wedding-promo-image-frame { aspect-ratio: 3 / 2; }
     .row-three-split, .row-two-split { grid-template-columns: 1fr; gap: 2.5rem; }
     .grid-portrait { aspect-ratio: 1 / 1; }
@@ -179,6 +176,7 @@
   <a href="#" class="nav-logo">Harry Pockett</a>
   <ul class="nav-links">
     <li><a href="#commercial">Commercial</a></li>
+    <li><a href="#wedding-promo">Wedding</a></li>
     <li><a href="#work">Personal</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -205,7 +203,7 @@
   <p class="commercial-intro reveal">Visual storytelling for brands, spaces, and products. Documenting the people, craft, and detail behind them.</p>
   
   <div class="commercial-grid reveal">
-    <a href="wedding-venue.html" class="project-card">
+    <a href="tipis-mapledurham.html" class="project-card">
       <div class="card-image-wrapper">
         <img src="venue-cover.jpg" alt="Tipis at Mapledurham Showcase Portfolio">
         <div class="brand-logo-overlay">
@@ -214,7 +212,7 @@
       </div>
     </a>
 
-    <a href="local-cafe.html" class="project-card">
+    <a href="blabar.html" class="project-card">
       <div class="card-image-wrapper">
         <img src="cafe-cover.jpg" alt="BlåBär Nordic Living Café Portfolio">
         <div class="brand-logo-overlay">
@@ -223,7 +221,7 @@
       </div>
     </a>
 
-    <a href="organic-farm.html" class="project-card">
+    <a href="sitopia-farm.html" class="project-card">
       <div class="card-image-wrapper">
         <img src="farm-cover.jpg" alt="Sitopia Farm Portfolio">
         <div class="brand-logo-overlay">
@@ -235,13 +233,11 @@
 </section>
 
 <section id="wedding-promo">
-  <a href="wedding-photography.html" class="wedding-promo-card reveal">
-    <h2 class="wedding-promo-heading">Wedding Photography</h2>
-    <p class="wedding-promo-intro">Documenting unposed, authentic moments from a secondary perspective</p>
-    <div class="wedding-promo-image-frame">
-      <img src="wedding-promo-cover.jpg" alt="Harry Pockett Second Shooter Candid Wedding Showcase Element">
-    </div>
-  </a>
+  <p class="section-label">Wedding Photography</p>
+  <p class="wedding-promo-intro reveal">Documenting unposed, authentic moments from a secondary perspective.</p>
+  <div class="wedding-promo-image-frame reveal">
+    <img src="wedding-promo-cover.jpg" alt="Harry Pockett Second Shooter Candid Wedding Showcase Element">
+  </div>
 </section>
 
 <section id="work">
