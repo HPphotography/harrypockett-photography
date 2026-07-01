@@ -29,7 +29,7 @@
     }
     .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
     .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; }
-    .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #2b4236; line-height: 1; margin-top: -2px; } /* Dark forest green on the white banner */
+    .logo-sub { font-family: var(--serif); font-weight: 300; font-size: 1rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; margin-top: 2px; }
     
     .back-link { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
     .back-link:hover { color: var(--ink); }
@@ -39,22 +39,22 @@
     .project-title em { font-style: italic; color: var(--muted); font-family: var(--serif); }
     .project-description { color: #4a4a46; font-size: 1.05rem; line-height: 1.8; }
     
-    .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; display: flex; flex-direction: column; gap: 4rem; }
+    .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 4rem; display: flex; flex-direction: column; gap: 4rem; }
     .hero-landscape { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
     .hero-landscape img, .split-grid img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; }
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .split-portrait { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
 
-    footer { background: var(--ink); color: rgba(247,245,240,0.3); padding: 4rem 3rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
+    footer { background: var(--ink); color: rgba(247,245,240,0.3); padding: 4rem 3rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; }
     footer a { color: rgba(247,245,240,0.5); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
 
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
       header { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 3rem; }
-      .media-container { padding: 0 1.5rem 5rem; gap: 2rem; }
+      .media-container { padding: 0 1.5rem 2rem; gap: 2rem; }
       .split-grid { grid-template-columns: 1fr; gap: 2rem; }
-      footer { flex-direction: column; gap: 1rem; }
+      footer { flex-direction: column; gap: 1rem; padding: 4rem 1.5rem; }
     }
   </style>
 </head>
@@ -70,20 +70,20 @@
 
 <header>
   <div>
-    <h1 class="project-title">Weddings<br><em>The Editorial Gallery.</em></h1>
+    <h1 class="project-title">Weddings<br><em>The Story of the Day.</em></h1>
   </div>
   <div>
-    <p class="project-description">An artistic and documentary approach to wedding documentation. Focused completely on unguarded interactions, authentic emotional beats, and cinematic frames, this collection offers a window into true, effortless storytelling without modern trends or intrusive staging rules.</p>
+    <p class="project-description">An editorial and documentary approach to wedding photography. Capturing honest, unscripted moments, intimate emotions, and atmospheric frames. This gallery is a curated selection of stories, focusing on genuine connections and timeless aesthetics without relying on forced poses or passing trends.</p>
   </div>
 </header>
 
 <main class="media-container">
-  <div class="hero-landscape"><img src="wedding-shot-1.jpg" alt="Wedding wide atmospheric shot"></div>
+  <div class="hero-landscape"><img src="wedding-shot-1.jpg" alt="Atmospheric wedding celebration landscape"></div>
   <div class="split-grid">
     <div class="split-portrait"><img src="wedding-shot-2.jpg" alt="Candid ceremony interaction" loading="lazy"></div>
-    <div class="split-portrait"><img src="wedding-shot-3.jpg" alt="Editorial couple detail frame" loading="lazy"></div>
+    <div class="split-portrait"><img src="wedding-shot-3.jpg" alt="Editorial portrait detail" loading="lazy"></div>
   </div>
-  <div class="hero-landscape"><img src="wedding-shot-4.jpg" alt="Evening celebration atmosphere closure" loading="lazy"></div>
+  <div class="hero-landscape"><img src="wedding-shot-4.jpg" alt="Evening reception and crowd energy" loading="lazy"></div>
 </main>
 
 <footer>
