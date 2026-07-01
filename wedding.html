@@ -39,19 +39,11 @@
     .project-title em { font-style: italic; color: var(--muted); font-family: var(--serif); }
     .project-description { color: #4a4a46; font-size: 1.05rem; line-height: 1.8; }
     
-    .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 4rem; display: flex; flex-direction: column; gap: 4rem; }
+    .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; display: flex; flex-direction: column; gap: 4rem; }
     .hero-landscape { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
     .hero-landscape img, .split-grid img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; }
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .split-portrait { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
-
-    .project-pagination { max-width: 1200px; margin: 0 auto; padding: 4rem 3rem 8rem; border-top: 0.5px solid rgba(26,26,24,0.1); display: flex; justify-content: space-between; align-items: center; }
-    .pag-btn { text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 4px; }
-    .pag-btn.prev { align-items: flex-start; text-align: left; }
-    .pag-btn.next { align-items: flex-end; text-align: right; }
-    .pag-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .pag-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; transition: color 0.2s; }
-    .pag-btn:hover .pag-title { color: var(--accent); }
 
     footer { background: var(--ink); color: rgba(247,245,240,0.3); padding: 4rem 3rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
     footer a { color: rgba(247,245,240,0.5); text-decoration: none; transition: color 0.2s; }
@@ -60,10 +52,9 @@
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
       header { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 3rem; }
-      .media-container { padding: 0 1.5rem 2rem; gap: 2rem; }
+      .media-container { padding: 0 1.5rem 5rem; gap: 2rem; }
       .split-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .project-pagination { flex-direction: column; gap: 2rem; align-items: stretch; text-align: center; }
-      .pag-btn.prev, .pag-btn.next { align-items: center; text-align: center; }
+      footer { flex-direction: column; gap: 1rem; }
     }
   </style>
 </head>
@@ -94,17 +85,6 @@
   </div>
   <div class="hero-landscape"><img src="wedding-shot-4.jpg" alt="Evening celebration atmosphere closure" loading="lazy"></div>
 </main>
-
-<div class="project-pagination">
-  <a href="tipis-mapledurham.html" class="pag-btn prev">
-    <span class="pag-label">← Previous Project</span>
-    <span class="pag-title">Tipis at Mapledurham</span>
-  </a>
-  <a href="blabar.html" class="pag-btn next">
-    <span class="pag-label">Next Project →</span>
-    <span class="pag-title">BlåBär Nordic Living</span>
-  </a>
-</div>
 
 <footer>
   <span>© 2026 Harry Pockett Photography</span>
