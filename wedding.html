@@ -3,76 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Harry Pockett — Honest and observational photographer based in London. Available for brand, portrait, and documentary photography.">
   <title>Weddings — Harry Pockett</title>
+
+  <!-- Custom Tab Icon (Favicon) -->
   <link rel="icon" type="image/png" href="hp-logo.png?v=2">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { 
-      --ink: #1a1a18; 
-      --paper: #f7f5f0; 
-      --muted: #888880; 
-      --accent: #c8b89a; 
-      --serif: 'Cormorant Garamond', Georgia, serif; 
-      --sans: 'Archivo', sans-serif; 
+    :root {
+      --ink: #1a1a18;
+      --paper: #f7f5f0;
+      --muted: #888880;
+      --accent: #c8b89a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Archivo', sans-serif;
     }
-    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
     
-    nav { 
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; 
-      display: flex; justify-content: space-between; align-items: center; 
-      padding: 1.5rem 3rem; background: rgba(247, 245, 240, 0.85); 
-      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); 
-      border-bottom: 0.5px solid rgba(26, 26, 24, 0.08); 
-    }
-    .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
-    .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; }
-    .logo-sub { font-family: var(--serif); font-weight: 300; font-size: 1rem; letter-spacing: 0.06em; color: var(--accent); line-height: 1.2; margin-top: 2px; }
+    /* Nav Bar Layout directly from Landing Page */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
     
-    .back-link { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
-    .back-link:hover { color: var(--ink); }
+    /* Brand Navigation Header Styles matching Home page exactly */
+    .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
+    .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); transition: color 0.3s; line-height: 1.2; }
+    .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 4px; } 
+    
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    
+    /* Hamburger Menu Toggle Button */
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; }
+    .menu-toggle span { width: 100%; height: 1.5px; background-color: var(--ink); transition: all 0.3s ease; }
+    
+    /* Mobile Fullscreen Overlay */
+    .mobile-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--paper); z-index: 105; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .mobile-overlay.active { right: 0; }
+    .mobile-links { display: flex; flex-direction: column; gap: 2.5rem; list-style: none; text-align: center; }
+    .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
+    .mobile-links a:hover { color: var(--accent); }
 
+    /* Animated Hamburger to X States */
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--ink) !important; }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
+
+    /* Editorial Text Content Header block layout */
     header { padding: 10rem 3rem 4rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: end; }
     .project-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; }
     .project-title em { font-style: italic; color: var(--muted); font-family: var(--serif); }
     .project-description { color: #4a4a46; font-size: 1.05rem; line-height: 1.8; }
     
+    /* Custom Photography Portfolio Grid Layout */
     .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 8rem; display: flex; flex-direction: column; gap: 4rem; }
     .hero-landscape { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
     .hero-landscape img, .split-grid img, .triple-grid img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; }
     
-    /* 2 Portrait Layout */
+    /* 2 Column Grid Layout */
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     
-    /* 3 Portrait Layout */
+    /* 3 Column Grid Layout */
     .triple-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; }
     
     .split-portrait { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
 
-    footer { background: var(--ink); color: rgba(247,245,240,0.3); padding: 4rem 3rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid rgba(26,26,24,0.1); }
-    footer a { color: rgba(247,245,240,0.5); text-decoration: none; transition: color 0.2s; }
+    footer { background: var(--ink); border-top: 0.5px solid rgba(247,245,240,0.08); padding: 4rem 3rem; display: flex; justify-content: space-between; align-items: center; color: rgba(247,245,240,0.25); font-size: 0.72rem; }
+    footer a { color: rgba(247,245,240,0.25); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
 
-    @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
-      header { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 3rem; }
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      header { grid-template-columns: 1fr; gap: 2rem; padding: 7rem 1.5rem 3rem; }
       .media-container { padding: 0 1.5rem 4rem; gap: 2rem; }
       .split-grid, .triple-grid { grid-template-columns: 1fr; gap: 2rem; }
-      footer { flex-direction: column; gap: 1rem; padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 4rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <a href="index.html" class="nav-logo-group">
     <span class="logo-main">Harry Pockett</span>
     <span class="logo-sub">Photography</span>
   </a>
-  <a href="index.html#weddings" class="back-link">← Overview</a>
+  
+  <ul class="nav-links">
+    <li><a href="index.html#commercial">Commercial</a></li>
+    <li><a href="wedding.html">Wedding</a></li>
+    <li><a href="index.html#work">Personal</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- Fullscreen Mobile Menu Overlay -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <ul class="mobile-links">
+    <li><a href="index.html#commercial" onclick="toggleMenu()">Commercial</a></li>
+    <li><a href="wedding.html" onclick="toggleMenu()">Wedding</a></li>
+    <li><a href="index.html#work" onclick="toggleMenu()">Personal</a></li>
+    <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+    <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+  </ul>
+</div>
 
 <header>
   <div>
@@ -84,30 +131,30 @@
 </header>
 
 <main class="media-container">
-  <!-- 1. Landscape -->
+  <!-- 1. Landscape Image -->
   <div class="hero-landscape">
     <img src="wedding-shot-1.jpg" alt="Wedding wide atmospheric shot">
   </div>
 
-  <!-- 2. 3 Portraits -->
+  <!-- 2. Three Portraits Side-by-Side -->
   <div class="triple-grid">
     <div class="split-portrait"><img src="wedding-shot-2.jpg" alt="Candid ceremony interaction" loading="lazy"></div>
     <div class="split-portrait"><img src="wedding-shot-3.jpg" alt="Editorial couple detail frame" loading="lazy"></div>
     <div class="split-portrait"><img src="wedding-shot-portrait-3.jpg" alt="Third portrait layout frame" loading="lazy"></div>
   </div>
 
-  <!-- 3. Landscape -->
+  <!-- 3. Landscape Image -->
   <div class="hero-landscape">
     <img src="wedding-shot-4.jpg" alt="Evening celebration atmosphere closure" loading="lazy">
   </div>
 
-  <!-- 4. 2 Portraits -->
+  <!-- 4. Two Portraits Side-by-Side -->
   <div class="split-grid">
     <div class="split-portrait"><img src="wedding-shot-5.jpg" alt="Candid portrait configuration five" loading="lazy"></div>
     <div class="split-portrait"><img src="wedding-shot-6.jpg" alt="Editorial moment frame six" loading="lazy"></div>
   </div>
 
-  <!-- 5. Landscape -->
+  <!-- 5. Landscape Image -->
   <div class="hero-landscape">
     <img src="wedding-shot-7.jpg" alt="Final landscape celebration setting" loading="lazy">
   </div>
@@ -115,8 +162,27 @@
 
 <footer>
   <span>© 2026 Harry Pockett Photography</span>
+  <span>London &amp; Worldwide</span>
   <a href="mailto:photography@harrypockett.com">photography@harrypockett.com</a>
 </footer>
 
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  // Hamburger Toggle System
+  menuToggle.addEventListener('click', toggleMenu);
+
+  function toggleMenu() {
+    menuToggle.classList.toggle('open');
+    mobileOverlay.classList.toggle('active');
+    
+    if (mobileOverlay.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+</script>
 </body>
 </html>
