@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="hp-logo.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { 
@@ -28,8 +28,8 @@
       border-bottom: 0.5px solid rgba(26, 26, 24, 0.08); 
     }
     .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
-    .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; }
-    .logo-sub { font-family: var(--serif); font-weight: 300; font-size: 1rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; margin-top: 2px; }
+    .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; transition: color 0.3s; }
+    .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; line-height: 1; margin-top: 4px; transition: color 0.3s; }
     
     .back-link { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
     .back-link:hover { color: var(--ink); }
@@ -40,8 +40,8 @@
     .project-description { color: #4a4a46; font-size: 1.05rem; line-height: 1.8; }
     
     .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 4rem; display: flex; flex-direction: column; gap: 4rem; }
-    .hero-landscape { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
-    .hero-landscape img, .split-grid img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; }
+    .landscape-frame { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
+    .landscape-frame img, .split-grid img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; }
     .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .split-portrait { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
 
@@ -58,8 +58,8 @@
     footer a:hover { color: var(--accent); }
 
     @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; flex-direction: column; gap: 1rem; position: relative; }
-      header { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 3rem; }
+      nav { padding: 1.2rem 1.5rem; flex-direction: row; gap: 0; position: fixed; }
+      header { grid-template-columns: 1fr; gap: 2rem; padding: 8rem 1.5rem 3rem; }
       .media-container { padding: 0 1.5rem 2rem; gap: 2rem; }
       .split-grid { grid-template-columns: 1fr; gap: 2rem; }
       .project-pagination { flex-direction: column; gap: 2rem; align-items: stretch; text-align: center; }
@@ -79,20 +79,20 @@
 
 <header>
   <div>
-    <h1 class="project-title">Tipis at Mapledurham<br><em>The showcase setting.</em></h1>
+    <h1 class="project-title">Tipis<br><em>at Mapledurham.</em></h1>
   </div>
   <div>
-    <p class="project-description">A commercial hospitality and events shoot for Tipis at Mapledurham. Capturing both the venue and the wedding suppliers exhibiting their products and services during a showcase event. The resulting imagery highlights the quality of the suppliers, the guest experience, and the setting that brings them together.</p>
+    <p class="project-description">A commercial architectural and experiential showcase of the event structures contextually situated within the Mapledurham estates. The imagery focuses on spatial configuration, structural craft, and the shifting daylight profiles balancing industrial textiles with soft elements.</p>
   </div>
 </header>
 
 <main class="media-container">
-  <div class="hero-landscape"><img src="venue-shot-1.jpg" alt="Tipis at Mapledurham frame"></div>
+  <div class="landscape-frame"><img src="venue-shot-1.jpg" alt="Interior ambience"></div>
   <div class="split-grid">
-    <div class="split-portrait"><img src="venue-shot-2.jpg" alt="Exhibition staging closeups" loading="lazy"></div>
-    <div class="split-portrait"><img src="venue-shot-3.jpg" alt="Atmospheric hospitality crowd interactions" loading="lazy"></div>
+    <div class="split-portrait"><img src="venue-shot-2.jpg" alt="Detail frame" loading="lazy"></div>
+    <div class="split-portrait"><img src="venue-shot-3.jpg" alt="Hospitality capture" loading="lazy"></div>
   </div>
-  <div class="hero-landscape"><img src="venue-shot-4.jpg" alt="Wide setup details" loading="lazy"></div>
+  <div class="landscape-frame"><img src="venue-shot-4.jpg" alt="Interior natural lighting perspective" loading="lazy"></div>
 </main>
 
 <div class="project-pagination">
