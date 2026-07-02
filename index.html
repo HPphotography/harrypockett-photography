@@ -28,7 +28,7 @@
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: transparent; transition: background 0.3s, border-color 0.3s; }
   nav.scrolled { background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   nav.scrolled .nav-logo-group .logo-main { color: var(--ink); }
-  nav.scrolled .nav-logo-group .logo-sub { color: #2b4236; } /* Dark forest green on white banner */
+  nav.scrolled .nav-logo-group .logo-sub { color: #d1b46a; } /* Updated to Mustard Gold on scrolled banner */
   nav.scrolled .nav-links a { color: var(--muted); }
   nav.scrolled .nav-links a:hover { color: var(--ink); }
   nav.scrolled .menu-toggle span { background-color: var(--ink); }
@@ -36,7 +36,7 @@
   /* Brand Navigation Header Styles */
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
   .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: #ffffff; transition: color 0.3s; line-height: 1.2; }
-  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 4px; } /* Cleaned spacing below line 1 */
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 4px; }
   
   .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
@@ -182,8 +182,8 @@
   @media (max-width: 900px) {
     nav { padding: 1.2rem 1.5rem; background: transparent; }
     nav.scrolled { background: var(--paper); }
-    .nav-links { display: none; } /* Hides desktop horizontal links */
-    .menu-toggle { display: flex; } /* Shows hamburger icon */
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
     
     section { padding: 5rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
@@ -207,7 +207,6 @@
     <span class="logo-sub">Photography</span>
   </a>
   
-  <!-- Desktop Layout Links -->
   <ul class="nav-links">
     <li><a href="#commercial">Commercial</a></li>
     <li><a href="wedding.html">Wedding</a></li>
@@ -216,7 +215,6 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 
-  <!-- Option B Mobile Hamburger Trigger -->
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
     <span></span>
     <span></span>
@@ -224,7 +222,6 @@
   </button>
 </nav>
 
-<!-- Fullscreen Mobile Menu Overlay -->
 <div class="mobile-overlay" id="mobileOverlay">
   <ul class="mobile-links">
     <li><a href="#commercial" onclick="toggleMenu()">Commercial</a></li>
@@ -286,7 +283,7 @@
 
 <section id="wedding-promo">
   <p class="section-label">Wedding Photography</p>
-  <p class="wedding-promo-intro reveal">Documenting unposed, authentic moments from a secondary perspective.</p>
+  <p class="wedding-promo-intro reveal">Second wedding photographer capturing the guest perspective.</p>
   <a href="wedding.html" class="wedding-link-text reveal">For more information click here →</a>
   
   <a href="wedding.html" class="wedding-promo-image-frame reveal">
@@ -421,7 +418,6 @@
 </footer>
 
 <script>
-  // Elements for Scroll & Navigation 
   const nav = document.getElementById('nav');
   const menuToggle = document.getElementById('menuToggle');
   const mobileOverlay = document.getElementById('mobileOverlay');
@@ -430,14 +426,12 @@
     nav.classList.toggle('scrolled', window.scrollY > 40); 
   });
 
-  // Hamburger Toggle System
   menuToggle.addEventListener('click', toggleMenu);
 
   function toggleMenu() {
     menuToggle.classList.toggle('open');
     mobileOverlay.classList.toggle('active');
     
-    // Prevent background scrolling while mobile navigation screen is active
     if (mobileOverlay.classList.contains('active')) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -445,13 +439,11 @@
     }
   }
 
-  // Animation reveal blocks
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Form handling logic
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
