@@ -6,7 +6,6 @@
 <meta name="description" content="Harry Pockett — Honest and observational photographer based in London. Available for brand, portrait, and documentary photography.">
 <title>Harry Pockett — Photographer</title>
 
-<!-- Custom Tab Icon (Favicon using Inline Serif Monogram Vector) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 fill=%22%231a1a18%22 rx=%22100%22/><text x=%2250%25%22 y=%2262%25%22 font-family=%22'Cormorant Garamond', serif%22 font-size=%22280%22 font-weight=%22300%22 fill=%22%23d1b46a%22 letter-spacing=%22-0.03em%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>HP</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,7 +168,7 @@
   .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(247,245,240,0.2); }
   .form-submit { margin-top: 0.5rem; padding: 0.9rem 2rem; background: transparent; border: 0.5px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: 0.70rem; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s, color 0.2s; align-self: flex-start; }
   .form-submit:hover { background: var(--accent); color: var(--ink); }
-  .form-success { display: none; padding: 1rem; border: 0.5px solid rgba(122,184,122,0.4); border-radius: 2px; color: rgba(122,184,122,0.9); font-size: 0.85rem; }
+  
   footer { background: var(--ink); border-top: 0.5px solid rgba(247,245,240,0.08); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; color: rgba(247,245,240,0.25); font-size: 0.72rem; }
   footer a { color: rgba(247,245,240,0.25); text-decoration: none; transition: color 0.2s; }
   footer a:hover { color: var(--accent); }
@@ -405,14 +404,20 @@
     </div>
     
     <div class="reveal">
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xjgqdjjw" method="POST">
         <div class="form-row">
-          <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Your name" required></div>
-          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="your@email.com" required></div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" data-fs-field required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" data-fs-field required>
+          </div>
         </div>
         <div class="form-group">
           <label for="project">Project type</label>
-          <select id="project">
+          <select id="project" name="project" data-fs-field>
             <option value="" disabled selected>What are you looking for?</option>
             <option>Brand &amp; commercial</option>
             <option>Restaurant &amp; hospitality</option>
@@ -422,9 +427,16 @@
             <option>Something else</option>
           </select>
         </div>
-        <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell me about your project..." required></textarea></div>
-        <button type="submit" class="form-submit">Send message</button>
-        <div class="form-success" id="form-success">Thanks — I'll be in touch within 48 hours.</div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." data-fs-field required></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-fs-submit-btn>Send message</button>
+        
+        <div data-fs-success style="padding: 1rem; border: 0.5px solid rgba(122,184,122,0.4); border-radius: 2px; color: #7ab87a; margin-top: 1rem;">
+          Thanks! Your message has been sent successfully.
+        </div>
+        <div data-fs-error style="color: #c85e5e; margin-top: 1rem;"></div>
       </form>
     </div>
   </div>
@@ -435,6 +447,8 @@
   <span>London &amp; Worldwide</span>
   <a href="mailto:photography@harrypockett.com">photography@harrypockett.com</a>
 </footer>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <script>
   const nav = document.getElementById('nav');
@@ -463,13 +477,9 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    setTimeout(() => { e.target.style.display = 'none'; document.getElementById('form-success').style.display = 'block'; }, 800);
-  }
+  // Initialize Formspree
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'xjgqdjjw' });
 </script>
 </body>
 </html>
