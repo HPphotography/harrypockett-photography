@@ -57,28 +57,35 @@
   .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
   .grid-item:hover img { transform: scale(1.02); filter: brightness(1); }
 
-  /* True 3:2 Landscape and 2:3 Portrait strict aspect ratios */
   .grid-item.landscape { aspect-ratio: 3 / 2; }
   .grid-item.portrait { aspect-ratio: 2 / 3; }
 
-  /* Row configurations */
   .row-l-p .landscape { flex: 2.25; }
   .row-l-p .portrait { flex: 1; }
-
   .row-l-l .landscape { flex: 1; }
-
   .row-p-l .portrait { flex: 1; }
   .row-p-l .landscape { flex: 2.25; }
-
   .row-merged-p-l .portrait { flex: 1.25; }
   .row-merged-p-l .landscape { flex: 2.25; }
-
   .row-l-p-added .landscape { flex: 2.25; }
   .row-l-p-added .portrait { flex: 1; }
-
   .row-p-p-p .portrait { flex: 1; }
 
   .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+
+  /* Matt Jones Style Minimalist Contact Section at the Bottom of Home */
+  .home-contact-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 8rem; max-width: 800px; margin: 0 auto; border-top: 0.5px solid rgba(26,26,24,0.08); }
+  
+  .home-contact-heading { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1.5rem; color: var(--ink); }
+  
+  .home-contact-email-link { font-family: var(--serif); font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 300; font-style: italic; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; margin-bottom: 2.5rem; display: inline-block; }
+  .home-contact-email-link:hover { color: var(--muted); border-color: var(--muted); }
+
+  .home-contact-details { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.05em; line-height: 1.8; margin-bottom: 3rem; }
+
+  .social-links { display: flex; gap: 2rem; list-style: none; justify-content: center; margin-top: 1rem; }
+  .social-links a { text-decoration: none; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+  .social-links a:hover { color: var(--ink); }
 
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
   footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -91,6 +98,7 @@
     .gallery-container { padding: 9rem 1.25rem 2rem; }
     .gallery-row { flex-direction: column; gap: 1.5rem; }
     .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
+    .home-contact-section { padding: 4rem 1.25rem 5rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -130,134 +138,67 @@
   </ul>
 </div>
 
-<!-- Home Gallery Grid (20 Photos total with specified filenames) -->
+<!-- Home Gallery Grid (20 Photos) -->
 <main class="gallery-container">
-
-  <!-- Line 1: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item landscape">
-      <img src="harry-pockett-london-venue.jpg" alt="London Venue">
-      <span class="img-label">London, England</span>
-    </div>
-    <div class="grid-item portrait">
-      <img src="harry-pockett-varanasi-morning.jpg" alt="Varanasi Morning">
-      <span class="img-label">Varanasi, India</span>
-    </div>
+    <div class="grid-item landscape"><img src="harry-pockett-london-venue.jpg" alt="London Venue"><span class="img-label">London, England</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-morning.jpg" alt="Varanasi Morning"><span class="img-label">Varanasi, India</span></div>
   </div>
-
-  <!-- Line 2: Landscape - Landscape -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape">
-      <img src="harry-pockett-london-cafe.jpg" alt="London Cafe">
-      <span class="img-label">London, England</span>
-    </div>
-    <div class="grid-item landscape">
-      <img src="harry-pockett-southeast-london.jpg" alt="South East London">
-      <span class="img-label">South East London</span>
-    </div>
+    <div class="grid-item landscape"><img src="harry-pockett-london-cafe.jpg" alt="London Cafe"><span class="img-label">London, England</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">South East London</span></div>
   </div>
-
-  <!-- Line 3: Portrait - Landscape -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item portrait">
-      <img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats">
-      <span class="img-label">Varanasi, India</span>
-    </div>
-    <div class="grid-item landscape">
-      <img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate">
-      <span class="img-label">Oxfordshire, UK</span>
-    </div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"><span class="img-label">Varanasi, India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Oxfordshire, UK</span></div>
   </div>
-
-  <!-- Line 4: Merged Portrait - Landscape -->
   <div class="gallery-row row-merged-p-l">
-    <div class="grid-item portrait">
-      <img src="harry-pockett-margaret-river-portrait.jpg" alt="Margaret River Portrait">
-      <span class="img-label">Margaret River, Australia</span>
-    </div>
-    <div class="grid-item landscape">
-      <img src="harry-pockett-danang-coast.jpg" alt="Da Nang Coast">
-      <span class="img-label">Da Nang, Vietnam</span>
-    </div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-portrait.jpg" alt="Margaret River Portrait"><span class="img-label">Margaret River, Australia</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-danang-coast.jpg" alt="Da Nang Coast"><span class="img-label">Da Nang, Vietnam</span></div>
   </div>
-
-  <!-- Line 5: Landscape - Portrait -->
   <div class="gallery-row row-l-p-added">
-    <div class="grid-item landscape">
-      <img src="harry-pockett-lake-district.jpg" alt="Lake District">
-      <span class="img-label">The Lake District</span>
-    </div>
-    <div class="grid-item portrait">
-      <img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard">
-      <span class="img-label">Margaret River, Australia</span>
-    </div>
+    <div class="grid-item landscape"><img src="harry-pockett-lake-district.jpg" alt="Lake District"><span class="img-label">The Lake District</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Margaret River, Australia</span></div>
   </div>
-
-  <!-- Line 6: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item landscape">
-      <img src="harry-pockett-urban-street.jpg" alt="Urban Street">
-      <span class="img-label">London, England</span>
-    </div>
-    <div class="grid-item portrait">
-      <img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait">
-      <span class="img-label">Soho, London</span>
-    </div>
+    <div class="grid-item landscape"><img src="harry-pockett-urban-street.jpg" alt="Urban Street"><span class="img-label">London, England</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait"><span class="img-label">Soho, London</span></div>
   </div>
-
-  <!-- Line 7: Three Portraits -->
   <div class="gallery-row row-p-p-p">
-    <div class="grid-item portrait">
-      <img src="harry-pockett-bangkok-market.jpg" alt="Bangkok Market">
-      <span class="img-label">Bangkok, Thailand</span>
-    </div>
-    <div class="grid-item portrait">
-      <img src="harry-pockett-london-interior.jpg" alt="London Interior">
-      <span class="img-label">London, England</span>
-    </div>
-    <div class="grid-item portrait">
-      <img src="harry-pockett-gallery-portrait.jpg" alt="Gallery Portrait">
-      <span class="img-label">South East London</span>
-    </div>
+    <div class="grid-item portrait"><img src="harry-pockett-bangkok-market.jpg" alt="Bangkok Market"><span class="img-label">Bangkok, Thailand</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-london-interior.jpg" alt="London Interior"><span class="img-label">London, England</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-gallery-portrait.jpg" alt="Gallery Portrait"><span class="img-label">South East London</span></div>
   </div>
-
-  <!-- Line 8: Landscape - Landscape -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape">
-      <img src="harry-pockett-india-river.jpg" alt="India River">
-      <span class="img-label">Varanasi, India</span>
-    </div>
-    <div class="grid-item landscape">
-      <img src="harry-pockett-india-temple.jpg" alt="India Temple">
-      <span class="img-label">Varanasi, India</span>
-    </div>
+    <div class="grid-item landscape"><img src="harry-pockett-india-river.jpg" alt="India River"><span class="img-label">Varanasi, India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-india-temple.jpg" alt="India Temple"><span class="img-label">Varanasi, India</span></div>
   </div>
-
-  <!-- Line 9: Portrait - Landscape -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item portrait">
-      <img src="harry-pockett-australia-bush.jpg" alt="Australia Bush">
-      <span class="img-label">Australia</span>
-    </div>
-    <div class="grid-item landscape">
-      <img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds">
-      <span class="img-label">Mapledurham, UK</span>
-    </div>
+    <div class="grid-item portrait"><img src="harry-pockett-australia-bush.jpg" alt="Australia Bush"><span class="img-label">Australia</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds"><span class="img-label">Mapledurham, UK</span></div>
   </div>
-
-  <!-- Line 10: Landscape - Portrait (Bottom Row) -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item landscape">
-      <img src="harry-pockett-thames-riverbank.jpg" alt="Thames Riverbank">
-      <span class="img-label">London, England</span>
-    </div>
-    <div class="grid-item portrait">
-      <img src="harry-pockett-final-portrait.jpg" alt="Final Portrait">
-      <span class="img-label">London, England</span>
-    </div>
+    <div class="grid-item landscape"><img src="harry-pockett-thames-riverbank.jpg" alt="Thames Riverbank"><span class="img-label">London, England</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-final-portrait.jpg" alt="Final Portrait"><span class="img-label">London, England</span></div>
+  </div>
+</main>
+
+<!-- Matt Jones Style Minimalist Contact Section -->
+<section class="home-contact-section">
+  <h2 class="home-contact-heading">Get in touch</h2>
+  <a href="mailto:photography@harrypockett.com" class="home-contact-email-link">photography@harrypockett.com</a>
+  
+  <div class="home-contact-details">
+    <p>Based in London &amp; Available Worldwide</p>
+    <p>Phone: +44 (0) 776 111 4285</p>
   </div>
 
-</main>
+  <ul class="social-links">
+    <li><a href="#" target="_blank">Instagram</a></li>
+    <li><a href="#" target="_blank">Vimeo</a></li>
+    <li><a href="#" target="_blank">Twitter / X</a></li>
+  </ul>
+</section>
 
 <footer>
   <span>© 2026 Harry Pockett Photography</span>
