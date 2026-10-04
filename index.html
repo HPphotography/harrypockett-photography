@@ -24,18 +24,18 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
-  /* Centralized Adam Lynk Style Navigation */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 2rem 1.5rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
+  /* Centralized Adam Lynk Style Navigation (Logo Doubled in Size) */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   
-  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 0.8rem; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
   
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
-  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.45rem; letter-spacing: 0.08em; color: var(--ink); transition: color 0.3s; line-height: 1.2; }
-  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 3px; }
+  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); transition: color 0.3s; line-height: 1.1; }
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 5px; }
   
-  .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; position: absolute; right: 2rem; top: 2rem; }
+  .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; position: absolute; right: 2rem; top: 2.5rem; }
   .menu-toggle span { width: 100%; height: 1.5px; background-color: var(--ink); transition: all 0.3s ease; }
   
   .mobile-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--paper); z-index: 105; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -48,8 +48,8 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions */
-  .gallery-container { padding: 11rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
+  /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions (Adjusted top padding for larger header) */
+  .gallery-container { padding: 13.5rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
   .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
   
@@ -73,7 +73,7 @@
 
   .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 
-  /* Compact Contact Section (Half Size Padding & Sizing) */
+  /* Compact Contact Section */
   .home-contact-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem 4rem; max-width: 800px; margin: 0 auto; border-top: 0.5px solid rgba(26,26,24,0.08); }
   
   .home-contact-heading { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1rem; color: var(--ink); }
@@ -92,10 +92,11 @@
   footer a:hover { color: var(--ink); }
 
   @media (max-width: 900px) {
-    nav { padding: 1.5rem 1rem; }
+    nav { padding: 1.8rem 1rem 1.5rem; }
+    .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
-    .menu-toggle { display: flex; }
-    .gallery-container { padding: 9rem 1.25rem 2rem; }
+    .menu-toggle { display: flex; top: 2rem; }
+    .gallery-container { padding: 11rem 1.25rem 2rem; }
     .gallery-row { flex-direction: column; gap: 1.5rem; }
     .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
     .home-contact-section { padding: 2.5rem 1.25rem 3rem; }
