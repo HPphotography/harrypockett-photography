@@ -53,35 +53,45 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Gallery Container with True 2:3 & 3:2 Proportions */
+  /* Strictly Orderly 2:3 and 3:2 Proportional Gallery Grid */
   .gallery-container { padding: 8rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
-  .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; }
+  .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
   
   .grid-item { position: relative; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
   .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
   .grid-item:hover img { transform: scale(1.02); filter: brightness(1); }
 
-  /* True photographic 2:3 and 3:2 aspect ratios */
+  /* True 3:2 Landscape and 2:3 Portrait strict aspect ratios */
   .grid-item.landscape { aspect-ratio: 3 / 2; }
   .grid-item.portrait { aspect-ratio: 2 / 3; }
 
-  /* Row specific distribution weights balancing true 3:2 and 2:3 side-by-side */
-  .row-l-p .landscape { flex: 3; }
-  .row-l-p .portrait { flex: 2; }
+  /* Row configurations with exact mathematical width proportions matching true 3:2 & 2:3 dimensions side-by-side */
+  /* Side-by-side: 1 Landscape (3:2 = 1.5 width per unit height) + 1 Portrait (2:3 = 0.666 width per unit height) -> Ratio 1.5 : 0.666 -> roughly 9 : 4 or flex 2.25 to 1 */
+  .row-l-p .landscape { flex: 2.25; }
+  .row-l-p .portrait { flex: 1; }
 
+  /* Side-by-side: 2 Landscapes -> Equal width (flex: 1) */
   .row-l-l .landscape { flex: 1; }
 
-  .row-p-l .portrait { flex: 2; }
-  .row-p-l .landscape { flex: 3; }
+  /* Side-by-side: 1 Portrait (0.666) + 1 Landscape (1.5) -> Ratio 1 to 2.25 */
+  .row-p-l .portrait { flex: 1; }
+  .row-p-l .landscape { flex: 2.25; }
 
-  .row-p-p-l .portrait { flex: 2; }
-  .row-p-p-l .landscape { flex: 6; }
+  /* Side-by-side: 1 Merged Double-Portrait (width = two portraits or one large framed block maintaining 2:3 or custom balance) + 1 Landscape */
+  /* If merged portrait acts as double width portrait or twin block, let's give it flex: 1.33 and landscape flex: 2 */
+  .row-merged-p-l .portrait { flex: 1.25; }
+  .row-merged-p-l .landscape { flex: 2.25; }
 
-  .row-single { justify-content: center; }
-  .row-single .landscape { width: 66%; flex: unset; }
+  /* Side-by-side: 1 Landscape + 1 Portrait added to the right */
+  .row-l-p-added .landscape { flex: 2.25; }
+  .row-l-p-added .portrait { flex: 1; }
 
+  /* Three portraits side-by-side: equal width (flex: 1) */
   .row-p-p-p .portrait { flex: 1; }
+
+  /* Single centered landscape */
+  .row-single .landscape { width: 66%; flex: unset; }
 
   .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 
@@ -156,10 +166,10 @@
   </ul>
 </div>
 
-<!-- Dynamic Gallery Layout with 2:3 / 3:2 Proportions (20 Photos total) -->
+<!-- Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions (20 Photos total) -->
 <main class="gallery-container" id="work">
 
-  <!-- 1. Landscape - Portrait -->
+  <!-- Line 1: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
     <div class="grid-item landscape">
       <img src="venue-cover.jpg" alt="Portfolio Image 1">
@@ -171,7 +181,7 @@
     </div>
   </div>
 
-  <!-- 2. Landscape - Landscape -->
+  <!-- Line 2: Landscape - Landscape -->
   <div class="gallery-row row-l-l">
     <div class="grid-item landscape">
       <img src="cafe-cover.jpg" alt="Portfolio Image 3">
@@ -183,7 +193,7 @@
     </div>
   </div>
 
-  <!-- 3. Portrait - Landscape -->
+  <!-- Line 3: Portrait - Landscape -->
   <div class="gallery-row row-p-l">
     <div class="grid-item portrait">
       <img src="India-2.jpg" alt="Portfolio Image 5">
@@ -195,31 +205,31 @@
     </div>
   </div>
 
-  <!-- 4. Portrait - Portrait - Landscape -->
-  <div class="gallery-row row-p-p-l">
+  <!-- Line 4 (Modified): Merged double portrait block paired with a landscape -->
+  <div class="gallery-row row-merged-p-l">
     <div class="grid-item portrait">
       <img src="Wedding-1.jpg" alt="Portfolio Image 7">
       <span class="img-label">Margaret River, Australia</span>
     </div>
-    <div class="grid-item portrait">
-      <img src="Wedding-2.jpg" alt="Portfolio Image 8">
-      <span class="img-label">Margaret River, Australia</span>
-    </div>
     <div class="grid-item landscape">
-      <img src="Wedding-3.jpg" alt="Portfolio Image 9">
+      <img src="Wedding-3.jpg" alt="Portfolio Image 8">
       <span class="img-label">Da Nang, Vietnam</span>
     </div>
   </div>
 
-  <!-- 5. Landscape -->
-  <div class="gallery-row row-single">
+  <!-- Line 5 (Modified): Landscape paired with a newly added portrait on the right -->
+  <div class="gallery-row row-l-p-added">
     <div class="grid-item landscape">
-      <img src="Wedding-5.jpg" alt="Portfolio Image 10">
+      <img src="Wedding-5.jpg" alt="Portfolio Image 9">
       <span class="img-label">The Lake District</span>
+    </div>
+    <div class="grid-item portrait">
+      <img src="Wedding-2.jpg" alt="Portfolio Image 10">
+      <span class="img-label">Margaret River, Australia</span>
     </div>
   </div>
 
-  <!-- 6. Landscape - Portrait -->
+  <!-- Line 6: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
     <div class="grid-item landscape">
       <img src="personal-portrait-6.jpg" alt="Portfolio Image 11">
@@ -231,7 +241,7 @@
     </div>
   </div>
 
-  <!-- 7. Portrait - Portrait - Portrait -->
+  <!-- Line 7: Three Portraits -->
   <div class="gallery-row row-p-p-p">
     <div class="grid-item portrait">
       <img src="personal-portrait-5.jpg" alt="Portfolio Image 13">
@@ -247,7 +257,7 @@
     </div>
   </div>
 
-  <!-- 8. Landscape - Landscape -->
+  <!-- Line 8: Landscape - Landscape -->
   <div class="gallery-row row-l-l">
     <div class="grid-item landscape">
       <img src="India-1.jpg" alt="Portfolio Image 16">
@@ -259,7 +269,7 @@
     </div>
   </div>
 
-  <!-- 9. Portrait - Landscape -->
+  <!-- Line 9: Portrait - Landscape -->
   <div class="gallery-row row-p-l">
     <div class="grid-item portrait">
       <img src="Wedding-1.jpg" alt="Portfolio Image 18">
@@ -271,7 +281,7 @@
     </div>
   </div>
 
-  <!-- 10. Landscape -->
+  <!-- Line 10: Single Landscape -->
   <div class="gallery-row row-single">
     <div class="grid-item landscape">
       <img src="London-1.jpg" alt="Portfolio Image 20">
