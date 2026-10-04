@@ -24,29 +24,24 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: transparent; transition: background 0.3s, border-color 0.3s; }
-  nav.scrolled { background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
-  nav.scrolled .nav-logo-group .logo-main { color: var(--ink); }
-  nav.scrolled .nav-logo-group .logo-sub { color: #d1b46a; }
-  nav.scrolled .nav-links a { color: var(--muted); }
-  nav.scrolled .nav-links a:hover { color: var(--ink); }
-  nav.scrolled .menu-toggle span { background-color: var(--ink); }
+  /* Centralized Adam Lynk Style Navigation */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 2rem 1.5rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
+  
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 0.8rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
   
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
-  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); transition: color 0.3s; line-height: 1.2; }
-  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 4px; }
+  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.45rem; letter-spacing: 0.08em; color: var(--ink); transition: color 0.3s; line-height: 1.2; }
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 3px; }
   
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--ink); }
-  
-  .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; }
+  .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; position: absolute; right: 2rem; top: 2rem; }
   .menu-toggle span { width: 100%; height: 1.5px; background-color: var(--ink); transition: all 0.3s ease; }
   
   .mobile-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--paper); z-index: 105; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
   .mobile-overlay.active { right: 0; }
-  .mobile-links { display: flex; flex-direction: column; gap: 2.5rem; list-style: none; text-align: center; }
-  .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
+  .mobile-links { display: flex; flex-direction: column; gap: 2rem; list-style: none; text-align: center; }
+  .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
   .mobile-links a:hover { color: var(--accent); }
 
   .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--ink) !important; }
@@ -54,7 +49,7 @@
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
   /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions */
-  .gallery-container { padding: 8rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
+  .gallery-container { padding: 11rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
   .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
   
@@ -85,62 +80,37 @@
 
   .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 
-  /* Contact Section */
-  #contact { background: var(--ink); color: var(--paper); padding: 8rem 3rem; margin-top: 4rem; }
-  .section-label { font-size: 0.82rem; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 4rem; display: flex; align-items: center; gap: 1.5rem; }
-  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--accent); opacity: 0.4; max-width: 80px; }
-  
-  .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: start; max-width: 1400px; margin: 0 auto; }
-  .contact-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; color: var(--paper); }
-  .contact-title em { font-style: italic; color: var(--accent); font-family: var(--serif); }
-  .contact-body { color: rgba(247,245,240,0.55); font-size: 0.88rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 480px; }
-  
-  .contact-info-list { display: flex; flex-direction: column; gap: 1.5rem; }
-  .contact-info-row { display: flex; align-items: center; gap: 1.2rem; }
-  .contact-icon-tag { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); width: 85px; flex-shrink: 0; opacity: 0.8; }
-  .contact-info-value { color: rgba(247,245,240,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 300; transition: color 0.2s; }
-  .contact-info-value:hover { color: #ffffff; text-decoration: underline; text-underline-offset: 4px; }
-  
-  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.35); }
-  .form-group input, .form-group textarea, .form-group select { background: rgba(247,245,240,0.05); border: 0.5px solid rgba(247,245,240,0.12); border-radius: 2px; padding: 0.75rem 1rem; color: var(--paper); font-family: var(--sans); font-size: 0.85rem; font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
-  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(247,245,240,0.2); }
-  .form-submit { margin-top: 0.5rem; padding: 0.9rem 2rem; background: transparent; border: 0.5px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: 0.70rem; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s, color 0.2s; align-self: flex-start; }
-  .form-submit:hover { background: var(--accent); color: var(--ink); }
-  
-  footer { background: var(--ink); border-top: 0.5px solid rgba(247,245,240,0.08); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; color: rgba(247,245,240,0.25); font-size: 0.72rem; }
-  footer a { color: rgba(247,245,240,0.25); text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--accent); }
+  footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
+  footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--ink); }
 
   @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
+    nav { padding: 1.5rem 1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
-    .gallery-container { padding: 7rem 1.25rem 2rem; }
+    .gallery-container { padding: 9rem 1.25rem 2rem; }
     .gallery-row { flex-direction: column; gap: 1.5rem; }
     .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
-    #contact { padding: 4rem 1.25rem; }
-    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<nav id="nav" class="scrolled">
-  <a href="#" class="nav-logo-group">
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li><a href="commercial.html">Commercial</a></li>
+    <li><a href="personal.html">Personal Projects</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <a href="index.html" class="nav-logo-group">
     <span class="logo-main">Harry Pockett</span>
     <span class="logo-sub">Photography</span>
   </a>
-  
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
 
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
     <span></span>
@@ -151,13 +121,17 @@
 
 <div class="mobile-overlay" id="mobileOverlay">
   <ul class="mobile-links">
-    <li><a href="#work" onclick="toggleMenu()">Work</a></li>
-    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li><a href="commercial.html">Commercial</a></li>
+    <li><a href="personal.html">Personal Projects</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </div>
 
-<!-- Orderly Gallery Layout with Specific Filenames for GitHub -->
-<main class="gallery-container" id="work">
+<!-- Home Gallery Grid (20 Photos total with specified filenames) -->
+<main class="gallery-container">
 
   <!-- Line 1: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
@@ -284,63 +258,6 @@
   </div>
 
 </main>
-
-<section id="contact">
-  <div class="contact-grid">
-    <div>
-      <p class="section-label">Get in touch</p>
-      <h2 class="contact-title">Let's make<br><em>something real.</em></h2>
-      <p class="contact-body">Whether you are looking to define your brand's aesthetic layout, have an upcoming editorial run, or want to look over my wider production library, I'd love to discuss how we can elevate your look.</p>
-      
-      <div class="contact-info-list">
-        <div class="contact-info-row">
-          <span class="contact-icon-tag">[email]</span>
-          <a href="mailto:photography@harrypockett.com" class="contact-info-value">photography@harrypockett.com</a>
-        </div>
-        <div class="contact-info-row">
-          <span class="contact-icon-tag">[phone]</span>
-          <a href="tel:+447761114285" class="contact-info-value">+44 776 111 4285</a>
-        </div>
-        <div class="contact-info-row">
-          <span class="contact-icon-tag">[instagram]</span>
-          <a href="https://instagram.com/harrypockett_photography" class="contact-info-value" target="_blank">@harrypockett_photography</a>
-        </div>
-      </div>
-    </div>
-    
-    <div>
-      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xjgqdjjw" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="project">Project type</label>
-          <select id="project" name="project">
-            <option value="" disabled selected>What are you looking for?</option>
-            <option>Brand &amp; commercial</option>
-            <option>Restaurant &amp; hospitality</option>
-            <option>Real estate</option>
-            <option>Editorial &amp; documentary</option>
-            <option>Events / Second Shooter</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send message</button>
-      </form>
-    </div>
-  </div>
-</section>
 
 <footer>
   <span>© 2026 Harry Pockett Photography</span>
