@@ -53,33 +53,34 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Immersive Flexbox Dynamic Gallery Container */
+  /* Gallery Container with True 2:3 & 3:2 Proportions */
   .gallery-container { padding: 8rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
-  .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; }
+  .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; }
   
   .grid-item { position: relative; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
-  .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); }
+  .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
   .grid-item:hover img { transform: scale(1.02); filter: brightness(1); }
 
-  /* Specific Aspect Ratios for Dynamic Flow */
-  .grid-item.landscape { height: 420px; }
-  .grid-item.portrait { height: 420px; }
+  /* True photographic 2:3 and 3:2 aspect ratios */
+  .grid-item.landscape { aspect-ratio: 3 / 2; }
+  .grid-item.portrait { aspect-ratio: 2 / 3; }
 
-  /* Row specific sizing ratios */
-  .row-l-p .landscape { flex: 1.6; }
-  .row-l-p .portrait { flex: 1; }
+  /* Row specific distribution weights balancing true 3:2 and 2:3 side-by-side */
+  .row-l-p .landscape { flex: 3; }
+  .row-l-p .portrait { flex: 2; }
 
   .row-l-l .landscape { flex: 1; }
 
-  .row-p-l .portrait { flex: 1; }
-  .row-p-l .landscape { flex: 1.6; }
+  .row-p-l .portrait { flex: 2; }
+  .row-p-l .landscape { flex: 3; }
 
-  .row-p-p-l .portrait { flex: 1; }
-  .row-p-p-l .landscape { flex: 1.6; }
+  .row-p-p-l .portrait { flex: 2; }
+  .row-p-p-l .landscape { flex: 6; }
 
-  .row-single .landscape { flex: 1; height: 550px; }
-  
+  .row-single { justify-content: center; }
+  .row-single .landscape { width: 66%; flex: unset; }
+
   .row-p-p-p .portrait { flex: 1; }
 
   .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
@@ -120,7 +121,7 @@
     .menu-toggle { display: flex; }
     .gallery-container { padding: 7rem 1.25rem 2rem; }
     .gallery-row { flex-direction: column; gap: 1.5rem; }
-    .grid-item.landscape, .grid-item.portrait { height: 360px; flex: unset !important; width: 100% !important; }
+    .grid-item.landscape, .grid-item.portrait, .row-single .landscape { flex: unset !important; width: 100% !important; }
     #contact { padding: 4rem 1.25rem; }
     .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .form-row { grid-template-columns: 1fr; }
@@ -155,7 +156,7 @@
   </ul>
 </div>
 
-<!-- Immersive Dynamic Gallery Layout matching requested custom row configurations (20 Photos: 12 Landscape, 8 Portraits) -->
+<!-- Dynamic Gallery Layout with 2:3 / 3:2 Proportions (20 Photos total) -->
 <main class="gallery-container" id="work">
 
   <!-- 1. Landscape - Portrait -->
@@ -210,7 +211,7 @@
     </div>
   </div>
 
-  <!-- 5. Landscape (Full width immersive breath) -->
+  <!-- 5. Landscape -->
   <div class="gallery-row row-single">
     <div class="grid-item landscape">
       <img src="Wedding-5.jpg" alt="Portfolio Image 10">
@@ -270,7 +271,7 @@
     </div>
   </div>
 
-  <!-- 10. Landscape (Ending feature frame) -->
+  <!-- 10. Landscape -->
   <div class="gallery-row row-single">
     <div class="grid-item landscape">
       <img src="London-1.jpg" alt="Portfolio Image 20">
