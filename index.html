@@ -53,7 +53,7 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Strictly Orderly 2:3 and 3:2 Proportional Gallery Grid */
+  /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions */
   .gallery-container { padding: 8rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
   .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
@@ -66,32 +66,22 @@
   .grid-item.landscape { aspect-ratio: 3 / 2; }
   .grid-item.portrait { aspect-ratio: 2 / 3; }
 
-  /* Row configurations with exact mathematical width proportions matching true 3:2 & 2:3 dimensions side-by-side */
-  /* Side-by-side: 1 Landscape (3:2 = 1.5 width per unit height) + 1 Portrait (2:3 = 0.666 width per unit height) -> Ratio 1.5 : 0.666 -> roughly 9 : 4 or flex 2.25 to 1 */
+  /* Row configurations */
   .row-l-p .landscape { flex: 2.25; }
   .row-l-p .portrait { flex: 1; }
 
-  /* Side-by-side: 2 Landscapes -> Equal width (flex: 1) */
   .row-l-l .landscape { flex: 1; }
 
-  /* Side-by-side: 1 Portrait (0.666) + 1 Landscape (1.5) -> Ratio 1 to 2.25 */
   .row-p-l .portrait { flex: 1; }
   .row-p-l .landscape { flex: 2.25; }
 
-  /* Side-by-side: 1 Merged Double-Portrait (width = two portraits or one large framed block maintaining 2:3 or custom balance) + 1 Landscape */
-  /* If merged portrait acts as double width portrait or twin block, let's give it flex: 1.33 and landscape flex: 2 */
   .row-merged-p-l .portrait { flex: 1.25; }
   .row-merged-p-l .landscape { flex: 2.25; }
 
-  /* Side-by-side: 1 Landscape + 1 Portrait added to the right */
   .row-l-p-added .landscape { flex: 2.25; }
   .row-l-p-added .portrait { flex: 1; }
 
-  /* Three portraits side-by-side: equal width (flex: 1) */
   .row-p-p-p .portrait { flex: 1; }
-
-  /* Single centered landscape */
-  .row-single .landscape { width: 66%; flex: unset; }
 
   .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 
@@ -131,7 +121,7 @@
     .menu-toggle { display: flex; }
     .gallery-container { padding: 7rem 1.25rem 2rem; }
     .gallery-row { flex-direction: column; gap: 1.5rem; }
-    .grid-item.landscape, .grid-item.portrait, .row-single .landscape { flex: unset !important; width: 100% !important; }
+    .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
     #contact { padding: 4rem 1.25rem; }
     .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .form-row { grid-template-columns: 1fr; }
@@ -166,17 +156,17 @@
   </ul>
 </div>
 
-<!-- Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions (20 Photos total) -->
+<!-- Orderly Gallery Layout with Specific Filenames for GitHub -->
 <main class="gallery-container" id="work">
 
   <!-- Line 1: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
     <div class="grid-item landscape">
-      <img src="venue-cover.jpg" alt="Portfolio Image 1">
+      <img src="harry-pockett-london-venue.jpg" alt="London Venue">
       <span class="img-label">London, England</span>
     </div>
     <div class="grid-item portrait">
-      <img src="India-1.jpg" alt="Portfolio Image 2">
+      <img src="harry-pockett-varanasi-morning.jpg" alt="Varanasi Morning">
       <span class="img-label">Varanasi, India</span>
     </div>
   </div>
@@ -184,11 +174,11 @@
   <!-- Line 2: Landscape - Landscape -->
   <div class="gallery-row row-l-l">
     <div class="grid-item landscape">
-      <img src="cafe-cover.jpg" alt="Portfolio Image 3">
+      <img src="harry-pockett-london-cafe.jpg" alt="London Cafe">
       <span class="img-label">London, England</span>
     </div>
     <div class="grid-item landscape">
-      <img src="farm-cover.jpg" alt="Portfolio Image 4">
+      <img src="harry-pockett-southeast-london.jpg" alt="South East London">
       <span class="img-label">South East London</span>
     </div>
   </div>
@@ -196,35 +186,35 @@
   <!-- Line 3: Portrait - Landscape -->
   <div class="gallery-row row-p-l">
     <div class="grid-item portrait">
-      <img src="India-2.jpg" alt="Portfolio Image 5">
+      <img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats">
       <span class="img-label">Varanasi, India</span>
     </div>
     <div class="grid-item landscape">
-      <img src="wedding-promo-cover.jpg" alt="Portfolio Image 6">
+      <img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate">
       <span class="img-label">Oxfordshire, UK</span>
     </div>
   </div>
 
-  <!-- Line 4 (Modified): Merged double portrait block paired with a landscape -->
+  <!-- Line 4: Merged Portrait - Landscape -->
   <div class="gallery-row row-merged-p-l">
     <div class="grid-item portrait">
-      <img src="Wedding-1.jpg" alt="Portfolio Image 7">
+      <img src="harry-pockett-margaret-river-portrait.jpg" alt="Margaret River Portrait">
       <span class="img-label">Margaret River, Australia</span>
     </div>
     <div class="grid-item landscape">
-      <img src="Wedding-3.jpg" alt="Portfolio Image 8">
+      <img src="harry-pockett-danang-coast.jpg" alt="Da Nang Coast">
       <span class="img-label">Da Nang, Vietnam</span>
     </div>
   </div>
 
-  <!-- Line 5 (Modified): Landscape paired with a newly added portrait on the right -->
+  <!-- Line 5: Landscape - Portrait -->
   <div class="gallery-row row-l-p-added">
     <div class="grid-item landscape">
-      <img src="Wedding-5.jpg" alt="Portfolio Image 9">
+      <img src="harry-pockett-lake-district.jpg" alt="Lake District">
       <span class="img-label">The Lake District</span>
     </div>
     <div class="grid-item portrait">
-      <img src="Wedding-2.jpg" alt="Portfolio Image 10">
+      <img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard">
       <span class="img-label">Margaret River, Australia</span>
     </div>
   </div>
@@ -232,11 +222,11 @@
   <!-- Line 6: Landscape - Portrait -->
   <div class="gallery-row row-l-p">
     <div class="grid-item landscape">
-      <img src="personal-portrait-6.jpg" alt="Portfolio Image 11">
+      <img src="harry-pockett-urban-street.jpg" alt="Urban Street">
       <span class="img-label">London, England</span>
     </div>
     <div class="grid-item portrait">
-      <img src="London-1.jpg" alt="Portfolio Image 12">
+      <img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait">
       <span class="img-label">Soho, London</span>
     </div>
   </div>
@@ -244,15 +234,15 @@
   <!-- Line 7: Three Portraits -->
   <div class="gallery-row row-p-p-p">
     <div class="grid-item portrait">
-      <img src="personal-portrait-5.jpg" alt="Portfolio Image 13">
+      <img src="harry-pockett-bangkok-market.jpg" alt="Bangkok Market">
       <span class="img-label">Bangkok, Thailand</span>
     </div>
     <div class="grid-item portrait">
-      <img src="cafe-cover.jpg" alt="Portfolio Image 14">
+      <img src="harry-pockett-london-interior.jpg" alt="London Interior">
       <span class="img-label">London, England</span>
     </div>
     <div class="grid-item portrait">
-      <img src="farm-cover.jpg" alt="Portfolio Image 15">
+      <img src="harry-pockett-gallery-portrait.jpg" alt="Gallery Portrait">
       <span class="img-label">South East London</span>
     </div>
   </div>
@@ -260,11 +250,11 @@
   <!-- Line 8: Landscape - Landscape -->
   <div class="gallery-row row-l-l">
     <div class="grid-item landscape">
-      <img src="India-1.jpg" alt="Portfolio Image 16">
+      <img src="harry-pockett-india-river.jpg" alt="India River">
       <span class="img-label">Varanasi, India</span>
     </div>
     <div class="grid-item landscape">
-      <img src="India-2.jpg" alt="Portfolio Image 17">
+      <img src="harry-pockett-india-temple.jpg" alt="India Temple">
       <span class="img-label">Varanasi, India</span>
     </div>
   </div>
@@ -272,19 +262,23 @@
   <!-- Line 9: Portrait - Landscape -->
   <div class="gallery-row row-p-l">
     <div class="grid-item portrait">
-      <img src="Wedding-1.jpg" alt="Portfolio Image 18">
+      <img src="harry-pockett-australia-bush.jpg" alt="Australia Bush">
       <span class="img-label">Australia</span>
     </div>
     <div class="grid-item landscape">
-      <img src="venue-cover.jpg" alt="Portfolio Image 19">
+      <img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds">
       <span class="img-label">Mapledurham, UK</span>
     </div>
   </div>
 
-  <!-- Line 10: Single Landscape -->
-  <div class="gallery-row row-single">
+  <!-- Line 10: Landscape - Portrait (Bottom Row) -->
+  <div class="gallery-row row-l-p">
     <div class="grid-item landscape">
-      <img src="London-1.jpg" alt="Portfolio Image 20">
+      <img src="harry-pockett-thames-riverbank.jpg" alt="Thames Riverbank">
+      <span class="img-label">London, England</span>
+    </div>
+    <div class="grid-item portrait">
+      <img src="harry-pockett-final-portrait.jpg" alt="Final Portrait">
       <span class="img-label">London, England</span>
     </div>
   </div>
