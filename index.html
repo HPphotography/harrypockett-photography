@@ -24,7 +24,7 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
-  /* Centralized Adam Lynk Style Navigation (Increased Gap between Title and Subtitle) */
+  /* Centralized Adam Lynk Style Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
@@ -48,7 +48,7 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions */
+  /* Gallery Layout */
   .gallery-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
   .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
@@ -60,7 +60,7 @@
   .grid-item.landscape { aspect-ratio: 3 / 2; }
   .grid-item.portrait { aspect-ratio: 2 / 3; }
 
-  /* Row specific flex distributions */
+  /* Flex distributions */
   .row-l-p .landscape { flex: 2.25; }
   .row-l-p .portrait { flex: 1; }
   .row-l-l .landscape { flex: 1; }
@@ -160,7 +160,7 @@
   </ul>
 </div>
 
-<!-- Home Gallery Grid (20 Photos) -->
+<!-- Home Gallery Grid -->
 <main class="gallery-container">
   <!-- Row 1 -->
   <div class="gallery-row row-l-p">
@@ -169,13 +169,13 @@
   </div>
   <!-- Row 2 -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">Slowly, in India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">Deep breaths in India</span></div>
     <div class="grid-item landscape"><img src="harry-pockett-london-cafe.jpg" alt="London Cafe"><span class="img-label">Going West</span></div>
   </div>
   <!-- Row 3 -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Slowly, in India</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"></div>
+    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Deep breaths in India</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
   <!-- Row 4 -->
   <div class="gallery-row row-merged-p-l">
@@ -184,7 +184,7 @@
   </div>
   <!-- Row 5 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"></div>
     <div class="grid-item landscape"><img src="harry-pockett-lake-district.jpg" alt="Lake District"><span class="img-label">On the road in Vietnam</span></div>
   </div>
   <!-- Row 6 -->
@@ -200,12 +200,12 @@
   </div>
   <!-- Row 8 -->
   <div class="gallery-row row-l-l">
+    <div class="grid-item landscape"><img src="harry-pockett-india-river.jpg" alt="India River"><span class="img-label">Deep breaths in India</span></div>
     <div class="grid-item landscape"><img src="harry-pockett-india-temple.jpg" alt="India Temple"><span class="img-label">Tipis at Mapledurham</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-india-river.jpg" alt="India River"><span class="img-label">Slowly, in London</span></div>
   </div>
   <!-- Row 9 -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item landscape"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds"><span class="img-label">Slowly, In India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds"><span class="img-label">Deep breaths in India</span></div>
     <div class="grid-item portrait"><img src="harry-pockett-australia-bush.jpg" alt="Australia Bush"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
   <!-- Row 10 (Bottom Row) -->
