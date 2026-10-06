@@ -112,14 +112,14 @@
   footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
   footer a:hover { color: var(--ink); }
 
-  /* Preserving desktop multi-column structure on mobile/iPad viewports */
   @media (max-width: 900px) {
     nav { padding: 1.8rem 1rem 1.5rem; }
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    .gallery-container { padding: 11.5rem 1rem 2rem; }
-    .gallery-row { gap: 0.75rem; margin-bottom: 0.75rem; }
+    .gallery-container { padding: 11.5rem 1.25rem 2rem; }
+    .gallery-row { flex-direction: column; gap: 1.5rem; }
+    .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
     .home-contact-section { padding: 2.5rem 1.25rem 3rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
@@ -164,54 +164,54 @@
 <main class="gallery-container">
   <!-- Row 1 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item portrait"><img src="img_01.jpg" alt="Portrait"><span class="img-label">Test shoot with Crumb Agency</span></div>
-    <div class="grid-item landscape"><img src="img_02.jpg" alt="Landscape"><span class="img-label">Sitopia Farm</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-morning.jpg" alt="Varanasi Morning"><span class="img-label">Test shoot with Crumb Agency</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-london-venue.jpg" alt="London Venue"><span class="img-label">Sitopia Farm</span></div>
   </div>
   <!-- Row 2 -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape"><img src="img_03.jpg" alt="Landscape"><span class="img-label">Deep breaths in India</span></div>
-    <div class="grid-item landscape"><img src="img_04.jpg" alt="Landscape"><span class="img-label">Going West</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">Deep breaths in India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-london-cafe.jpg" alt="London Cafe"><span class="img-label">Going West</span></div>
   </div>
-  <!-- Row 3 -->
+  <!-- Row 3 (Swapped composition & positions: Portrait left, Landscape right) -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item portrait"><img src="img_05.jpg" alt="Portrait"><span class="img-label">Tipis at Mapledurham</span></div>
-    <div class="grid-item landscape"><img src="img_06.jpg" alt="Landscape"><span class="img-label">Deep breaths in India</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"><span class="img-label">Deep breaths in India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
   <!-- Row 4 -->
   <div class="gallery-row row-merged-p-l">
-    <div class="grid-item landscape"><img src="img_07.jpg" alt="Landscape"><span class="img-label">On the road in Vietnam</span></div>
-    <div class="grid-item portrait"><img src="img_08.jpg" alt="Portrait"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-danang-coast.jpg" alt="Da Nang Coast"><span class="img-label">On the road in Vietnam</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-portrait.jpg" alt="Margaret River Portrait"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
   <!-- Row 5 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item portrait"><img src="img_09.jpg" alt="Portrait"><span class="img-label">Blåbär Nordic Living</span></div>
-    <div class="grid-item landscape"><img src="img_10.jpg" alt="Landscape"><span class="img-label">On the road in Vietnam</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Blåbar Nordic Living</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-lake-district.jpg" alt="Lake District"><span class="img-label">On the road in Vietnam</span></div>
   </div>
   <!-- Row 6 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item portrait"><img src="img_11.jpg" alt="Portrait"><span class="img-label">Life on the narrow</span></div>
-    <div class="grid-item landscape"><img src="img_12.jpg" alt="Landscape"><span class="img-label">Blåbär Nordic Living</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait"><span class="img-label">Life on the narrow</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-urban-street.jpg" alt="Urban Street"><span class="img-label">Blabår Cafe</span></div>
   </div>
   <!-- Row 7 -->
   <div class="gallery-row row-p-p-p">
-    <div class="grid-item portrait"><img src="img_13.jpg" alt="Portrait"><span class="img-label">Test shoot with LIOP</span></div>
-    <div class="grid-item portrait"><img src="img_14.jpg" alt="Portrait"><span class="img-label">Sitopia Farm</span></div>
-    <div class="grid-item portrait"><img src="img_15.jpg" alt="Portrait"><span class="img-label">James Hall in concert</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-gallery-portrait.jpg" alt="Gallery Portrait"><span class="img-label">Test shoot with LIOP</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-london-interior.jpg" alt="London Interior"><span class="img-label">Sitopia Farm</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-bangkok-market.jpg" alt="Bangkok Market"><span class="img-label">James Hall in concert</span></div>
   </div>
   <!-- Row 8 -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape"><img src="img_16.jpg" alt="Landscape"><span class="img-label">Tipis at Mapledurham</span></div>
-    <div class="grid-item landscape"><img src="img_17.jpg" alt="Landscape"><span class="img-label">Deep breaths in India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-india-river.jpg" alt="India River"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-india-temple.jpg" alt="India Temple"><span class="img-label">Deep breaths in India</span></div>
   </div>
   <!-- Row 9 -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item landscape"><img src="img_18.jpg" alt="Landscape"><span class="img-label">Deep breaths in India</span></div>
-    <div class="grid-item portrait"><img src="img_19.jpg" alt="Portrait"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds"><span class="img-label">Deep breaths in India</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-australia-bush.jpg" alt="Australia Bush"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
   <!-- Row 10 (Bottom Row) -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item portrait"><img src="img_20.jpg" alt="Portrait"><span class="img-label">Life on the narrow</span></div>
-    <div class="grid-item landscape"><img src="img_21.jpg" alt="Landscape"><span class="img-label">Sitopia Farm</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-final-portrait.jpg" alt="Final Portrait"><span class="img-label">Life on the narrow</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-thames-riverbank.jpg" alt="Thames Riverbank"><span class="img-label">Sitopia Farm</span></div>
   </div>
 </main>
 
