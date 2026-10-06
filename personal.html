@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Personal Projects — Harry Pockett Photography.">
-<title>Personal Projects — Harry Pockett</title>
+<meta name="description" content="Personal Photography Projects by Harry Pockett — Documentary and travel photography series.">
+<title>Personal Projects — Harry Pockett Photography</title>
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 fill=%22%231a1a18%22 rx=%22100%22/><text x=%2250%25%22 y=%2262%25%22 font-family=%22'Cormorant Garamond', serif%22 font-size=%22280%22 font-weight=%22300%22 fill=%22%23d1b46a%22 letter-spacing=%22-0.03em%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>HP</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
@@ -20,16 +22,18 @@
     --sans: 'Archivo', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
+  /* Centralized Flat Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
+  
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
   
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
-  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); line-height: 1.1; }
-  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; line-height: 1; margin-top: 10px; }
+  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); transition: color 0.3s; line-height: 1.1; }
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 10px; }
   
   .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; position: absolute; right: 2rem; top: 2.5rem; }
   .menu-toggle span { width: 100%; height: 1.5px; background-color: var(--ink); transition: all 0.3s ease; }
@@ -44,9 +48,36 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
 
-  main { flex: 1; padding: 16rem 2rem 6rem; max-width: 900px; margin: 0 auto; width: 100%; text-align: center; }
-  h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-  p { color: var(--muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+  /* 2-Column Landscape Grid Layout */
+  .grid-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
+  .grid-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; }
+  
+  .grid-card { position: relative; flex: 1; overflow: hidden; background: #e8e4dc; border-radius: 2px; text-decoration: none; aspect-ratio: 3 / 2; display: block; }
+  .grid-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
+  .grid-card:hover img { transform: scale(1.02); filter: brightness(1); }
+
+  /* Card Title Overlay */
+  .card-title {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: rgba(247,245,240,0.95);
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    padding: 0.4rem 0.8rem;
+    border-radius: 2px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .grid-card:hover .card-title {
+    opacity: 1;
+  }
 
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
   footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -57,61 +88,101 @@
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    main { padding: 13rem 1.5rem 4rem; }
+    .grid-container { padding: 11.5rem 1rem 2rem; }
+    .grid-row { flex-direction: column; gap: 0.75rem; margin-bottom: 0.75rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html" class="active">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="index.html" class="nav-logo-group">
-    <span class="logo-main">Harry Pockett</span>
-    <span class="logo-sub">Photography</span>
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <!-- Top Navigation -->
+  <nav id="nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html" class="active">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-<div class="mobile-overlay" id="mobileOverlay">
-  <ul class="mobile-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
+    <a href="index.html" class="nav-logo-group">
+      <span class="logo-main">Harry Pockett</span>
+      <span class="logo-sub">Photography</span>
+    </a>
 
-<main>
-  <h1>Personal Projects</h1>
-  <p>Content coming soon.</p>
-</main>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<footer>
-  <span>© 2026 Harry Pockett Photography</span>
-  <span>London &amp; Worldwide</span>
-</footer>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-  function toggleMenu() {
-    menuToggle.classList.toggle('open');
-    mobileOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
-  }
-  menuToggle.addEventListener('click', toggleMenu);
-</script>
+  <!-- Personal Projects Grid Layout -->
+  <main class="grid-container">
+    
+    <!-- Row 1 -->
+    <div class="grid-row">
+      <a href="vietnam.html" class="grid-card">
+        <img src="harry-pockett-danang-coast.jpg" alt="On the road in Vietnam">
+        <span class="card-title">On the road in Vietnam</span>
+      </a>
+      <a href="india.html" class="grid-card">
+        <img src="harry-pockett-varanasi-morning.jpg" alt="Deep breaths in India">
+        <span class="card-title">Deep breaths in India</span>
+      </a>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="grid-row">
+      <a href="narrowboat.html" class="grid-card">
+        <img src="harry-pockett-southeast-london.jpg" alt="Life on the narrow">
+        <span class="card-title">Life on the narrow</span>
+      </a>
+      <a href="going-west.html" class="grid-card">
+        <img src="harry-pockett-lake-district.jpg" alt="Going West">
+        <span class="card-title">Going West</span>
+      </a>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="grid-row">
+      <a href="test-shoots.html" class="grid-card">
+        <img src="harry-pockett-gallery-portrait.jpg" alt="Test shoots">
+        <span class="card-title">Test shoots</span>
+      </a>
+      <!-- Empty spacer card to keep 2-column alignment balanced -->
+      <div style="flex: 1; visibility: hidden; pointer-events: none;"></div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Harry Pockett Photography</span>
+    <span>London &amp; Worldwide</span>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+  </script>
 </body>
 </html>
