@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Commercial Photography — Harry Pockett based in London.">
-<title>Commercial — Harry Pockett</title>
+<meta name="description" content="Commercial Photography by Harry Pockett — Brand, venue, and product shoots in London and worldwide.">
+<title>Commercial — Harry Pockett Photography</title>
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 fill=%22%231a1a18%22 rx=%22100%22/><text x=%2250%25%22 y=%2262%25%22 font-family=%22'Cormorant Garamond', serif%22 font-size=%22280%22 font-weight=%22300%22 fill=%22%23d1b46a%22 letter-spacing=%22-0.03em%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>HP</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
@@ -20,12 +22,22 @@
     --sans: 'Archivo', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
+  /* Centralized Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
+  
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+  /* Dropdown Styles */
+  .nav-links li { position: relative; }
+  .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--paper); border: 0.5px solid rgba(26,26,24,0.15); list-style: none; padding: 0.8rem 0; min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 120; text-align: left; }
+  .nav-links li:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dropdown-menu li { width: 100%; }
+  .dropdown-menu a { display: block; padding: 0.5rem 1.2rem; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; transition: color 0.2s, background 0.2s; }
+  .dropdown-menu a:hover { color: var(--ink); background: rgba(26,26,24,0.03); }
   
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
   .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); line-height: 1.1; }
@@ -36,17 +48,46 @@
   
   .mobile-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--paper); z-index: 105; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
   .mobile-overlay.active { right: 0; }
-  .mobile-links { display: flex; flex-direction: column; gap: 2rem; list-style: none; text-align: center; }
-  .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
+  .mobile-links { display: flex; flex-direction: column; gap: 1.5rem; list-style: none; text-align: center; }
+  .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--ink); transition: color 0.2s; }
   .mobile-links a:hover { color: var(--accent); }
 
   .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--ink) !important; }
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
 
-  main { flex: 1; padding: 16rem 2rem 6rem; max-width: 900px; margin: 0 auto; width: 100%; text-align: center; }
-  h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-  p { color: var(--muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+  /* Page Header Title */
+  .page-header { text-align: center; padding: 15rem 2rem 3rem; }
+  .page-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; letter-spacing: 0.04em; color: var(--ink); }
+
+  /* 2-Column Landscape Grid Layout */
+  .grid-container { padding: 0 3rem 5rem; max-width: 1400px; margin: 0 auto; }
+  .grid-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; }
+  
+  .grid-card { position: relative; flex: 1; overflow: hidden; background: #e8e4dc; border-radius: 2px; text-decoration: none; aspect-ratio: 3 / 2; display: block; }
+  .grid-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
+  .grid-card:hover img { transform: scale(1.02); filter: brightness(1); }
+
+  /* Always-visible or Hover Title Overlay inside card */
+  .card-title {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(247,245,240,0.95);
+    background: rgba(0,0,0,0.45);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    transition: background 0.3s ease;
+  }
+  .grid-card:hover .card-title {
+    background: rgba(0,0,0,0.65);
+  }
 
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
   footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -57,61 +98,124 @@
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    main { padding: 13rem 1.5rem 4rem; }
+    .page-header { padding: 12rem 1rem 2rem; }
+    .grid-container { padding: 0 1rem 3rem; }
+    .grid-row { flex-direction: column; gap: 1rem; margin-bottom: 1rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html" class="active">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="index.html" class="nav-logo-group">
-    <span class="logo-main">Harry Pockett</span>
-    <span class="logo-sub">Photography</span>
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <!-- Top Navigation -->
+  <nav id="nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li>
+        <a href="commercial.html" class="active">Commercial</a>
+        <ul class="dropdown-menu">
+          <li><a href="tipis-mapledurham.html">Tipis at Mapledurham</a></li>
+          <li><a href="sitopia.html">Sitopia</a></li>
+          <li><a href="blabar-living.html">Blåbär Nordic Living</a></li>
+          <li><a href="blabar-product.html">Blåbär Product Shoot</a></li>
+          <li><a href="james-hall.html">James Hall</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="personal.html">Personal Projects</a>
+        <ul class="dropdown-menu">
+          <li><a href="vietnam.html">On the road in Vietnam</a></li>
+          <li><a href="india.html">Deep breaths in India</a></li>
+          <li><a href="narrowboat.html">Life on the narrow</a></li>
+          <li><a href="going-west.html">Going West</a></li>
+          <li><a href="test-shoots.html">Test shoots</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-<div class="mobile-overlay" id="mobileOverlay">
-  <ul class="mobile-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
+    <a href="index.html" class="nav-logo-group">
+      <span class="logo-main">Harry Pockett</span>
+      <span class="logo-sub">Photography</span>
+    </a>
 
-<main>
-  <h1>Commercial</h1>
-  <p>Content coming soon.</p>
-</main>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<footer>
-  <span>© 2026 Harry Pockett Photography</span>
-  <span>London &amp; Worldwide</span>
-</footer>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-  function toggleMenu() {
-    menuToggle.classList.toggle('open');
-    mobileOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
-  }
-  menuToggle.addEventListener('click', toggleMenu);
-</script>
+  <header class="page-header">
+    <h1 class="page-title">Commercial</h1>
+  </header>
+
+  <!-- Commercial Grid Layout (2-by-a-row landscape cards) -->
+  <main class="grid-container">
+    
+    <!-- Row 1 -->
+    <div class="grid-row">
+      <a href="tipis-mapledurham.html" class="grid-card">
+        <img src="harry-pockett-oxfordshire-estate.jpg" alt="Tipis at Mapledurham">
+        <span class="card-title">Tipis at Mapledurham</span>
+      </a>
+      <a href="sitopia.html" class="grid-card">
+        <img src="harry-pockett-london-venue.jpg" alt="Sitopia">
+        <span class="card-title">Sitopia</span>
+      </a>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="grid-row">
+      <a href="blabar-living.html" class="grid-card">
+        <img src="harry-pockett-urban-street.jpg" alt="Blåbär Nordic Living">
+        <span class="card-title">Blåbär Nordic Living</span>
+      </a>
+      <a href="blabar-product.html" class="grid-card">
+        <img src="harry-pockett-london-interior.jpg" alt="Blåbär Nordic Living product shoot">
+        <span class="card-title">Blåbär Nordic Living product shoot</span>
+      </a>
+    </div>
+
+    <!-- Row 3 (Single item or can be paired if you add another) -->
+    <div class="grid-row">
+      <a href="james-hall.html" class="grid-card">
+        <img src="harry-pockett-bangkok-market.jpg" alt="James Hall">
+        <span class="card-title">James Hall</span>
+      </a>
+      <!-- Empty spacer card to keep 2-column alignment balanced -->
+      <div style="flex: 1; visibility: hidden; pointer-events: none;"></div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Harry Pockett Photography</span>
+    <span>London &amp; Worldwide</span>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMenu() {
+      menuToggle.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+  </script>
 </body>
 </html>
