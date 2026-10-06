@@ -30,6 +30,46 @@
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+  /* Dropdown Menu Styles */
+  .nav-links li { position: relative; }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--paper);
+    border: 0.5px solid rgba(26,26,24,0.15);
+    list-style: none;
+    padding: 0.8rem 0;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    z-index: 120;
+    text-align: left;
+  }
+  .nav-links li:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-menu li { width: 100%; }
+  .dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s, background 0.2s;
+  }
+  .dropdown-menu a:hover {
+    color: var(--ink);
+    background: rgba(26,26,24,0.03);
+  }
   
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
   .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); transition: color 0.3s; line-height: 1.1; }
@@ -131,8 +171,31 @@
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
+    
+    <!-- Commercial Dropdown -->
+    <li>
+      <a href="commercial.html">Commercial</a>
+      <ul class="dropdown-menu">
+        <li><a href="tipis-mapledurham.html">Tipis at Mapledurham</a></li>
+        <li><a href="sitopia.html">Sitopia</a></li>
+        <li><a href="blabar-living.html">Blåbär Nordic Living</a></li>
+        <li><a href="blabar-product.html">Blåbär Product Shoot</a></li>
+        <li><a href="james-hall.html">James Hall</a></li>
+      </ul>
+    </li>
+
+    <!-- Personal Projects Dropdown -->
+    <li>
+      <a href="personal.html">Personal Projects</a>
+      <ul class="dropdown-menu">
+        <li><a href="vietnam.html">On the road in Vietnam</a></li>
+        <li><a href="india.html">Deep breaths in India</a></li>
+        <li><a href="narrowboat.html">Life on the narrow</a></li>
+        <li><a href="going-west.html">Going West</a></li>
+        <li><a href="test-shoots.html">Test shoots</a></li>
+      </ul>
+    </li>
+
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
