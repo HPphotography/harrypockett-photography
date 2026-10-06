@@ -112,14 +112,14 @@
   footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
   footer a:hover { color: var(--ink); }
 
+  /* Preserving desktop multi-column structure on mobile/iPad viewports */
   @media (max-width: 900px) {
     nav { padding: 1.8rem 1rem 1.5rem; }
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    .gallery-container { padding: 11.5rem 1.25rem 2rem; }
-    .gallery-row { flex-direction: column; gap: 1.5rem; }
-    .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
+    .gallery-container { padding: 11.5rem 1rem 2rem; }
+    .gallery-row { gap: 0.75rem; margin-bottom: 0.75rem; }
     .home-contact-section { padding: 2.5rem 1.25rem 3rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
@@ -172,10 +172,10 @@
     <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">Deep breaths in India</span></div>
     <div class="grid-item landscape"><img src="harry-pockett-london-cafe.jpg" alt="London Cafe"><span class="img-label">Going West</span></div>
   </div>
-  <!-- Row 3 (Swapped composition & positions: Portrait left, Landscape right) -->
+  <!-- Row 3 -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"><span class="img-label">Deep breaths in India</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Deep breaths in India</span></div>
   </div>
   <!-- Row 4 -->
   <div class="gallery-row row-merged-p-l">
@@ -184,13 +184,13 @@
   </div>
   <!-- Row 5 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Blåbar Nordic Living</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Blåbär Nordic Living</span></div>
     <div class="grid-item landscape"><img src="harry-pockett-lake-district.jpg" alt="Lake District"><span class="img-label">On the road in Vietnam</span></div>
   </div>
   <!-- Row 6 -->
   <div class="gallery-row row-l-p">
     <div class="grid-item portrait"><img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait"><span class="img-label">Life on the narrow</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-urban-street.jpg" alt="Urban Street"><span class="img-label">Blabår Cafe</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-urban-street.jpg" alt="Urban Street"><span class="img-label">Blåbär Nordic Living</span></div>
   </div>
   <!-- Row 7 -->
   <div class="gallery-row row-p-p-p">
