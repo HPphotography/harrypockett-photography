@@ -24,9 +24,7 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
-  /* Centralized Flat Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
-  
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
@@ -48,35 +46,33 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
 
-  /* 2-Column Landscape Grid Layout */
+  /* Grid Layout with Centered Overlay Titles */
   .grid-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   .grid-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; }
   
-  .grid-card { position: relative; flex: 1; overflow: hidden; background: #e8e4dc; border-radius: 2px; text-decoration: none; aspect-ratio: 3 / 2; display: block; }
-  .grid-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
-  .grid-card:hover img { transform: scale(1.02); filter: brightness(1); }
+  .grid-card { position: relative; flex: 1; overflow: hidden; background: #1a1a18; border-radius: 2px; text-decoration: none; aspect-ratio: 3 / 2; display: block; }
+  .grid-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.7); display: block; }
+  .grid-card:hover img { transform: scale(1.02); filter: brightness(0.85); }
 
-  /* Card Title Overlay */
+  /* Centered Permanent Title Overlay */
   .card-title {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: var(--serif);
-    font-style: italic;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    color: rgba(247,245,240,0.95);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: #f7f5f0;
+    text-align: center;
     z-index: 2;
-    background: rgba(0,0,0,0.5);
-    padding: 0.4rem 0.8rem;
-    border-radius: 2px;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    padding: 0.5rem 1.5rem;
+    width: 90%;
+    transition: letter-spacing 0.3s ease;
   }
   .grid-card:hover .card-title {
-    opacity: 1;
+    letter-spacing: 0.12em;
   }
 
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
@@ -96,7 +92,6 @@
 </head>
 <body>
 
-  <!-- Top Navigation -->
   <nav id="nav">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -128,10 +123,7 @@
     </ul>
   </div>
 
-  <!-- Personal Projects Grid Layout -->
   <main class="grid-container">
-    
-    <!-- Row 1 -->
     <div class="grid-row">
       <a href="vietnam.html" class="grid-card">
         <img src="harry-pockett-danang-coast.jpg" alt="On the road in Vietnam">
@@ -143,7 +135,6 @@
       </a>
     </div>
 
-    <!-- Row 2 -->
     <div class="grid-row">
       <a href="narrowboat.html" class="grid-card">
         <img src="harry-pockett-southeast-london.jpg" alt="Life on the narrow">
@@ -155,16 +146,13 @@
       </a>
     </div>
 
-    <!-- Row 3 -->
     <div class="grid-row">
       <a href="test-shoots.html" class="grid-card">
         <img src="harry-pockett-gallery-portrait.jpg" alt="Test shoots">
         <span class="card-title">Test shoots</span>
       </a>
-      <!-- Empty spacer card to keep 2-column alignment balanced -->
       <div style="flex: 1; visibility: hidden; pointer-events: none;"></div>
     </div>
-
   </main>
 
   <footer>
@@ -175,13 +163,11 @@
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const mobileOverlay = document.getElementById('mobileOverlay');
-
     function toggleMenu() {
       menuToggle.classList.toggle('open');
       mobileOverlay.classList.toggle('active');
       document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
     }
-
     menuToggle.addEventListener('click', toggleMenu);
   </script>
 </body>
