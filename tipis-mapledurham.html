@@ -1,115 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tipis at Mapledurham — Harry Pockett</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { 
-      --ink: #1a1a18; 
-      --paper: #f7f5f0; 
-      --muted: #888880; 
-      --accent: #c8b89a; 
-      --serif: 'Cormorant Garamond', Georgia, serif; 
-      --sans: 'Archivo', sans-serif; 
-    }
-    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; }
-    
-    nav { 
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; 
-      display: flex; justify-content: space-between; align-items: center; 
-      padding: 1.5rem 3rem; background: rgba(247, 245, 240, 0.85); 
-      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); 
-      border-bottom: 0.5px solid rgba(26, 26, 24, 0.08); 
-    }
-    .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
-    .logo-main { font-family: var(--serif); font-weight: 300; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; }
-    .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d1b46a; line-height: 1; margin-top: 4px; }
-    
-    .back-link { text-decoration: none; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
-    .back-link:hover { color: var(--ink); }
-
-    header { padding: 10rem 3rem 4rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: end; }
-    .project-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; }
-    .project-title em { font-style: italic; color: var(--muted); font-family: var(--serif); }
-    .project-description { color: #4a4a46; font-size: 1.05rem; line-height: 1.8; }
-    
-    .media-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem 4rem; display: flex; flex-direction: column; gap: 4rem; }
-    .landscape-frame { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
-    .landscape-frame img, .split-grid img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; }
-    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .split-portrait { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
-
-    .project-pagination { max-width: 1200px; margin: 0 auto; padding: 4rem 3rem 8rem; border-top: 0.5px solid rgba(26,26,24,0.1); display: flex; justify-content: space-between; align-items: center; }
-    .pag-btn { text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 4px; }
-    .pag-btn.prev { align-items: flex-start; text-align: left; }
-    .pag-btn.next { align-items: flex-end; text-align: right; }
-    .pag-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .pag-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; transition: color 0.2s; }
-    .pag-btn:hover .pag-title { color: var(--accent); }
-
-    footer { background: var(--ink); color: rgba(247,245,240,0.3); padding: 4rem 3rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.05em; display: flex; justify-content: space-between; align-items: center; }
-    footer a { color: rgba(247,245,240,0.5); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: var(--accent); }
-
-    @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; flex-direction: row; gap: 0; position: fixed; }
-      header { grid-template-columns: 1fr; gap: 2rem; padding: 8rem 1.5rem 3rem; }
-      .media-container { padding: 0 1.5rem 2rem; gap: 2rem; }
-      .split-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .project-pagination { flex-direction: column; gap: 2rem; align-items: stretch; text-align: center; }
-      .pag-btn.prev, .pag-btn.next { align-items: center; text-align: center; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipis at Mapledurham — Harry Pockett Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --ink: #1a1a18; --paper: #f7f5f0; --muted: #888880; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Archivo', sans-serif; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
+  .logo-main { font-family: var(--serif); font-size: 2.9rem; font-weight: 300; letter-spacing: 0.08em; color: var(--ink); line-height: 1.1; }
+  .logo-sub { font-family: var(--serif); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; margin-top: 10px; }
+  .gallery-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+  .gallery-item { width: 100%; background: #e8e4dc; border-radius: 2px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: auto; display: block; }
+  footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
+  footer a { color: var(--muted); text-decoration: none; }
+  @media(max-width: 900px) { nav { padding: 1.8rem 1rem 1.5rem; } .nav-links { display: none; } .gallery-container { padding: 11.5rem 1rem 2rem; } }
+</style>
 </head>
 <body>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html" class="active">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="index.html" class="nav-logo-group">
+      <span class="logo-main">Harry Pockett</span>
+      <span class="logo-sub">Photography</span>
+    </a>
+  </nav>
 
-<nav>
-  <a href="index.html" class="nav-logo-group">
-    <span class="logo-main">Harry Pockett</span>
-    <span class="logo-sub">Photography</span>
-  </a>
-  <a href="index.html#commercial" class="back-link">← Overview</a>
-</nav>
+  <main class="gallery-container">
+    <div class="gallery-item"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Tipis at Mapledurham 1"></div>
+    <div class="gallery-item"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Tipis at Mapledurham 2"></div>
+  </main>
 
-<header>
-  <div>
-    <h1 class="project-title">Tipis<br><em>at Mapledurham.</em></h1>
-  </div>
-  <div>
-    <p class="project-description">A commercial architectural and experiential showcase of event structures situated within the historic Mapledurham estate. The imagery captures spatial scale, craftsmanship, and how architectural textiles respond to shifts in soft natural ambient lighting.</p>
-  </div>
-</header>
-
-<main class="media-container">
-  <div class="landscape-frame"><img src="venue-shot-1.jpg" alt="Interior ambience"></div>
-  <div class="split-grid">
-    <div class="split-portrait"><img src="venue-shot-2.jpg" alt="Detail frame" loading="lazy"></div>
-    <div class="split-portrait"><img src="venue-shot-3.jpg" alt="Hospitality capture" loading="lazy"></div>
-  </div>
-  <div class="landscape-frame"><img src="venue-shot-4.jpg" alt="Interior natural lighting perspective" loading="lazy"></div>
-</main>
-
-<div class="project-pagination">
-  <a href="sitopia-farm.html" class="pag-btn prev">
-    <span class="pag-label">← Previous Project</span>
-    <span class="pag-title">Sitopia Farm</span>
-  </a>
-  <a href="blabar.html" class="pag-btn next">
-    <span class="pag-label">Next Project →</span>
-    <span class="pag-title">BlåBär Nordic Living</span>
-  </a>
-</div>
-
-<footer>
-  <span>© 2026 Harry Pockett Photography</span>
-  <a href="mailto:photography@harrypockett.com">photography@harrypockett.com</a>
-</footer>
-
+  <footer>
+    <span>© 2026 Harry Pockett Photography</span>
+    <span>London &amp; Worldwide</span>
+  </footer>
 </body>
 </html>
