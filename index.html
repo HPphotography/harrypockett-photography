@@ -24,7 +24,7 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
-  /* Centralized Adam Lynk Style Navigation (Logo Doubled in Size) */
+  /* Centralized Adam Lynk Style Navigation (Increased Gap between Title and Subtitle) */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
@@ -33,7 +33,7 @@
   
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
   .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); transition: color 0.3s; line-height: 1.1; }
-  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 5px; }
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; transition: color 0.3s; line-height: 1; margin-top: 10px; }
   
   .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; position: absolute; right: 2rem; top: 2.5rem; }
   .menu-toggle span { width: 100%; height: 1.5px; background-color: var(--ink); transition: all 0.3s ease; }
@@ -48,8 +48,8 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions (Adjusted top padding for larger header) */
-  .gallery-container { padding: 13.5rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
+  /* Orderly Gallery Layout with Strict 2:3 & 3:2 Proportions */
+  .gallery-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
   .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
   
@@ -60,6 +60,7 @@
   .grid-item.landscape { aspect-ratio: 3 / 2; }
   .grid-item.portrait { aspect-ratio: 2 / 3; }
 
+  /* Row specific flex distributions */
   .row-l-p .landscape { flex: 2.25; }
   .row-l-p .portrait { flex: 1; }
   .row-l-l .landscape { flex: 1; }
@@ -67,11 +68,31 @@
   .row-p-l .landscape { flex: 2.25; }
   .row-merged-p-l .portrait { flex: 1.25; }
   .row-merged-p-l .landscape { flex: 2.25; }
-  .row-l-p-added .landscape { flex: 2.25; }
-  .row-l-p-added .portrait { flex: 1; }
   .row-p-p-p .portrait { flex: 1; }
 
-  .img-label { position: absolute; bottom: 1rem; left: 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,245,240,0.8); z-index: 2; background: rgba(0,0,0,0.4); padding: 0.3rem 0.6rem; border-radius: 2px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  /* Hover-Only Italicized Image Labels */
+  .img-label {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: rgba(247,245,240,0.95);
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    padding: 0.4rem 0.8rem;
+    border-radius: 2px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item:hover .img-label {
+    opacity: 1;
+  }
 
   /* Compact Contact Section */
   .home-contact-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem 4rem; max-width: 800px; margin: 0 auto; border-top: 0.5px solid rgba(26,26,24,0.08); }
@@ -96,7 +117,7 @@
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    .gallery-container { padding: 11rem 1.25rem 2rem; }
+    .gallery-container { padding: 11.5rem 1.25rem 2rem; }
     .gallery-row { flex-direction: column; gap: 1.5rem; }
     .grid-item.landscape, .grid-item.portrait { flex: unset !important; width: 100% !important; }
     .home-contact-section { padding: 2.5rem 1.25rem 3rem; }
@@ -141,46 +162,56 @@
 
 <!-- Home Gallery Grid (20 Photos) -->
 <main class="gallery-container">
+  <!-- Row 1 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item landscape"><img src="harry-pockett-london-venue.jpg" alt="London Venue"><span class="img-label">London, England</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-varanasi-morning.jpg" alt="Varanasi Morning"><span class="img-label">Varanasi, India</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-morning.jpg" alt="Varanasi Morning"><span class="img-label">Test shoot with Crumb Agency</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-london-venue.jpg" alt="London Venue"><span class="img-label">Sitopia Farm</span></div>
   </div>
+  <!-- Row 2 -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape"><img src="harry-pockett-london-cafe.jpg" alt="London Cafe"><span class="img-label">London, England</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">South East London</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-southeast-london.jpg" alt="South East London"><span class="img-label">Slowly, in India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-london-cafe.jpg" alt="London Cafe"><span class="img-label">Going West</span></div>
   </div>
+  <!-- Row 3 -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"><span class="img-label">Varanasi, India</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Oxfordshire, UK</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-oxfordshire-estate.jpg" alt="Oxfordshire Estate"><span class="img-label">Slowly, in India</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-varanasi-ghats.jpg" alt="Varanasi Ghats"></div>
   </div>
+  <!-- Row 4 -->
   <div class="gallery-row row-merged-p-l">
-    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-portrait.jpg" alt="Margaret River Portrait"><span class="img-label">Margaret River, Australia</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-danang-coast.jpg" alt="Da Nang Coast"><span class="img-label">Da Nang, Vietnam</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-danang-coast.jpg" alt="Da Nang Coast"><span class="img-label">On the road in Vietnam</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-portrait.jpg" alt="Margaret River Portrait"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
-  <div class="gallery-row row-l-p-added">
-    <div class="grid-item landscape"><img src="harry-pockett-lake-district.jpg" alt="Lake District"><span class="img-label">The Lake District</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Margaret River, Australia</span></div>
-  </div>
+  <!-- Row 5 -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item landscape"><img src="harry-pockett-urban-street.jpg" alt="Urban Street"><span class="img-label">London, England</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait"><span class="img-label">Soho, London</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-margaret-river-vineyard.jpg" alt="Margaret River Vineyard"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-lake-district.jpg" alt="Lake District"><span class="img-label">On the road in Vietnam</span></div>
   </div>
+  <!-- Row 6 -->
+  <div class="gallery-row row-l-p">
+    <div class="grid-item portrait"><img src="harry-pockett-soho-portrait.jpg" alt="Soho Portrait"><span class="img-label">Life on the narrow</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-urban-street.jpg" alt="Urban Street"><span class="img-label">Blabår Cafe</span></div>
+  </div>
+  <!-- Row 7 -->
   <div class="gallery-row row-p-p-p">
-    <div class="grid-item portrait"><img src="harry-pockett-bangkok-market.jpg" alt="Bangkok Market"><span class="img-label">Bangkok, Thailand</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-london-interior.jpg" alt="London Interior"><span class="img-label">London, England</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-gallery-portrait.jpg" alt="Gallery Portrait"><span class="img-label">South East London</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-gallery-portrait.jpg" alt="Gallery Portrait"><span class="img-label">Test shoot with LIOP</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-london-interior.jpg" alt="London Interior"><span class="img-label">Sitopia Farm</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-bangkok-market.jpg" alt="Bangkok Market"><span class="img-label">James Hall in concert</span></div>
   </div>
+  <!-- Row 8 -->
   <div class="gallery-row row-l-l">
-    <div class="grid-item landscape"><img src="harry-pockett-india-river.jpg" alt="India River"><span class="img-label">Varanasi, India</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-india-temple.jpg" alt="India Temple"><span class="img-label">Varanasi, India</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-india-temple.jpg" alt="India Temple"><span class="img-label">Tipis at Mapledurham</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-india-river.jpg" alt="India River"><span class="img-label">Slowly, in London</span></div>
   </div>
+  <!-- Row 9 -->
   <div class="gallery-row row-p-l">
-    <div class="grid-item portrait"><img src="harry-pockett-australia-bush.jpg" alt="Australia Bush"><span class="img-label">Australia</span></div>
-    <div class="grid-item landscape"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds"><span class="img-label">Mapledurham, UK</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-mapledurham-grounds.jpg" alt="Mapledurham Grounds"><span class="img-label">Slowly, In India</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-australia-bush.jpg" alt="Australia Bush"><span class="img-label">Tipis at Mapledurham</span></div>
   </div>
+  <!-- Row 10 (Bottom Row) -->
   <div class="gallery-row row-l-p">
-    <div class="grid-item landscape"><img src="harry-pockett-thames-riverbank.jpg" alt="Thames Riverbank"><span class="img-label">London, England</span></div>
-    <div class="grid-item portrait"><img src="harry-pockett-final-portrait.jpg" alt="Final Portrait"><span class="img-label">London, England</span></div>
+    <div class="grid-item portrait"><img src="harry-pockett-final-portrait.jpg" alt="Final Portrait"><span class="img-label">Life on the narrow</span></div>
+    <div class="grid-item landscape"><img src="harry-pockett-thames-riverbank.jpg" alt="Thames Riverbank"><span class="img-label">Sitopia Farm</span></div>
   </div>
 </main>
 
