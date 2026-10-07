@@ -44,7 +44,7 @@
   .prev-btn { left: 1rem; }
   .next-btn { right: 1rem; }
 
-  /* Counter & Caption Area */
+  /* Counter & Fixed Caption Area */
   .slide-info-bar { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 1.2rem; padding: 0 0.5rem; }
   .slide-caption { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); max-width: 80%; line-height: 1.4; }
   .slide-counter { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; }
@@ -111,9 +111,10 @@
       <button class="slide-btn next-btn" onclick="changeSlide(1)" aria-label="Next image">&#10095;</button>
     </div>
 
-    <!-- Info Bar: Caption + Counter -->
+    <!-- Info Bar: Fixed Caption + Counter -->
     <div class="slide-info-bar">
-      <div class="slide-caption" id="slideCaption">Main structural setup overlooking the Oxfordshire estate lawns.</div>
+      <!-- Edit this text to whatever you want to appear permanently underneath all photos -->
+      <div class="slide-caption">Tipis setup and event details at Mapledurham Estate.</div>
       <div class="slide-counter" id="slideCounter">1 / 7</div>
     </div>
   </main>
@@ -126,19 +127,7 @@
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    const captionEl = document.getElementById('slideCaption');
     const counterEl = document.getElementById('slideCounter');
-
-    // Add your 1-2 line captions here matching each slide index (0 to 6)
-    const captions = [
-      "Main structural setup overlooking the Oxfordshire estate lawns.",
-      "Warm interior canvas atmosphere styled for evening celebrations.",
-      "Expansive estate grounds during golden hour light.",
-      "Handcrafted wooden tables and minimalist place settings.",
-      "Ambient string lighting glowing against the canvas peaks.",
-      "Relaxed guest seating area nestled inside the main tipi.",
-      "Twilight overview capturing the complete estate setup."
-    ];
 
     function showSlide(index) {
       if (index >= slides.length) { currentSlide = 0; }
@@ -149,7 +138,6 @@
         slide.classList.toggle('active', i === currentSlide);
       });
 
-      captionEl.textContent = captions[currentSlide];
       counterEl.textContent = (currentSlide + 1) + ' / ' + slides.length;
     }
 
