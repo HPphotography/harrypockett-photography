@@ -3,14 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test shoots — Harry Pockett Photography</title>
+<title>Test Shoots — Harry Pockett Photography</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>HP</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --ink: #1a1a18; --paper: #f7f5f0; --muted: #888880; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Archivo', sans-serif; }
+  :root { 
+    --ink: #1a1a18; 
+    --paper: #f7f5f0; 
+    --muted: #888880; 
+    --serif: 'Cormorant Garamond', Georgia, serif; 
+    --sans: 'Archivo', sans-serif; 
+  }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; }
+  
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
@@ -18,12 +29,34 @@
   .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; }
   .logo-main { font-family: var(--serif); font-size: 2.9rem; font-weight: 300; letter-spacing: 0.08em; color: var(--ink); line-height: 1.1; }
   .logo-sub { font-family: var(--serif); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; margin-top: 10px; }
-  .gallery-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
-  .gallery-item { width: 100%; background: #e8e4dc; border-radius: 2px; overflow: hidden; }
-  .gallery-item img { width: 100%; height: auto; display: block; }
+
+  /* Slideshow Container Layout */
+  .slideshow-container { padding: 13rem 2rem 4rem; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  
+  .slide-wrapper { position: relative; width: 100%; aspect-ratio: 3 / 2; background: #e8e4dc; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+  .slide.active { display: flex; align-items: center; justify-content: center; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  
+  /* Click Navigation Controls */
+  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26, 26, 24, 0.4); color: #f7f5f0; border: none; padding: 1rem 1.2rem; cursor: pointer; z-index: 10; font-size: 1.2rem; transition: background 0.2s; border-radius: 2px; }
+  .slide-btn:hover { background: rgba(26, 26, 24, 0.75); }
+  .prev-btn { left: 1rem; }
+  .next-btn { right: 1rem; }
+
+  /* Counter & Fixed Caption Area */
+  .slide-info-bar { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 1.2rem; padding: 0 0.5rem; }
+  .slide-caption { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); max-width: 80%; line-height: 1.4; }
+  .slide-counter { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; }
+
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
   footer a { color: var(--muted); text-decoration: none; }
-  @media(max-width: 900px) { nav { padding: 1.8rem 1rem 1.5rem; } .nav-links { display: none; } .gallery-container { padding: 11.5rem 1rem 2rem; } }
+
+  @media(max-width: 900px) { 
+    nav { padding: 1.8rem 1rem 1.5rem; } 
+    .nav-links { display: none; } 
+    .slideshow-container { padding: 11rem 1rem 2rem; } 
+  }
 </style>
 </head>
 <body>
@@ -42,14 +75,74 @@
     </a>
   </nav>
 
-  <main class="gallery-container">
-    <div class="gallery-item"><img src="harry-pockett-gallery-portrait.jpg" alt="Test Shoots 1"></div>
-    <div class="gallery-item"><img src="harry-pockett-final-portrait.jpg" alt="Test Shoots 2"></div>
+  <main class="slideshow-container">
+    <div class="slide-wrapper">
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <img src="test-shoots-1.jpg" alt="Test Shoots view 1">
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide">
+        <img src="test-shoots-2.jpg" alt="Test Shoots view 2">
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide">
+        <img src="test-shoots-3.jpg" alt="Test Shoots view 3">
+      </div>
+      <!-- Slide 4 -->
+      <div class="slide">
+        <img src="test-shoots-4.jpg" alt="Test Shoots view 4">
+      </div>
+      <!-- Slide 5 -->
+      <div class="slide">
+        <img src="test-shoots-5.jpg" alt="Test Shoots view 5">
+      </div>
+      <!-- Slide 6 -->
+      <div class="slide">
+        <img src="test-shoots-6.jpg" alt="Test Shoots view 6">
+      </div>
+      <!-- Slide 7 -->
+      <div class="slide">
+        <img src="test-shoots-7.jpg" alt="Test Shoots view 7">
+      </div>
+
+      <!-- Controls -->
+      <button class="slide-btn prev-btn" onclick="changeSlide(-1)" aria-label="Previous image">&#10094;</button>
+      <button class="slide-btn next-btn" onclick="changeSlide(1)" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- Info Bar: Fixed Caption + Counter -->
+    <div class="slide-info-bar">
+      <div class="slide-caption">Experimental lighting, concepts, and exploratory frames from test shoots.</div>
+      <div class="slide-counter" id="slideCounter">1 / 7</div>
+    </div>
   </main>
 
   <footer>
     <span>© 2026 Harry Pockett Photography</span>
     <span>London &amp; Worldwide</span>
   </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const counterEl = document.getElementById('slideCounter');
+
+    function showSlide(index) {
+      if (index >= slides.length) { currentSlide = 0; }
+      else if (index < 0) { currentSlide = slides.length - 1; }
+      else { currentSlide = index; }
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlide);
+      });
+
+      counterEl.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+  </script>
 </body>
 </html>
