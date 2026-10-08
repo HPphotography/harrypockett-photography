@@ -31,20 +31,21 @@
   .logo-sub { font-family: var(--serif); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; margin-top: 10px; }
 
   /* Slideshow Container Layout */
-  .slideshow-container { padding: 13rem 2rem 4rem; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .slideshow-container { padding: 13rem 2rem 4rem; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   
-  .slide-wrapper { position: relative; width: 100%; max-height: 80vh; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent; }
-  .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; align-items: center; justify-content: center; }
-  .slide.active { display: flex; }
+  .slide-wrapper { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; background: transparent; }
   
-  /* Natural sizing without forced container background borders */
-  .slide img { max-width: 100%; max-height: 80vh; width: auto; height: auto; object-fit: contain; display: block; margin: 0 auto; }
+  .slide { display: none; width: 100%; text-align: center; }
+  .slide.active { display: block; }
+  
+  /* Natural sizing without forced container borders */
+  .slide img { max-width: 100%; max-height: 75vh; width: auto; height: auto; object-fit: contain; display: inline-block; }
   
   /* Click Navigation Controls */
-  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26, 26, 24, 0.4); color: #f7f5f0; border: none; padding: 1rem 1.2rem; cursor: pointer; z-index: 10; font-size: 1.2rem; transition: background 0.2s; border-radius: 2px; }
+  .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26, 26, 24, 0.35); color: #f7f5f0; border: none; padding: 1rem 1.2rem; cursor: pointer; z-index: 10; font-size: 1.2rem; transition: background 0.2s; border-radius: 2px; }
   .slide-btn:hover { background: rgba(26, 26, 24, 0.75); }
-  .prev-btn { left: 1rem; }
-  .next-btn { right: 1rem; }
+  .prev-btn { left: 0.5rem; }
+  .next-btn { right: 0.5rem; }
 
   /* Counter & Fixed Caption Area */
   .slide-info-bar { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 1.2rem; padding: 0 0.5rem; }
@@ -79,31 +80,31 @@
 
   <main class="slideshow-container">
     <div class="slide-wrapper">
-      <!-- Slide 1 (Landscape) -->
+      <!-- Slide 1 -->
       <div class="slide active">
         <img src="sitopia-1.jpg" alt="Sitopia view 1">
       </div>
-      <!-- Slide 2 (Portrait) -->
+      <!-- Slide 2 -->
       <div class="slide">
         <img src="sitopia-2.jpg" alt="Sitopia view 2">
       </div>
-      <!-- Slide 3 (Landscape) -->
+      <!-- Slide 3 -->
       <div class="slide">
         <img src="sitopia-3.jpg" alt="Sitopia view 3">
       </div>
-      <!-- Slide 4 (Landscape) -->
+      <!-- Slide 4 -->
       <div class="slide">
         <img src="sitopia-4.jpg" alt="Sitopia view 4">
       </div>
-      <!-- Slide 5 (Landscape) -->
+      <!-- Slide 5 -->
       <div class="slide">
         <img src="sitopia-5.jpg" alt="Sitopia view 5">
       </div>
-      <!-- Slide 6 (Portrait) -->
+      <!-- Slide 6 -->
       <div class="slide">
         <img src="sitopia-6.jpg" alt="Sitopia view 6">
       </div>
-      <!-- Slide 7 (Landscape) -->
+      <!-- Slide 7 -->
       <div class="slide">
         <img src="sitopia-7.jpg" alt="Sitopia view 7">
       </div>
