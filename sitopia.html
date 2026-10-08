@@ -33,10 +33,12 @@
   /* Slideshow Container Layout */
   .slideshow-container { padding: 13rem 2rem 4rem; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   
-  .slide-wrapper { position: relative; width: 100%; aspect-ratio: 3 / 2; background: #e8e4dc; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
-  .slide.active { display: flex; align-items: center; justify-content: center; }
-  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide-wrapper { position: relative; width: 100%; min-height: 600px; max-height: 80vh; background: #e8e4dc; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; align-items: center; justify-content: center; }
+  .slide.active { display: flex; }
+  
+  /* Flexible image containment supporting landscape & portrait */
+  .slide img { max-width: 100%; max-height: 80vh; width: auto; height: auto; object-fit: contain; display: block; margin: 0 auto; }
   
   /* Click Navigation Controls */
   .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26, 26, 24, 0.4); color: #f7f5f0; border: none; padding: 1rem 1.2rem; cursor: pointer; z-index: 10; font-size: 1.2rem; transition: background 0.2s; border-radius: 2px; }
@@ -56,6 +58,7 @@
     nav { padding: 1.8rem 1rem 1.5rem; } 
     .nav-links { display: none; } 
     .slideshow-container { padding: 11rem 1rem 2rem; } 
+    .slide-wrapper { min-height: 400px; }
   }
 </style>
 </head>
@@ -77,33 +80,33 @@
 
   <main class="slideshow-container">
     <div class="slide-wrapper">
-      <!-- Slide 1 -->
+      <!-- Slide 1 (Landscape) -->
       <div class="slide active">
-        <img src="sitopia-1.jpg" alt="Sitopia growing space view 1">
+        <img src="sitopia-1.jpg" alt="Sitopia view 1">
       </div>
-      <!-- Slide 2 -->
+      <!-- Slide 2 (Portrait) -->
       <div class="slide">
-        <img src="sitopia-2.jpg" alt="Sitopia growing space view 2">
+        <img src="sitopia-2.jpg" alt="Sitopia view 2">
       </div>
-      <!-- Slide 3 -->
+      <!-- Slide 3 (Landscape) -->
       <div class="slide">
-        <img src="sitopia-3.jpg" alt="Sitopia growing space view 3">
+        <img src="sitopia-3.jpg" alt="Sitopia view 3">
       </div>
-      <!-- Slide 4 -->
+      <!-- Slide 4 (Landscape) -->
       <div class="slide">
-        <img src="sitopia-4.jpg" alt="Sitopia growing space view 4">
+        <img src="sitopia-4.jpg" alt="Sitopia view 4">
       </div>
-      <!-- Slide 5 -->
+      <!-- Slide 5 (Landscape) -->
       <div class="slide">
-        <img src="sitopia-5.jpg" alt="Sitopia growing space view 5">
+        <img src="sitopia-5.jpg" alt="Sitopia view 5">
       </div>
-      <!-- Slide 6 -->
+      <!-- Slide 6 (Portrait) -->
       <div class="slide">
-        <img src="sitopia-6.jpg" alt="Sitopia growing space view 6">
+        <img src="sitopia-6.jpg" alt="Sitopia view 6">
       </div>
-      <!-- Slide 7 -->
+      <!-- Slide 7 (Landscape) -->
       <div class="slide">
-        <img src="sitopia-7.jpg" alt="Sitopia growing space view 7">
+        <img src="sitopia-7.jpg" alt="Sitopia view 7">
       </div>
 
       <!-- Controls -->
@@ -113,7 +116,7 @@
 
     <!-- Info Bar: Fixed Caption + Counter -->
     <div class="slide-info-bar">
-      <div class="slide-caption">Sustainable growing spaces and community farm capture at Sitopia.</div>
+      <div class="slide-caption">Sustainable farming, harvest, and community growing spaces for Sitopia.</div>
       <div class="slide-counter" id="slideCounter">1 / 7</div>
     </div>
   </main>
