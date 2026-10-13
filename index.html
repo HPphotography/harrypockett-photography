@@ -25,7 +25,7 @@
   html { scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
   
-  /* Centralized Flat Navigation */
+  /* Centralized Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
@@ -49,12 +49,12 @@
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
   
-  /* Gallery Layout */
+  /* Gallery Container */
   .gallery-container { padding: 14rem 3rem 4rem; max-width: 1400px; margin: 0 auto; }
   
   .gallery-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; width: 100%; align-items: stretch; justify-content: center; }
   
-  .grid-item { position: relative; overflow: hidden; background: #e8e4dc; border-radius: 2px; }
+  .grid-item { position: relative; overflow: hidden; background: #e8e4dc; border-radius: 2px; cursor: pointer; }
   .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.6s ease; filter: brightness(0.92); display: block; }
   .grid-item:hover img { transform: scale(1.02); filter: brightness(1); }
 
@@ -70,7 +70,7 @@
   .row-p-p-p .portrait { flex: 1; }
   .row-full .landscape { flex: 1; width: 100%; }
 
-  /* Hover-Only Italicized Image Labels */
+  /* Image Labels */
   .img-label {
     position: absolute;
     bottom: 1rem;
@@ -88,22 +88,95 @@
     backdrop-filter: blur(4px);
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
-  .grid-item:hover .img-label {
-    opacity: 1;
+  .grid-item:hover .img-label { opacity: 1; }
+
+  /* Lightbox Styles */
+  .lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(18, 18, 16, 0.94);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .lightbox.active { opacity: 1; pointer-events: auto; }
+  
+  .lightbox-img {
+    max-width: 88vw;
+    max-height: 80vh;
+    object-fit: contain;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+  }
+  
+  .lightbox-caption {
+    margin-top: 1.2rem;
+    color: var(--paper);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .lightbox-close, .lightbox-prev, .lightbox-next {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: var(--paper);
+    cursor: pointer;
+    font-size: 1.8rem;
+    padding: 1rem;
+    transition: opacity 0.2s;
+    user-select: none;
+  }
+  .lightbox-close { top: 1.5rem; right: 2rem; font-size: 2.2rem; }
+  .lightbox-prev { left: 2rem; top: 50%; transform: translateY(-50%); }
+  .lightbox-next { right: 2rem; top: 50%; transform: translateY(-50%); }
+  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { opacity: 0.7; }
+
+  /* Responsive Multi-Column Layout (Tablet & Mobile) */
+  @media (max-width: 900px) {
+    nav { padding: 1.8rem 1rem 1.5rem; }
+    .logo-main { font-size: 2.1rem; }
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; top: 2rem; }
+    .gallery-container { padding: 11rem 1rem 3rem; }
+    
+    .gallery-row { gap: 0.75rem; margin-bottom: 0.75rem; }
+    
+    /* Preserve side-by-side editorial layout on mobile instead of single column stack */
+    .row-p-p-p { flex-wrap: wrap; }
+    .row-p-p-p .grid-item { flex: 1 1 calc(50% - 0.375rem); }
+    .row-p-p-p .grid-item:last-child { flex: 1 1 100%; aspect-ratio: 16 / 9; }
+    
+    .img-label { opacity: 0.85; font-size: 0.75rem; padding: 0.2rem 0.5rem; bottom: 0.5rem; right: 0.5rem; }
+    .home-contact-section { padding: 2.5rem 1.25rem 3rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+  
+  @media (max-width: 600px) {
+    .lightbox-prev, .lightbox-next { padding: 0.5rem; font-size: 1.4rem; }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
   }
 
   /* Compact Contact Section */
   .home-contact-section { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem 4rem; max-width: 800px; margin: 0 auto; border-top: 0.5px solid rgba(26,26,24,0.08); }
-  
   .home-contact-heading { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1rem; color: var(--ink); }
-  
   .home-contact-email-link { font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 300; font-style: italic; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; margin-bottom: 1.5rem; display: inline-block; }
   .home-contact-email-link:hover { color: var(--muted); border-color: var(--muted); }
-
   .home-contact-details { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; line-height: 1.6; margin-bottom: 1.8rem; }
-
   .social-links { display: flex; gap: 2rem; list-style: none; justify-content: center; margin-top: 0.5rem; }
   .social-links a { text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
   .social-links a:hover { color: var(--ink); }
@@ -111,18 +184,6 @@
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
   footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
   footer a:hover { color: var(--ink); }
-
-  @media (max-width: 900px) {
-    nav { padding: 1.8rem 1rem 1.5rem; }
-    .logo-main { font-size: 2.1rem; }
-    .nav-links { display: none; }
-    .menu-toggle { display: flex; top: 2rem; }
-    .gallery-container { padding: 11.5rem 1rem 2rem; }
-    .gallery-row { gap: 0.75rem; margin-bottom: 0.75rem; }
-    .row-p-p-p { flex-direction: column; }
-    .home-contact-section { padding: 2.5rem 1.25rem 3rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
 </style>
 </head>
 <body>
@@ -174,13 +235,13 @@
     <div class="grid-item portrait"><img src="harry-pockett-grid-6.jpg" alt="New Portrait"><span class="img-label">Additional Study</span></div>
   </div>
 
-  <!-- Row 3 (Swapped with Row 4: Landscape, Portrait) -->
+  <!-- Row 3 (Landscape, Portrait) -->
   <div class="gallery-row row-l-p">
     <div class="grid-item landscape"><img src="harry-pockett-grid-2.jpg" alt="London Venue"><span class="img-label">Sitopia Farm</span></div>
     <div class="grid-item portrait"><img src="harry-pockett-grid-3.jpg" alt="Varanasi Morning"><span class="img-label">Test shoot with Crumb Agency</span></div>
   </div>
 
-  <!-- Row 4 (Swapped with Row 3: Portrait, Landscape) -->
+  <!-- Row 4 (Portrait, Landscape) -->
   <div class="gallery-row row-p-l">
     <div class="grid-item portrait"><img src="harry-pockett-grid-7.jpg" alt="Varanasi Ghats"><span class="img-label">Tipis at Mapledurham</span></div>
     <div class="grid-item landscape"><img src="harry-pockett-grid-8.jpg" alt="Oxfordshire Estate"><span class="img-label">Deep breaths in India</span></div>
@@ -246,6 +307,15 @@
   </div>
 </main>
 
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous Image">&#10094;</button>
+  <button class="lightbox-next" id="lightboxNext" aria-label="Next Image">&#10095;</button>
+  <img src="" alt="" class="lightbox-img" id="lightboxImg">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
 <!-- Compact Contact Section -->
 <section class="home-contact-section">
   <h2 class="home-contact-heading">Get in touch</h2>
@@ -268,6 +338,7 @@
 </footer>
 
 <script>
+  // Mobile Nav Menu Toggle
   const menuToggle = document.getElementById('menuToggle');
   const mobileOverlay = document.getElementById('mobileOverlay');
 
@@ -278,6 +349,69 @@
   }
 
   menuToggle.addEventListener('click', toggleMenu);
+
+  // Lightbox Functionality
+  const items = Array.from(document.querySelectorAll('.grid-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const item = items[currentIndex];
+    const img = item.querySelector('img');
+    const label = item.querySelector('.img-label');
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || '';
+    lightboxCaption.textContent = label ? label.textContent : '';
+    
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    if (!mobileOverlay.classList.contains('active')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % items.length;
+    openLightbox(currentIndex);
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    openLightbox(currentIndex);
+  }
+
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+  lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
 </script>
 </body>
 </html>
