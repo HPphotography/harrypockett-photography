@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test Shoots — Harry Pockett Photography</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>HP</text></svg>">
+<!-- Favicon: White background with HP text -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'><rect width='120' height='100' fill='%23f7f5f0'/><text x='60' y='72' font-family='Georgia, serif' font-size='65' font-weight='normal' text-anchor='middle' fill='%231a1a18'>HP</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +33,22 @@
   /* Slideshow Container Layout */
   .slideshow-container { padding: 13rem 2rem 4rem; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   
-  .slide-wrapper { position: relative; width: 100%; aspect-ratio: 3 / 2; background: #e8e4dc; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .slide-wrapper { 
+    position: relative; 
+    width: 100%; 
+    background: #e8e4dc; 
+    border-radius: 2px; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    transition: aspect-ratio 0.4s ease, max-width 0.4s ease;
+  }
+
+  /* Dynamic Aspect Ratios for Landscape vs Portrait */
+  .slide-wrapper.portrait { aspect-ratio: 2 / 3; max-width: 550px; }
+  .slide-wrapper.landscape { aspect-ratio: 3 / 2; max-width: 100%; }
+
   .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
   .slide.active { display: flex; align-items: center; justify-content: center; }
   .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -76,34 +91,98 @@
   </nav>
 
   <main class="slideshow-container">
-    <div class="slide-wrapper">
+    <div class="slide-wrapper portrait" id="slideWrapper">
       <!-- Slide 1 -->
-      <div class="slide active">
+      <div class="slide active" data-orientation="portrait">
         <img src="test-shoots-1.jpg" alt="Test Shoots view 1">
       </div>
       <!-- Slide 2 -->
-      <div class="slide">
+      <div class="slide" data-orientation="portrait">
         <img src="test-shoots-2.jpg" alt="Test Shoots view 2">
       </div>
       <!-- Slide 3 -->
-      <div class="slide">
+      <div class="slide" data-orientation="portrait">
         <img src="test-shoots-3.jpg" alt="Test Shoots view 3">
       </div>
       <!-- Slide 4 -->
-      <div class="slide">
+      <div class="slide" data-orientation="portrait">
         <img src="test-shoots-4.jpg" alt="Test Shoots view 4">
       </div>
       <!-- Slide 5 -->
-      <div class="slide">
+      <div class="slide" data-orientation="portrait">
         <img src="test-shoots-5.jpg" alt="Test Shoots view 5">
       </div>
       <!-- Slide 6 -->
-      <div class="slide">
+      <div class="slide" data-orientation="portrait">
         <img src="test-shoots-6.jpg" alt="Test Shoots view 6">
       </div>
       <!-- Slide 7 -->
-      <div class="slide">
+      <div class="slide" data-orientation="portrait">
         <img src="test-shoots-7.jpg" alt="Test Shoots view 7">
+      </div>
+      <!-- Slide 8 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-8.jpg" alt="Test Shoots view 8">
+      </div>
+      <!-- Slide 9 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-9.jpg" alt="Test Shoots view 9">
+      </div>
+      <!-- Slide 10 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-10.jpg" alt="Test Shoots view 10">
+      </div>
+      <!-- Slide 11 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-11.jpg" alt="Test Shoots view 11">
+      </div>
+      <!-- Slide 12 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-12.jpg" alt="Test Shoots view 12">
+      </div>
+      <!-- Slide 13 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-13.jpg" alt="Test Shoots view 13">
+      </div>
+      <!-- Slide 14 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-14.jpg" alt="Test Shoots view 14">
+      </div>
+      <!-- Slide 15 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-15.jpg" alt="Test Shoots view 15">
+      </div>
+      <!-- Slide 16 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-16.jpg" alt="Test Shoots view 16">
+      </div>
+      <!-- Slide 17 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-17.jpg" alt="Test Shoots view 17">
+      </div>
+      <!-- Slide 18 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-18.jpg" alt="Test Shoots view 18">
+      </div>
+      <!-- Slide 19 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-19.jpg" alt="Test Shoots view 19">
+      </div>
+      <!-- Slide 20 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-20.jpg" alt="Test Shoots view 20">
+      </div>
+      <!-- Slide 21 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-21.jpg" alt="Test Shoots view 21">
+      </div>
+      <!-- Slide 22 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-22.jpg" alt="Test Shoots view 22">
+      </div>
+      <!-- Slide 23 -->
+      <div class="slide" data-orientation="portrait">
+        <img src="test-shoots-23.jpg" alt="Test Shoots view 23">
       </div>
 
       <!-- Controls -->
@@ -114,7 +193,7 @@
     <!-- Info Bar: Fixed Caption + Counter -->
     <div class="slide-info-bar">
       <div class="slide-caption">Experimental lighting, concepts, and exploratory frames from test shoots.</div>
-      <div class="slide-counter" id="slideCounter">1 / 7</div>
+      <div class="slide-counter" id="slideCounter">1 / 23</div>
     </div>
   </main>
 
@@ -126,6 +205,7 @@
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
+    const slideWrapper = document.getElementById('slideWrapper');
     const counterEl = document.getElementById('slideCounter');
 
     function showSlide(index) {
@@ -134,7 +214,19 @@
       else { currentSlide = index; }
 
       slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentSlide);
+        const isActive = i === currentSlide;
+        slide.classList.toggle('active', isActive);
+
+        if (isActive) {
+          const orientation = slide.getAttribute('data-orientation');
+          if (orientation === 'portrait') {
+            slideWrapper.classList.remove('landscape');
+            slideWrapper.classList.add('portrait');
+          } else {
+            slideWrapper.classList.remove('portrait');
+            slideWrapper.classList.add('landscape');
+          }
+        }
       });
 
       counterEl.textContent = (currentSlide + 1) + ' / ' + slides.length;
