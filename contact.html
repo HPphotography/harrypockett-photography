@@ -3,12 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contact Harry Pockett — Photographer based in London.">
-<title>Contact — Harry Pockett</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 fill=%22%231a1a18%22 rx=%22100%22/><text x=%2250%25%22 y=%2262%25%22 font-family=%22'Cormorant Garamond', serif%22 font-size=%22280%22 font-weight=%22300%22 fill=%22%23d1b46a%22 letter-spacing=%22-0.03em%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>HP</text></svg>">
+<meta name="description" content="Contact Harry Pockett Photography — Available for commercial, portrait, brand, and editorial commissions worldwide.">
+<title>Contact — Harry Pockett Photography</title>
+
+<!-- Favicon: White background with HP text -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'><rect width='120' height='100' fill='%23f7f5f0'/><text x='60' y='72' font-family='Georgia, serif' font-size='65' font-weight='normal' text-anchor='middle' fill='%231a1a18'>HP</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -20,8 +24,20 @@
     --sans: 'Archivo', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+  body { 
+    background: var(--paper); 
+    color: var(--ink); 
+    font-family: var(--sans); 
+    font-weight: 300; 
+    font-size: 15px; 
+    line-height: 1.7; 
+    overflow-x: hidden; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   
+  /* Centralized Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
@@ -40,86 +56,335 @@
   .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
   .mobile-links a:hover { color: var(--accent); }
 
-  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--ink) !important; }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
-  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  main { flex: 1; padding: 16rem 2rem 6rem; max-width: 900px; margin: 0 auto; width: 100%; text-align: center; }
-  h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-  
-  .contact-email-link { font-family: var(--serif); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 300; font-style: italic; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; margin-bottom: 1.5rem; display: inline-block; }
-  .contact-email-link:hover { color: var(--muted); border-color: var(--muted); }
+  /* Main Contact Layout */
+  main {
+    flex: 1;
+    padding: 14rem 2rem 5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
 
-  .contact-details { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.05em; line-height: 1.6; margin-top: 1rem; }
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
 
-  footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
-  footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--ink); }
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* Info Column */
+  .info-group {
+    margin-bottom: 2rem;
+  }
+
+  .info-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .info-value, .info-value a {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .info-value a:hover {
+    color: var(--muted);
+  }
+
+  /* Form Column */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(26,26,24,0.2);
+    padding: 0.6rem 0;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-bottom-color: var(--ink);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+  }
+
+  .submit-btn {
+    align-self: flex-start;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+  }
+
+  .submit-btn:hover {
+    background: #333330;
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Status Messages */
+  .form-status {
+    display: none;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    padding: 1rem 0;
+  }
+
+  .form-status.success {
+    display: block;
+    color: #2b5735;
+  }
+
+  .form-status.error {
+    display: block;
+    color: #8c2424;
+  }
+
+  footer { 
+    background: var(--paper); 
+    border-top: 0.5px solid rgba(26,26,24,0.08); 
+    padding: 2rem 3rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: var(--muted); 
+    font-size: 0.72rem; 
+  }
+  footer a { color: var(--muted); text-decoration: none; }
 
   @media (max-width: 900px) {
     nav { padding: 1.8rem 1rem 1.5rem; }
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    main { padding: 13rem 1.5rem 4rem; }
+    main { padding: 11.5rem 1.5rem 4rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
-  </ul>
-  <a href="index.html" class="nav-logo-group">
-    <span class="logo-main">Harry Pockett</span>
-    <span class="logo-sub">Photography</span>
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <nav id="nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
 
-<div class="mobile-overlay" id="mobileOverlay">
-  <ul class="mobile-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
+    <a href="index.html" class="nav-logo-group">
+      <span class="logo-main">Harry Pockett</span>
+      <span class="logo-sub">Photography</span>
+    </a>
 
-<main>
-  <h1>Get in touch</h1>
-  <a href="mailto:photography@harrypockett.com" class="contact-email-link">photography@harrypockett.com</a>
-  <div class="contact-details">
-    <p>Based in London</p>
-    <p>Phone: +44 776 111 4285</p>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
-</main>
 
-<footer>
-  <span>© 2026 Harry Pockett Photography</span>
-  <span>London &amp; Worldwide</span>
-</footer>
+  <main>
+    <div class="contact-header">
+      <h1 class="contact-title">Get in Touch</h1>
+      <p class="contact-subtitle">Available for brand, editorial, and commercial assignments worldwide</p>
+    </div>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-  function toggleMenu() {
-    menuToggle.classList.toggle('open');
-    mobileOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
-  }
-  menuToggle.addEventListener('click', toggleMenu);
-</script>
+    <div class="contact-grid">
+      <!-- Direct Contact Details -->
+      <div class="contact-info">
+        <div class="info-group">
+          <p class="info-label">Direct Email</p>
+          <p class="info-value"><a href="mailto:photography@harrypockett.com">photography@harrypockett.com</a></p>
+        </div>
+
+        <div class="info-group">
+          <p class="info-label">Phone</p>
+          <p class="info-value">+44 776 111 4285</p>
+        </div>
+
+        <div class="info-group">
+          <p class="info-label">Base Location</p>
+          <p class="info-value">London, United Kingdom</p>
+        </div>
+      </div>
+
+      <!-- Formspree Contact Form -->
+      <div class="contact-form-container">
+        <div id="formSuccess" class="form-status">Thank you for your message. Harry will get back to you shortly.</div>
+        <div id="formError" class="form-status">Oops! There was a problem submitting your form. Please try again.</div>
+
+        <form id="contactForm" action="https://formspree.io/f/xjgqdjjw" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject / Project Type</label>
+            <input type="text" id="subject" name="subject" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Harry Pockett Photography</span>
+    <span>London &amp; Worldwide</span>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    function toggleMenu() {
+      menuToggle.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Formspree AJAX Submission Handling
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    const errorMsg = document.getElementById('formError');
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      successMsg.classList.remove('success');
+      errorMsg.classList.remove('error');
+
+      const data = new FormData(event.target);
+
+      try {
+        const response = await fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.classList.add('success');
+        } else {
+          const responseData = await response.json();
+          if (Object.hasOwn(responseData, 'errors')) {
+            errorMsg.textContent = responseData["errors"].map(error => error["message"]).join(", ");
+          }
+          errorMsg.classList.add('error');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      } catch (err) {
+        errorMsg.classList.add('error');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    }
+
+    form.addEventListener("submit", handleSubmit);
+  </script>
 </body>
 </html>
