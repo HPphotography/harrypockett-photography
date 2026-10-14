@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Morrows Outfitters — Harry Pockett Photography</title>
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>HP</text></svg>">
+<!-- Favicon: White background with HP text -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'><rect width='120' height='100' fill='%23f7f5f0'/><text x='60' y='72' font-family='Georgia, serif' font-size='65' font-weight='normal' text-anchor='middle' fill='%231a1a18'>HP</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +33,22 @@
   /* Slideshow Container Layout */
   .slideshow-container { padding: 13rem 2rem 4rem; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   
-  .slide-wrapper { position: relative; width: 100%; aspect-ratio: 3 / 2; background: #e8e4dc; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .slide-wrapper { 
+    position: relative; 
+    width: 100%; 
+    background: #e8e4dc; 
+    border-radius: 2px; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    transition: aspect-ratio 0.4s ease, max-width 0.4s ease;
+  }
+
+  /* Dynamic Aspect Ratios for Landscape vs Portrait */
+  .slide-wrapper.portrait { aspect-ratio: 2 / 3; max-width: 550px; }
+  .slide-wrapper.landscape { aspect-ratio: 3 / 2; max-width: 100%; }
+
   .slide { display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
   .slide.active { display: flex; align-items: center; justify-content: center; }
   .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -76,34 +91,26 @@
   </nav>
 
   <main class="slideshow-container">
-    <div class="slide-wrapper">
-      <!-- Slide 1 -->
-      <div class="slide active">
+    <div class="slide-wrapper landscape" id="slideWrapper">
+      <!-- Slide 1 (Landscape) -->
+      <div class="slide active" data-orientation="landscape">
         <img src="morrows-1.jpg" alt="Morrows outfitters view 1">
       </div>
-      <!-- Slide 2 -->
-      <div class="slide">
+      <!-- Slide 2 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
         <img src="morrows-2.jpg" alt="Morrows outfitters view 2">
       </div>
-      <!-- Slide 3 -->
-      <div class="slide">
+      <!-- Slide 3 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
         <img src="morrows-3.jpg" alt="Morrows outfitters view 3">
       </div>
-      <!-- Slide 4 -->
-      <div class="slide">
+      <!-- Slide 4 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
         <img src="morrows-4.jpg" alt="Morrows outfitters view 4">
       </div>
-      <!-- Slide 5 -->
-      <div class="slide">
+      <!-- Slide 5 (Portrait) -->
+      <div class="slide" data-orientation="portrait">
         <img src="morrows-5.jpg" alt="Morrows outfitters view 5">
-      </div>
-      <!-- Slide 6 -->
-      <div class="slide">
-        <img src="morrows-6.jpg" alt="Morrows outfitters view 6">
-      </div>
-      <!-- Slide 7 -->
-      <div class="slide">
-        <img src="morrows-7.jpg" alt="Morrows outfitters view 7">
       </div>
 
       <!-- Controls -->
@@ -114,7 +121,7 @@
     <!-- Info Bar: Fixed Caption + Counter -->
     <div class="slide-info-bar">
       <div class="slide-caption">Apparel and heritage lifestyle shoot for Morrows Outfitters.</div>
-      <div class="slide-counter" id="slideCounter">1 / 7</div>
+      <div class="slide-counter" id="slideCounter">1 / 5</div>
     </div>
   </main>
 
@@ -126,6 +133,7 @@
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
+    const slideWrapper = document.getElementById('slideWrapper');
     const counterEl = document.getElementById('slideCounter');
 
     function showSlide(index) {
@@ -134,7 +142,19 @@
       else { currentSlide = index; }
 
       slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentSlide);
+        const isActive = i === currentSlide;
+        slide.classList.toggle('active', isActive);
+
+        if (isActive) {
+          const orientation = slide.getAttribute('data-orientation');
+          if (orientation === 'portrait') {
+            slideWrapper.classList.remove('landscape');
+            slideWrapper.classList.add('portrait');
+          } else {
+            slideWrapper.classList.remove('portrait');
+            slideWrapper.classList.add('landscape');
+          }
+        }
       });
 
       counterEl.textContent = (currentSlide + 1) + ' / ' + slides.length;
