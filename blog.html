@@ -3,12 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Blog — Harry Pockett Photography.">
-<title>Blog — Harry Pockett</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><rect width=%22512%22 height=%22512%22 fill=%22%231a1a18%22 rx=%22100%22/><text x=%2250%25%22 y=%2262%25%22 font-family=%22'Cormorant Garamond', serif%22 font-size=%22280%22 font-weight=%22300%22 fill=%22%23d1b46a%22 letter-spacing=%22-0.03em%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>HP</text></svg>">
+<meta name="description" content="Blog — Harry Pockett Photography. Behind the scenes and journal entries.">
+<title>Blog — Harry Pockett Photography</title>
+
+<!-- Favicon: White background with HP text -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'><rect width='120' height='100' fill='%23f7f5f0'/><text x='60' y='72' font-family='Georgia, serif' font-size='65' font-weight='normal' text-anchor='middle' fill='%231a1a18'>HP</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -20,8 +24,20 @@
     --sans: 'Archivo', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+  body { 
+    background: var(--paper); 
+    color: var(--ink); 
+    font-family: var(--sans); 
+    font-weight: 300; 
+    font-size: 15px; 
+    line-height: 1.7; 
+    overflow-x: hidden; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   
+  /* Centralized Navigation */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
   .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
@@ -40,78 +56,162 @@
   .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
   .mobile-links a:hover { color: var(--accent); }
 
-  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--ink) !important; }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
-  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--ink) !important; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  main { flex: 1; padding: 16rem 2rem 6rem; max-width: 900px; margin: 0 auto; width: 100%; text-align: center; }
-  h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-  p { color: var(--muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+  /* Main Blog Layout */
+  main {
+    flex: 1;
+    padding: 14rem 2rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
 
-  footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
-  footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--ink); }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .blog-card {
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    group: card;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: #e8e4dc;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.95);
+    transition: transform 0.6s ease, filter 0.6s ease;
+  }
+
+  .blog-card:hover .image-wrapper img {
+    transform: scale(1.03);
+    filter: brightness(1);
+  }
+
+  .blog-title {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+
+  .blog-card:hover .blog-title {
+    color: var(--accent);
+  }
+
+  footer { 
+    background: var(--paper); 
+    border-top: 0.5px solid rgba(26,26,24,0.08); 
+    padding: 2rem 3rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: var(--muted); 
+    font-size: 0.72rem; 
+  }
+  footer a { color: var(--muted); text-decoration: none; }
 
   @media (max-width: 900px) {
     nav { padding: 1.8rem 1rem 1.5rem; }
     .logo-main { font-size: 2.1rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; top: 2rem; }
-    main { padding: 13rem 1.5rem 4rem; }
+    main { padding: 11.5rem 1.5rem 4rem; }
+    .blog-grid { grid-template-columns: 1fr; gap: 3.5rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="index.html" class="nav-logo-group">
-    <span class="logo-main">Harry Pockett</span>
-    <span class="logo-sub">Photography</span>
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <nav id="nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-<div class="mobile-overlay" id="mobileOverlay">
-  <ul class="mobile-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Me</a></li>
-    <li><a href="commercial.html">Commercial</a></li>
-    <li><a href="personal.html">Personal Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
+    <a href="index.html" class="nav-logo-group">
+      <span class="logo-main">Harry Pockett</span>
+      <span class="logo-sub">Photography</span>
+    </a>
 
-<main>
-  <h1>Blog</h1>
-  <p>Content coming soon.</p>
-</main>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<footer>
-  <span>© 2026 Harry Pockett Photography</span>
-  <span>London &amp; Worldwide</span>
-</footer>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-  function toggleMenu() {
-    menuToggle.classList.toggle('open');
-    mobileOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
-  }
-  menuToggle.addEventListener('click', toggleMenu);
-</script>
+  <main>
+    <div class="blog-grid">
+      <!-- Card 1: BTS -->
+      <a href="blog-bts.html" class="blog-card">
+        <div class="image-wrapper">
+          <img src="blog-bts-cover.jpg" alt="BTS — Behind The Scenes">
+        </div>
+        <h2 class="blog-title">BTS</h2>
+      </a>
+
+      <!-- Card 2: Pockett Journal -->
+      <a href="blog-journal.html" class="blog-card">
+        <div class="image-wrapper">
+          <img src="blog-journal-cover.jpg" alt="Pockett Journal">
+        </div>
+        <h2 class="blog-title">Pockett Journal</h2>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Harry Pockett Photography</span>
+    <span>Available in London &amp; South England</span>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    function toggleMenu() {
+      menuToggle.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+    menuToggle.addEventListener('click', toggleMenu);
+  </script>
 </body>
 </html>
