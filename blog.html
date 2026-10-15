@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&family=Courier+Prime:wght@400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,6 +22,8 @@
     --accent: #c8b89a;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Archivo', sans-serif;
+    --typewriter: 'Courier Prime', monospace;
+    --sketchy: 'Caveat', cursive;
   }
   html { scroll-behavior: smooth; }
   body { 
@@ -106,17 +108,29 @@
     filter: brightness(1);
   }
 
-  .blog-title {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    font-weight: 300;
-    letter-spacing: 0.02em;
+  /* Distinct Fonts for BTS vs Pockett Journal */
+  .title-bts {
+    font-family: var(--typewriter);
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--ink);
     margin-bottom: 0.5rem;
     transition: color 0.2s ease;
   }
 
-  .blog-card:hover .blog-title {
+  .title-journal {
+    font-family: var(--sketchy);
+    font-size: 2.3rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    transition: color 0.2s ease;
+  }
+
+  .blog-card:hover .title-bts,
+  .blog-card:hover .title-journal {
     color: var(--accent);
   }
 
@@ -202,7 +216,7 @@
         <div class="image-wrapper">
           <img src="blog-bts-cover.jpg" alt="BTS — Behind The Scenes">
         </div>
-        <h2 class="blog-title">BTS</h2>
+        <h2 class="title-bts">BTS</h2>
         <p class="blog-description">A behind-the-scenes look at some of my shoots, from commercial work to my personal projects, with insight into lighting, equipment, and the mindset of a professional photographer.</p>
         <span class="blog-link-text">Explore BTS &rarr;</span>
       </a>
@@ -212,7 +226,7 @@
         <div class="image-wrapper">
           <img src="blog-journal-cover.jpg" alt="Pockett Journal">
         </div>
-        <h2 class="blog-title">Pockett Journal</h2>
+        <h2 class="title-journal">Pockett Journal</h2>
         <p class="blog-description">A collection of my scattered thoughts and journal entries from personal projects, travel stories and observations on my evolving style.</p>
         <span class="blog-link-text">Read Journal &rarr;</span>
       </a>
@@ -225,10 +239,8 @@
   </footer>
 
   <script>
-    // Mobile Navigation Toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileOverlay = document.getElementById('mobileOverlay');
-    
     function toggleMenu() {
       menuToggle.classList.toggle('open');
       mobileOverlay.classList.toggle('active');
