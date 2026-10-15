@@ -76,27 +76,10 @@
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     transition: color 0.2s;
   }
   .back-link:hover { color: var(--ink); }
-
-  .page-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 300;
-    letter-spacing: 0.04em;
-    color: var(--ink);
-    margin-bottom: 0.8rem;
-  }
-
-  .page-intro {
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 3.5rem;
-    max-width: 750px;
-  }
 
   /* Dropdown Entry Accordion */
   .entry-accordion {
@@ -190,21 +173,14 @@
     align-items: center;
   }
 
-  /* Section Divider Line */
-  .section-divider {
-    border: none;
-    border-top: 0.5px solid rgba(26,26,24,0.1);
-    margin: 3rem 0;
-  }
-
   /* Layout Variant 1: Text Left, Portrait Right */
   .layout-text-left {
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 1fr 340px;
   }
 
-  /* Layout Variant 2: Image Left (Portrait/Landscape), Text Right */
+  /* Layout Variant 2: Image Left (Landscape), Text Right */
   .layout-image-left {
-    grid-template-columns: 360px 1fr;
+    grid-template-columns: 460px 1fr;
   }
 
   /* Layout Variant 3: 2 Portrait Images on Either Side, Text in Middle */
@@ -221,7 +197,7 @@
 
   .section-heading {
     font-family: var(--serif);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: var(--ink);
   }
@@ -290,7 +266,6 @@
       gap: 2rem;
     }
 
-    /* Stack images under text appropriately on small screens */
     .layout-image-left .img-box { order: 2; }
     .layout-three-col .img-box:nth-child(3) { order: 3; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -331,15 +306,12 @@
   </div>
 
   <main>
-    <a href="blog.html" class="back-link">&larr; BACK TO BLOG</a>
-    
-    <h1 class="page-title">Behind The Scenes</h1>
-    <p class="page-intro">A behind-the-scenes look at some of my shoots, from commercial work to my personal projects, with insight into lighting, equipment, and the mindset of a professional photographer.</p>
+    <a href="blog.html" class="back-link">&larr; BACK TO BLOG INDEX</a>
 
     <!-- Dropdown Accordion Container (3 Entries) -->
     <div class="entry-accordion">
 
-      <!-- ENTRY 1 -->
+      <!-- ARTICLE 1: Text Left, Portrait Image Right -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -350,52 +322,21 @@
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <!-- Section 1: Text Left, Portrait Image Right -->
           <div class="entry-section layout-text-left">
             <div class="section-text">
-              <span class="section-subheading">Section 01 — Equipment & Setup</span>
+              <span class="section-subheading">Behind The Scenes — 01</span>
               <h3 class="section-heading">Lightweight Rigging on Location</h3>
               <p class="section-body-text">When working in dynamic environments, heavy studio strobes often limit spontaneity. Here, we opted for compact battery-powered heads with modified grids to maintain clean highlights while moving fast.</p>
+              <p class="section-body-text">Interfacing subtle continuous light with late afternoon ambient shadows allows the subject to feel grounded naturally in the space without looking overly artificial.</p>
             </div>
             <div class="img-box portrait">
               <img src="bts-entry1-img1.jpg" alt="Lighting setup portrait">
             </div>
           </div>
-
-          <hr class="section-divider">
-
-          <!-- Section 2: Image Left (Landscape), Text Right -->
-          <div class="entry-section layout-image-left">
-            <div class="img-box landscape">
-              <img src="bts-entry1-img2.jpg" alt="BTS Field shot landscape">
-            </div>
-            <div class="section-text">
-              <span class="section-subheading">Section 02 — Framing & Environment</span>
-              <h3 class="section-heading">Adapting to Available Light</h3>
-              <p class="section-body-text">Interfacing subtle continuous light with late afternoon ambient shadows allows the subject to feel grounded naturally in the space without looking overly artificial.</p>
-            </div>
-          </div>
-
-          <hr class="section-divider">
-
-          <!-- Section 3: Two Portrait Images Flanking Text in Middle -->
-          <div class="entry-section layout-three-col">
-            <div class="img-box portrait">
-              <img src="bts-entry1-img3.jpg" alt="Detail 1">
-            </div>
-            <div class="section-text">
-              <span class="section-subheading">Section 03 — Final Execution</span>
-              <h3 class="section-heading">Compositional Balance</h3>
-              <p class="section-body-text">Observing the interplay between foreground elements and subject placement. The dual details above highlight texture and subtle shifts in exposure.</p>
-            </div>
-            <div class="img-box portrait">
-              <img src="bts-entry1-img4.jpg" alt="Detail 2">
-            </div>
-          </div>
         </div>
       </article>
 
-      <!-- ENTRY 2 -->
+      <!-- ARTICLE 2: Landscape Image Left, Text Right -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -406,52 +347,21 @@
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <!-- Section 1: Text Left, Portrait Image Right -->
-          <div class="entry-section layout-text-left">
-            <div class="section-text">
-              <span class="section-subheading">Section 01 — Quiet Preparation</span>
-              <h3 class="section-heading">Setting the Atmosphere</h3>
-              <p class="section-body-text">Creating an uncluttered environment before the subject enters. The goal is always to reduce friction so genuine expressions surface naturally.</p>
-            </div>
-            <div class="img-box portrait">
-              <img src="bts-entry2-img1.jpg" alt="Portrait preparation">
-            </div>
-          </div>
-
-          <hr class="section-divider">
-
-          <!-- Section 2: Image Left (Portrait), Text Right -->
           <div class="entry-section layout-image-left">
-            <div class="img-box portrait">
-              <img src="bts-entry2-img2.jpg" alt="Camera and lens detail">
+            <div class="img-box landscape">
+              <img src="bts-entry2-img1.jpg" alt="Editorial shoot environment">
             </div>
             <div class="section-text">
-              <span class="section-subheading">Section 02 — Lens Choices</span>
-              <h3 class="section-heading">Focal Length & Perspective</h3>
-              <p class="section-body-text">Choosing prime lenses to maintain intimate distance while staying out of the subject's personal space. A 50mm or 85mm keeps geometric proportions honest.</p>
-            </div>
-          </div>
-
-          <hr class="section-divider">
-
-          <!-- Section 3: Two Portrait Images Flanking Text in Middle -->
-          <div class="entry-section layout-three-col">
-            <div class="img-box portrait">
-              <img src="bts-entry2-img3.jpg" alt="Behind the camera">
-            </div>
-            <div class="section-text">
-              <span class="section-subheading">Section 03 — Final Review</span>
-              <h3 class="section-heading">Tethered Culling</h3>
-              <p class="section-body-text">Reviewing frames periodically during pauses to ensure tone, contrast, and direction align with the client brief.</p>
-            </div>
-            <div class="img-box portrait">
-              <img src="bts-entry2-img4.jpg" alt="Final print proof">
+              <span class="section-subheading">Behind The Scenes — 02</span>
+              <h3 class="section-heading">Setting the Atmosphere & Perspective</h3>
+              <p class="section-body-text">Creating an uncluttered environment before the subject enters is key. The goal is always to reduce friction so genuine expressions surface naturally.</p>
+              <p class="section-body-text">Choosing prime lenses allows us to maintain an intimate distance while staying out of the subject's personal space. A 50mm or 85mm keeps geometric proportions honest.</p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- ENTRY 3 -->
+      <!-- ARTICLE 3: Two Portrait Images Flanking Text in Middle -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -462,46 +372,18 @@
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <!-- Section 1: Text Left, Portrait Image Right -->
-          <div class="entry-section layout-text-left">
-            <div class="section-text">
-              <span class="section-subheading">Section 01 — Weather Response</span>
-              <h3 class="section-heading">Embracing Diffused Overcast Sky</h3>
-              <p class="section-body-text">Cloud cover acts as a giant natural softbox. Instead of fighting light loss, we lean into low-contrast tones for rich color saturation.</p>
-            </div>
-            <div class="img-box portrait">
-              <img src="bts-entry3-img1.jpg" alt="Outdoor portrait study">
-            </div>
-          </div>
-
-          <hr class="section-divider">
-
-          <!-- Section 2: Image Left (Landscape), Text Right -->
-          <div class="entry-section layout-image-left">
-            <div class="img-box landscape">
-              <img src="bts-entry3-img2.jpg" alt="Landscape shoot setup">
-            </div>
-            <div class="section-text">
-              <span class="section-subheading">Section 02 — Terrain Logistics</span>
-              <h3 class="section-heading">Minimal Footprint</h3>
-              <p class="section-body-text">Keeping gear in shoulder bags allows the team to traverse rougher coastal terrain efficiently without delaying schedule windows.</p>
-            </div>
-          </div>
-
-          <hr class="section-divider">
-
-          <!-- Section 3: Two Portrait Images Flanking Text in Middle -->
           <div class="entry-section layout-three-col">
             <div class="img-box portrait">
-              <img src="bts-entry3-img3.jpg" alt="Location detail left">
+              <img src="bts-entry3-img1.jpg" alt="Location detail left">
             </div>
             <div class="section-text">
-              <span class="section-subheading">Section 03 — Wrap Up</span>
-              <h3 class="section-heading">Documenting Process</h3>
-              <p class="section-body-text"> Capturing the surroundings and equipment used provides a reference archive for future location shoots.</p>
+              <span class="section-subheading">Behind The Scenes — 03</span>
+              <h3 class="section-heading">Embracing Diffused Overcast Sky</h3>
+              <p class="section-body-text">Cloud cover acts as a giant natural softbox. Instead of fighting light loss, we lean into low-contrast tones for rich color saturation.</p>
+              <p class="section-body-text">Keeping gear in shoulder bags allows the team to traverse rougher coastal terrain efficiently without delaying schedule windows.</p>
             </div>
             <div class="img-box portrait">
-              <img src="bts-entry3-img4.jpg" alt="Location detail right">
+              <img src="bts-entry3-img2.jpg" alt="Location detail right">
             </div>
           </div>
         </div>
