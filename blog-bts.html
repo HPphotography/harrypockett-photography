@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&family=Courier+Prime:wght@400&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,6 +22,7 @@
     --accent: #c8b89a;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Archivo', sans-serif;
+    --typewriter: 'Courier Prime', monospace;
   }
   html { scroll-behavior: smooth; }
   body { 
@@ -76,10 +77,24 @@
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     transition: color 0.2s;
   }
   .back-link:hover { color: var(--ink); }
+
+  /* Centered Typewriter Page Title */
+  .subpage-center-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .subpage-title-bts {
+    font-family: var(--typewriter);
+    font-size: 1.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
 
   /* Dropdown Entry Accordion */
   .entry-accordion {
@@ -173,22 +188,18 @@
     align-items: center;
   }
 
-  /* Layout Variant 1: Text Left, Portrait Right */
   .layout-text-left {
     grid-template-columns: 1fr 340px;
   }
 
-  /* Layout Variant 2: Image Left (Landscape), Text Right */
   .layout-image-left {
     grid-template-columns: 460px 1fr;
   }
 
-  /* Layout Variant 3: 2 Portrait Images on Either Side, Text in Middle */
   .layout-three-col {
     grid-template-columns: 260px 1fr 260px;
   }
 
-  /* Content Formatting */
   .section-text {
     display: flex;
     flex-direction: column;
@@ -308,6 +319,10 @@
   <main>
     <a href="blog.html" class="back-link">&larr; BACK TO BLOG INDEX</a>
 
+    <div class="subpage-center-header">
+      <h1 class="subpage-title-bts">BTS</h1>
+    </div>
+
     <!-- Dropdown Accordion Container (3 Entries) -->
     <div class="entry-accordion">
 
@@ -398,7 +413,6 @@
   </footer>
 
   <script>
-    // Navigation toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileOverlay = document.getElementById('mobileOverlay');
     function toggleMenu() {
@@ -408,7 +422,6 @@
     }
     menuToggle.addEventListener('click', toggleMenu);
 
-    // Collapsible Dropdown Entries
     document.querySelectorAll('.entry-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
