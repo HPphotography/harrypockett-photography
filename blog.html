@@ -80,7 +80,6 @@
     color: var(--ink);
     display: flex;
     flex-direction: column;
-    group: card;
   }
 
   .image-wrapper {
@@ -113,10 +112,30 @@
     font-weight: 300;
     letter-spacing: 0.02em;
     color: var(--ink);
+    margin-bottom: 0.5rem;
     transition: color 0.2s ease;
   }
 
   .blog-card:hover .blog-title {
+    color: var(--accent);
+  }
+
+  .blog-description {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .blog-link-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+
+  .blog-card:hover .blog-link-text {
     color: var(--accent);
   }
 
@@ -184,6 +203,8 @@
           <img src="blog-bts-cover.jpg" alt="BTS — Behind The Scenes">
         </div>
         <h2 class="blog-title">BTS</h2>
+        <p class="blog-description">Production insights, set photography, equipment notes, and behind-the-scenes perspectives from commercial and personal shoots.</p>
+        <span class="blog-link-text">Explore BTS &rarr;</span>
       </a>
 
       <!-- Card 2: Pockett Journal -->
@@ -192,6 +213,8 @@
           <img src="blog-journal-cover.jpg" alt="Pockett Journal">
         </div>
         <h2 class="blog-title">Pockett Journal</h2>
+        <p class="blog-description">Personal essays, visual diaries, observations on light, travel reflections, and ongoing thoughts on observational photography.</p>
+        <span class="blog-link-text">Read Journal &rarr;</span>
       </a>
     </div>
   </main>
