@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&family=Courier+Prime:wght@400&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,7 +22,7 @@
     --accent: #c8b89a;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Archivo', sans-serif;
-    --journal-font: 'Playfair Display', Georgia, serif;
+    --typewriter: 'Courier Prime', monospace;
   }
   html { scroll-behavior: smooth; }
   body { 
@@ -92,19 +92,17 @@
   }
 
   .subpage-title-journal {
-    font-family: var(--journal-font);
-    font-style: italic;
-    font-weight: 500;
-    font-size: 2.2rem;
-    letter-spacing: 0.02em;
+    font-family: var(--typewriter);
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--ink);
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   .subpage-subtitle-journal {
-    font-family: var(--journal-font);
-    font-style: italic;
-    font-size: 1.05rem;
+    font-family: var(--typewriter);
+    font-size: 0.88rem;
     color: var(--muted);
     line-height: 1.7;
   }
@@ -334,7 +332,7 @@
 
     <div class="subpage-center-header">
       <h1 class="subpage-title-journal">The Pockett Journal</h1>
-      <p class="subpage-subtitle-journal">"I've been fortunate enough to travel to some wonderful places that have captured my imagination and left a lasting imprint on my heart. Take a look at some of the stories from these adventures, as I reflect upon the moments that made me."</p>
+      <p class="subpage-subtitle-journal">I've been fortunate enough to travel to some wonderful places that have captured my imagination and left a lasting imprint on my heart. Take a look at some of the stories from these adventures, as I reflect upon the moments that made me.</p>
     </div>
 
     <!-- Dropdown Accordion Container (3 Entries) -->
