@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pockett Journal — Personal essays, travel reflections, and observational notes by Harry Pockett.">
+<title>Pockett Journal — Harry Pockett Photography</title>
+
+<!-- Favicon: White background with HP text -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'><rect width='120' height='100' fill='%23f7f5f0'/><text x='60' y='72' font-family='Georgia, serif' font-size='65' font-weight='normal' text-anchor='middle' fill='%231a1a18'>HP</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18;
+    --paper: #f7f5f0;
+    --muted: #888880;
+    --accent: #c8b89a;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Archivo', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { 
+    background: var(--paper); 
+    color: var(--ink); 
+    font-family: var(--sans); 
+    font-weight: 300; 
+    font-size: 15px; 
+    line-height: 1.7; 
+    overflow-x: hidden; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Centralized Navigation */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.2rem 2rem 1.8rem; background: var(--paper); border-bottom: 0.5px solid rgba(26,26,24,0.12); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; margin-bottom: 1rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  
+  .nav-logo-group { display: flex; flex-direction: column; align-items: center; text-decoration: none; text-align: center; z-index: 110; }
+  .logo-main { font-family: var(--serif); font-weight: 300; font-size: 2.9rem; letter-spacing: 0.08em; color: var(--ink); line-height: 1.1; }
+  .logo-sub { font-family: var(--serif); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #d1b46a; line-height: 1; margin-top: 10px; }
+  
+  .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 16px; background: transparent; border: none; cursor: pointer; z-index: 110; position: absolute; right: 2rem; top: 2.5rem; }
+  .menu-toggle span { width: 100%; height: 1.5px; background-color: var(--ink); transition: all 0.3s ease; }
+  
+  .mobile-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--paper); z-index: 105; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .mobile-overlay.active { right: 0; }
+  .mobile-links { display: flex; flex-direction: column; gap: 2rem; list-style: none; text-align: center; }
+  .mobile-links a { text-decoration: none; font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--ink); letter-spacing: 0.05em; transition: color 0.2s; }
+  .mobile-links a:hover { color: var(--accent); }
+
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Sub-page Header & Content Layout */
+  main {
+    flex: 1;
+    padding: 14rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  /* Dropdown Entry Accordion */
+  .entry-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .entry-item {
+    border: 0.5px solid rgba(26,26,24,0.15);
+    background: #faf8f5;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+
+  .entry-header {
+    padding: 2rem 2.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  .entry-header:hover {
+    background: rgba(26,26,24,0.02);
+  }
+
+  .entry-title-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .entry-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .entry-main-title {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .entry-subtitle {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  .entry-toggle-icon {
+    font-size: 1.2rem;
+    color: var(--muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding-left: 1rem;
+  }
+
+  .entry-item.open .entry-toggle-icon {
+    transform: rotate(180deg);
+    color: var(--ink);
+  }
+
+  /* Collapsible Body */
+  .entry-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    background: var(--paper);
+    padding: 0 2.5rem;
+  }
+
+  .entry-item.open .entry-body {
+    max-height: 5000px;
+    transition: max-height 0.8s ease-in-out;
+    padding: 2.5rem 2.5rem 3.5rem;
+    border-top: 0.5px solid rgba(26,26,24,0.1);
+  }
+
+  /* Section Layout Blocks inside Blog Entry */
+  .entry-section {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  /* Layout Variant 1: Text Left, Portrait Right */
+  .layout-text-left {
+    grid-template-columns: 1fr 340px;
+  }
+
+  /* Layout Variant 2: Image Left (Landscape), Text Right */
+  .layout-image-left {
+    grid-template-columns: 460px 1fr;
+  }
+
+  /* Layout Variant 3: 2 Portrait Images on Either Side, Text in Middle */
+  .layout-three-col {
+    grid-template-columns: 260px 1fr 260px;
+  }
+
+  /* Content Formatting */
+  .section-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .section-subheading {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .section-body-text {
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.8;
+  }
+
+  .img-box {
+    width: 100%;
+    background: #e8e4dc;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .img-box.portrait {
+    aspect-ratio: 2 / 3;
+  }
+
+  .img-box.landscape {
+    aspect-ratio: 3 / 2;
+  }
+
+  .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  footer { 
+    background: var(--paper); 
+    border-top: 0.5px solid rgba(26,26,24,0.08); 
+    padding: 2rem 3rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: var(--muted); 
+    font-size: 0.72rem; 
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.8rem 1rem 1.5rem; }
+    .logo-main { font-size: 2.1rem; }
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; top: 2rem; }
+    main { padding: 11.5rem 1.25rem 4rem; }
+    .entry-header { padding: 1.5rem; }
+    .entry-item.open .entry-body { padding: 1.5rem 1.5rem 2.5rem; }
+
+    .layout-text-left,
+    .layout-image-left,
+    .layout-three-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .layout-image-left .img-box { order: 2; }
+    .layout-three-col .img-box:nth-child(3) { order: 3; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <nav id="nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo-group">
+      <span class="logo-main">Harry Pockett</span>
+      <span class="logo-sub">Photography</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul class="mobile-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="personal.html">Personal Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <a href="blog.html" class="back-link">&larr; BACK TO BLOG INDEX</a>
+
+    <!-- Dropdown Accordion Container (3 Entries) -->
+    <div class="entry-accordion">
+
+      <!-- JOURNAL ENTRY 1: Text Left, Portrait Image Right -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div class="entry-title-meta">
+            <span class="entry-date">Journal Entry — 01</span>
+            <h2 class="entry-main-title">Observations on Early Light</h2>
+            <p class="entry-subtitle">Wandering quiet city streets before dawn and noting directional shadows</p>
+          </div>
+          <span class="entry-toggle-icon">&#9660;</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-section layout-text-left">
+            <div class="section-text">
+              <span class="section-subheading">Pockett Journal — Note 01</span>
+              <h3 class="section-heading">The Solitude of Morning</h3>
+              <p class="section-body-text">There is an undisturbed stillness right before dawn breaks. Long shadows stretch across empty avenues, offering clean geometries that disappear as soon as the day begins.</p>
+              <p class="section-body-text">Learning to wait for moments to compose themselves naturally rather than forcing an artificial perspective upon the scene.</p>
+            </div>
+            <div class="img-box portrait">
+              <img src="journal-entry1-img1.jpg" alt="Morning street study">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- JOURNAL ENTRY 2: Landscape Image Left, Text Right -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div class="entry-title-meta">
+            <span class="entry-date">Journal Entry — 02</span>
+            <h2 class="entry-main-title">The Value of Analog Practice</h2>
+            <p class="entry-subtitle">Slowing down rhythm through film formats and deliberate framing</p>
+          </div>
+          <span class="entry-toggle-icon">&#9660;</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-section layout-image-left">
+            <div class="img-box landscape">
+              <img src="journal-entry2-img1.jpg" alt="Film contact sheet landscape">
+            </div>
+            <div class="section-text">
+              <span class="section-subheading">Pockett Journal — Note 02</span>
+              <h3 class="section-heading">Frame Discipline & Tactile Grain</h3>
+              <p class="section-body-text">Carrying a camera with 36 exposures changes how you evaluate light. Every click requires consideration, sharpening anticipation and focus.</p>
+              <p class="section-body-text">Not seeing the image instantly allows you to evaluate your work with fresh eyes days later during development.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- JOURNAL ENTRY 3: Two Portrait Images Flanking Text in Middle -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div class="entry-title-meta">
+            <span class="entry-date">Journal Entry — 03</span>
+            <h2 class="entry-main-title">Evolving Style & Continuity</h2>
+            <p class="entry-subtitle">Notes on maintaining visual tone across varied projects</p>
+          </div>
+          <span class="entry-toggle-icon">&#9660;</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-section layout-three-col">
+            <div class="img-box portrait">
+              <img src="journal-entry3-img1.jpg" alt="Journal detail left">
+            </div>
+            <div class="section-text">
+              <span class="section-subheading">Pockett Journal — Note 03</span>
+              <h3 class="section-heading">Finding the Thread</h3>
+              <p class="section-body-text">Style isn't a preset filter; it is a consistent way of seeing space, geometry, and human connection across different contexts.</p>
+              <p class="section-body-text">Removing good photos that don't serve the broader narrative is often harder than capturing them in the first place.</p>
+            </div>
+            <div class="img-box portrait">
+              <img src="journal-entry3-img2.jpg" alt="Journal detail right">
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Harry Pockett Photography</span>
+    <span>Available in London &amp; South England</span>
+  </footer>
+
+  <script>
+    // Navigation toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    function toggleMenu() {
+      menuToggle.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Collapsible Dropdown Entries
+    document.querySelectorAll('.entry-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
