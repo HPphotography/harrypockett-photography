@@ -143,13 +143,6 @@
     gap: 0.3rem;
   }
 
-  .entry-date {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
   .entry-main-title {
     font-family: var(--serif);
     font-size: 1.7rem;
@@ -214,7 +207,7 @@
   .section-text {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.9rem;
   }
 
   .section-heading {
@@ -222,13 +215,6 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--ink);
-  }
-
-  .section-subheading {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
     margin-bottom: 0.2rem;
   }
 
@@ -236,6 +222,10 @@
     font-size: 0.92rem;
     color: var(--ink);
     line-height: 1.8;
+  }
+
+  .section-body-text strong {
+    font-weight: 400;
   }
 
   .img-box {
@@ -335,39 +325,39 @@
       <p class="subpage-subtitle-bts">From the studio to the street, I look upon the work I've done, and the lessons I've learned as I've gone from budding amateur to working photographer.</p>
     </div>
 
-    <!-- Dropdown Accordion Container (3 Entries) -->
+    <!-- Dropdown Accordion Container -->
     <div class="entry-accordion">
 
-      <!-- ARTICLE 1: Text Left, Portrait Image Right -->
+      <!-- ARTICLE 1: Studio Setup for a Commercial Shoot -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <span class="entry-date">October 2026</span>
-            <h2 class="entry-main-title">Commercial Lighting & Movement</h2>
-            <p class="entry-subtitle">Balancing speed, gear footprint, and directional mood on location</p>
+            <h2 class="entry-main-title">Studio Setup for a Commercial Shoot</h2>
+            <p class="entry-subtitle">How to use lighting, backdrop and wardrobe to create a natural effect</p>
           </div>
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
           <div class="entry-section layout-text-left">
             <div class="section-text">
-              <span class="section-subheading">Behind The Scenes — 01</span>
-              <h3 class="section-heading">Lightweight Rigging on Location</h3>
-              <p class="section-body-text">When working in dynamic environments, heavy studio strobes often limit spontaneity. Here, we opted for compact battery-powered heads with modified grids to maintain clean highlights while moving fast.</p>
-              <p class="section-body-text">Interfacing subtle continuous light with late afternoon ambient shadows allows the subject to feel grounded naturally in the space without looking overly artificial.</p>
+              <h3 class="section-heading">Building a Natural Studio Portrait</h3>
+              <p class="section-body-text">Everything in this shoot was chosen to keep the portrait natural, warm and unforced, building towards a relaxed, denim-led Americana look that still feels commercial.</p>
+              <p class="section-body-text"><strong>Light:</strong> I used one large softbox, placed 45 degrees camera left and angled down towards subject, for Rembrandt lighting. The size of the source wraps softly around the face, while the angle leaves a shadow on one side that adds shape and depth. I wanted that shadow to bring contrast to the softness.</p>
+              <p class="section-body-text"><strong>Backdrop:</strong> I skipped the white backdrop for a peachy, textured wall. White can feel clinical and flat, whereas the wall adds warmth and texture, and complements darker skin tones rather than washing them out.</p>
+              <p class="section-body-text"><strong>Wardrobe:</strong> The wardrobe was deliberately worn-in and relaxed, the kind of pieces that look lived-in rather than styled. That keeps the focus on the person, not the outfit.</p>
+              <p class="section-body-text"><strong>Result:</strong> A natural, denim Americana look that feels both relatable and commercial.</p>
             </div>
             <div class="img-box portrait">
-              <img src="bts-entry1-img1.jpg" alt="Lighting setup portrait">
+              <img src="bts-entry1-img1.jpg" alt="Studio Setup for a Commercial Shoot">
             </div>
           </div>
         </div>
       </article>
 
-      <!-- ARTICLE 2: Landscape Image Left, Text Right -->
+      <!-- ARTICLE 2 -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <span class="entry-date">September 2026</span>
             <h2 class="entry-main-title">Editorial Portraiture Workflow</h2>
             <p class="entry-subtitle">Building trust with subjects and working with natural window light</p>
           </div>
@@ -379,8 +369,7 @@
               <img src="bts-entry2-img1.jpg" alt="Editorial shoot environment">
             </div>
             <div class="section-text">
-              <span class="section-subheading">Behind The Scenes — 02</span>
-              <h3 class="section-heading">Setting the Atmosphere & Perspective</h3>
+              <h3 class="section-heading">Setting the Atmosphere &amp; Perspective</h3>
               <p class="section-body-text">Creating an uncluttered environment before the subject enters is key. The goal is always to reduce friction so genuine expressions surface naturally.</p>
               <p class="section-body-text">Choosing prime lenses allows us to maintain an intimate distance while staying out of the subject's personal space. A 50mm or 85mm keeps geometric proportions honest.</p>
             </div>
@@ -388,11 +377,10 @@
         </div>
       </article>
 
-      <!-- ARTICLE 3: Two Portrait Images Flanking Text in Middle -->
+      <!-- ARTICLE 3 -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <span class="entry-date">August 2026</span>
             <h2 class="entry-main-title">On Location in South England</h2>
             <p class="entry-subtitle">Navigating unpredictable outdoor weather and changing ambient light</p>
           </div>
@@ -404,7 +392,6 @@
               <img src="bts-entry3-img1.jpg" alt="Location detail left">
             </div>
             <div class="section-text">
-              <span class="section-subheading">Behind The Scenes — 03</span>
               <h3 class="section-heading">Embracing Diffused Overcast Sky</h3>
               <p class="section-body-text">Cloud cover acts as a giant natural softbox. Instead of fighting light loss, we lean into low-contrast tones for rich color saturation.</p>
               <p class="section-body-text">Keeping gear in shoulder bags allows the team to traverse rougher coastal terrain efficiently without delaying schedule windows.</p>
