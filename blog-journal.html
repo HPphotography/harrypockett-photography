@@ -192,23 +192,36 @@
     border-top: 0.5px solid rgba(26,26,24,0.1);
   }
 
-  /* Section Layout Blocks inside Blog Entry */
-  .entry-section {
+  /* Layout Containers */
+  .entry-section-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .entry-section-split {
     display: grid;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .layout-text-left {
     grid-template-columns: 1fr 340px;
+    gap: 3rem;
+    align-items: start;
   }
 
-  .layout-image-left {
-    grid-template-columns: 460px 1fr;
+  .landscape-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
   }
 
-  .layout-three-col {
-    grid-template-columns: 260px 1fr 260px;
+  .landscape-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .landscape-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .section-text {
@@ -245,10 +258,6 @@
     overflow: hidden;
   }
 
-  .img-box.portrait {
-    aspect-ratio: 2 / 3;
-  }
-
   .img-box.landscape {
     aspect-ratio: 3 / 2;
   }
@@ -281,15 +290,17 @@
     .entry-header { padding: 1.5rem; }
     .entry-item.open .entry-body { padding: 1.5rem 1.5rem 2.5rem; }
 
-    .layout-text-left,
-    .layout-image-left,
-    .layout-three-col {
+    .entry-section-split {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
-    .layout-image-left .img-box { order: 2; }
-    .layout-three-col .img-box:nth-child(3) { order: 3; }
+    .landscape-grid-3,
+    .landscape-grid-2 {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -338,7 +349,7 @@
     <!-- Dropdown Accordion Container (3 Entries) -->
     <div class="entry-accordion">
 
-      <!-- JOURNAL ENTRY 1: Text Left, Portrait Image Right -->
+      <!-- JOURNAL ENTRY 1: 2 Small Landscapes stacked on right -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -349,21 +360,26 @@
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <div class="entry-section layout-text-left">
+          <div class="entry-section-split">
             <div class="section-text">
               <span class="section-subheading">The Pockett Journal — Note 01</span>
               <h3 class="section-heading">The Solitude of Morning</h3>
               <p class="section-body-text">There is an undisturbed stillness right before dawn breaks. Long shadows stretch across empty avenues, offering clean geometries that disappear as soon as the day begins.</p>
               <p class="section-body-text">Learning to wait for moments to compose themselves naturally rather than forcing an artificial perspective upon the scene.</p>
             </div>
-            <div class="img-box portrait">
-              <img src="journal-entry1-img1.jpg" alt="Morning street study">
+            <div class="landscape-stack">
+              <div class="img-box landscape">
+                <img src="journal-entry1-img1.jpg" alt="Morning street landscape 1">
+              </div>
+              <div class="img-box landscape">
+                <img src="journal-entry1-img2.jpg" alt="Morning street landscape 2">
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- JOURNAL ENTRY 2: Landscape Image Left, Text Right -->
+      <!-- JOURNAL ENTRY 2: 3 Landscapes equal size -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -374,43 +390,51 @@
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <div class="entry-section layout-image-left">
-            <div class="img-box landscape">
-              <img src="journal-entry2-img1.jpg" alt="Film contact sheet landscape">
-            </div>
+          <div class="entry-section-stacked">
             <div class="section-text">
               <span class="section-subheading">The Pockett Journal — Note 02</span>
-              <h3 class="section-heading">Frame Discipline & Tactile Grain</h3>
-              <p class="section-body-text">Carrying a camera with 36 exposures changes how you evaluate light. Every click requires consideration, sharpening anticipation and focus.</p>
-              <p class="section-body-text">Not seeing the image instantly allows you to evaluate your work with fresh eyes days later during development.</p>
+              <h3 class="section-heading">Frame Discipline &amp; Tactile Grain</h3>
+              <p class="section-body-text">Carrying a camera with 36 exposures changes how you evaluate light. Every click requires consideration, sharpening anticipation and focus. Not seeing the image instantly allows you to evaluate your work with fresh eyes days later during development.</p>
+            </div>
+            <div class="landscape-grid-3">
+              <div class="img-box landscape">
+                <img src="journal-entry2-img1.jpg" alt="Analog photo 1">
+              </div>
+              <div class="img-box landscape">
+                <img src="journal-entry2-img2.jpg" alt="Analog photo 2">
+              </div>
+              <div class="img-box landscape">
+                <img src="journal-entry2-img3.jpg" alt="Analog photo 3">
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- JOURNAL ENTRY 3: Two Portrait Images Flanking Text in Middle -->
+      <!-- JOURNAL ENTRY 3: 2 Landscapes equal size -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
             <span class="entry-date">Journal Entry — 03</span>
-            <h2 class="entry-main-title">Evolving Style & Continuity</h2>
+            <h2 class="entry-main-title">Evolving Style &amp; Continuity</h2>
             <p class="entry-subtitle">Notes on maintaining visual tone across varied projects</p>
           </div>
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <div class="entry-section layout-three-col">
-            <div class="img-box portrait">
-              <img src="journal-entry3-img1.jpg" alt="Journal detail left">
-            </div>
+          <div class="entry-section-stacked">
             <div class="section-text">
               <span class="section-subheading">The Pockett Journal — Note 03</span>
               <h3 class="section-heading">Finding the Thread</h3>
-              <p class="section-body-text">Style isn't a preset filter; it is a consistent way of seeing space, geometry, and human connection across different contexts.</p>
-              <p class="section-body-text">Removing good photos that don't serve the broader narrative is often harder than capturing them in the first place.</p>
+              <p class="section-body-text">Style isn't a preset filter; it is a consistent way of seeing space, geometry, and human connection across different contexts. Removing good photos that don't serve the broader narrative is often harder than capturing them in the first place.</p>
             </div>
-            <div class="img-box portrait">
-              <img src="journal-entry3-img2.jpg" alt="Journal detail right">
+            <div class="landscape-grid-2">
+              <div class="img-box landscape">
+                <img src="journal-entry3-img1.jpg" alt="Style landscape 1">
+              </div>
+              <div class="img-box landscape">
+                <img src="journal-entry3-img2.jpg" alt="Style landscape 2">
+              </div>
             </div>
           </div>
         </div>
