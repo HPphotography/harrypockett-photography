@@ -59,9 +59,8 @@
   .prev-btn { left: 1rem; }
   .next-btn { right: 1rem; }
 
-  /* Counter & Fixed Caption Area */
-  .slide-info-bar { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 1.2rem; padding: 0 0.5rem; }
-  .slide-caption { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); max-width: 80%; line-height: 1.4; }
+  /* Counter Area (Cleaned) */
+  .slide-info-bar { width: 100%; display: flex; justify-content: flex-end; align-items: center; margin-top: 1.2rem; padding: 0 0.5rem; }
   .slide-counter { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; }
 
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
@@ -118,9 +117,8 @@
       <button class="slide-btn next-btn" onclick="changeSlide(1)" aria-label="Next image">&#10095;</button>
     </div>
 
-    <!-- Info Bar: Fixed Caption + Counter -->
+    <!-- Info Bar: Counter Only -->
     <div class="slide-info-bar">
-      <div class="slide-caption">Product and brand identity storytelling for Blåbär x DAG Coffee.</div>
       <div class="slide-counter" id="slideCounter">1 / 5</div>
     </div>
   </main>
