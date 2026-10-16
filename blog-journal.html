@@ -219,8 +219,11 @@
     line-height: 1.8;
   }
 
+  /* Shrunken, centered landscape image container */
   .img-box {
     width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
     background: #e8e4dc;
     border-radius: 2px;
     overflow: hidden;
@@ -257,6 +260,7 @@
     main { padding: 11.5rem 1.25rem 4rem; }
     .entry-header { padding: 1.5rem; }
     .entry-item.open .entry-body { padding: 1.5rem 1.5rem 2.5rem; }
+    .img-box { max-width: 100%; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -305,7 +309,7 @@
     <!-- Dropdown Accordion Container (3 Entries) -->
     <div class="entry-accordion">
 
-      <!-- JOURNAL ENTRY 1: One landscape at bottom -->
+      <!-- JOURNAL ENTRY 1: Shrunken landscape at bottom -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -335,7 +339,7 @@
         </div>
       </article>
 
-      <!-- JOURNAL ENTRY 2: One landscape at top -->
+      <!-- JOURNAL ENTRY 2: Shrunken landscape at top -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
@@ -361,7 +365,7 @@
         </div>
       </article>
 
-      <!-- JOURNAL ENTRY 3: One landscape at top -->
+      <!-- JOURNAL ENTRY 3: Shrunken landscape at top -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
