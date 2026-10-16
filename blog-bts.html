@@ -143,6 +143,13 @@
     gap: 0.3rem;
   }
 
+  .entry-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
   .entry-main-title {
     font-family: var(--serif);
     font-size: 1.7rem;
@@ -198,10 +205,6 @@
 
   .layout-image-left {
     grid-template-columns: 460px 1fr;
-  }
-
-  .layout-three-col {
-    grid-template-columns: 260px 1fr 260px;
   }
 
   .section-text {
@@ -272,14 +275,12 @@
     .entry-item.open .entry-body { padding: 1.5rem 1.5rem 2.5rem; }
     
     .layout-text-left,
-    .layout-image-left,
-    .layout-three-col {
+    .layout-image-left {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
     .layout-image-left .img-box { order: 2; }
-    .layout-three-col .img-box:nth-child(3) { order: 3; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -332,6 +333,7 @@
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
+            <span class="entry-date">October 9th 2026</span>
             <h2 class="entry-main-title">Studio Setup for a Commercial Shoot</h2>
             <p class="entry-subtitle">How to use lighting, backdrop and wardrobe to create a natural effect</p>
           </div>
@@ -354,50 +356,54 @@
         </div>
       </article>
 
-      <!-- ARTICLE 2 -->
+      <!-- ARTICLE 2: Light Leaks: A Lesson Learned in India -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <h2 class="entry-main-title">Editorial Portraiture Workflow</h2>
-            <p class="entry-subtitle">Building trust with subjects and working with natural window light</p>
+            <span class="entry-date">September 27th 2026</span>
+            <h2 class="entry-main-title">Light Leaks: A Lesson Learned in India</h2>
+            <p class="entry-subtitle">What a faulty Canon AE-1 taught me about shooting film</p>
           </div>
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
           <div class="entry-section layout-image-left">
-            <div class="img-box landscape">
-              <img src="bts-entry2-img1.jpg" alt="Editorial shoot environment">
+            <div class="img-box portrait">
+              <img src="bts-entry2-img1.jpg" alt="Man smoking a beedi in Karnal, Haryana">
             </div>
             <div class="section-text">
-              <h3 class="section-heading">Setting the Atmosphere &amp; Perspective</h3>
-              <p class="section-body-text">Creating an uncluttered environment before the subject enters is key. The goal is always to reduce friction so genuine expressions surface naturally.</p>
-              <p class="section-body-text">Choosing prime lenses allows us to maintain an intimate distance while staying out of the subject's personal space. A 50mm or 85mm keeps geometric proportions honest.</p>
+              <h3 class="section-heading">300 Frames Lost to a Light Leak</h3>
+              <p class="section-body-text">In early 2025, I travelled through India and shot 13 rolls of film on my Canon AE-1. Unbeknownst to me, worn light seals were letting stray light into the camera.</p>
+              <p class="section-body-text">I only found out two months later, back in England, once I'd had them developed..</p>
+              <p class="section-body-text">Over 300 of my 450-plus frames were affected. Oh boy. That was a tough hour. I felt very sorry for myself, but after the frustration passed, I realised I should've tested a roll before leaving. With no immediate feedback loop, film often teaches you the hard way.</p>
+              <p class="section-body-text">Most of the leaks were heavy enough to ruin the photo, but this one got lucky. The glow sits away from his face and adds a warmth I certainly didn't plan.</p>
+              <p class="section-body-text">A light leak can be a happy accident, and this one might fall into that category, but I prefer a cleaner frame. Now I test a roll before any big trip and carry a backup body when I can. Setbacks happen, but this one made preparation non-negotiable for me.</p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- ARTICLE 3 -->
+      <!-- ARTICLE 3: How to Find a Documentary Project -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <h2 class="entry-main-title">On Location in South England</h2>
-            <p class="entry-subtitle">Navigating unpredictable outdoor weather and changing ambient light</p>
+            <span class="entry-date">September 24th 2026</span>
+            <h2 class="entry-main-title">How to Find a Documentary Project</h2>
+            <p class="entry-subtitle">What a night on a London narrowboat taught me</p>
           </div>
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
-          <div class="entry-section layout-three-col">
-            <div class="img-box portrait">
-              <img src="bts-entry3-img1.jpg" alt="Location detail left">
-            </div>
+          <div class="entry-section layout-text-left">
             <div class="section-text">
-              <h3 class="section-heading">Embracing Diffused Overcast Sky</h3>
-              <p class="section-body-text">Cloud cover acts as a giant natural softbox. Instead of fighting light loss, we lean into low-contrast tones for rich color saturation.</p>
-              <p class="section-body-text">Keeping gear in shoulder bags allows the team to traverse rougher coastal terrain efficiently without delaying schedule windows.</p>
+              <h3 class="section-heading">Finding Your Next Documentary Topic</h3>
+              <p class="section-body-text">Great documentary ideas often start with something you already notice. Living in London, it's hard to ignore how expensive rent is, and for many young adults today, a home of their own feels further away every year. So when two good friends, Herbie and Alex, chose to pool their savings and buy a narrowboat, it piqued my curiosity.</p>
+              <p class="section-body-text">A boat is a tight, intimate space, so I narrowed the project to one home and two people. I'd visited a few times and talked the idea through with them beforehand, so the trust was already there.</p>
+              <p class="section-body-text">I shot at 28mm inside, where the boat is so narrow, and at 50mm outside. I stayed the night, started shooting at 7pm, then woke at 6:30 for an hour of shooting before they left for work.</p>
+              <p class="section-body-text">My advice: if you've got an idea, go for it. If you keep thinking about it, that's your sign. Start with what you already notice, and pick subjects you trust.</p>
             </div>
             <div class="img-box portrait">
-              <img src="bts-entry3-img2.jpg" alt="Location detail right">
+              <img src="bts-entry3-img1.jpg" alt="Life on a London narrowboat">
             </div>
           </div>
         </div>
