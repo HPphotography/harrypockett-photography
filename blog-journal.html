@@ -192,42 +192,17 @@
     border-top: 0.5px solid rgba(26,26,24,0.1);
   }
 
-  /* Layout Containers */
+  /* Vertical Layout Container */
   .entry-section-stacked {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .entry-section-split {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .landscape-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .landscape-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .landscape-grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .section-text {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.9rem;
   }
 
   .section-heading {
@@ -235,13 +210,6 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--ink);
-  }
-
-  .section-subheading {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
     margin-bottom: 0.2rem;
   }
 
@@ -289,18 +257,6 @@
     main { padding: 11.5rem 1.25rem 4rem; }
     .entry-header { padding: 1.5rem; }
     .entry-item.open .entry-body { padding: 1.5rem 1.5rem 2.5rem; }
-
-    .entry-section-split {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .landscape-grid-3,
-    .landscape-grid-2 {
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-    }
-
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -349,92 +305,84 @@
     <!-- Dropdown Accordion Container (3 Entries) -->
     <div class="entry-accordion">
 
-      <!-- JOURNAL ENTRY 1: 2 Small Landscapes stacked on right -->
+      <!-- JOURNAL ENTRY 1: One landscape at bottom -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <span class="entry-date">Journal Entry — 01</span>
-            <h2 class="entry-main-title">Observations on Early Light</h2>
-            <p class="entry-subtitle">Wandering quiet city streets before dawn and noting directional shadows</p>
-          </div>
-          <span class="entry-toggle-icon">&#9660;</span>
-        </div>
-        <div class="entry-body">
-          <div class="entry-section-split">
-            <div class="section-text">
-              <span class="section-subheading">The Pockett Journal — Note 01</span>
-              <h3 class="section-heading">The Solitude of Morning</h3>
-              <p class="section-body-text">There is an undisturbed stillness right before dawn breaks. Long shadows stretch across empty avenues, offering clean geometries that disappear as soon as the day begins.</p>
-              <p class="section-body-text">Learning to wait for moments to compose themselves naturally rather than forcing an artificial perspective upon the scene.</p>
-            </div>
-            <div class="landscape-stack">
-              <div class="img-box landscape">
-                <img src="journal-entry1-img1.jpg" alt="Morning street landscape 1">
-              </div>
-              <div class="img-box landscape">
-                <img src="journal-entry1-img2.jpg" alt="Morning street landscape 2">
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- JOURNAL ENTRY 2: 3 Landscapes equal size -->
-      <article class="entry-item">
-        <div class="entry-header">
-          <div class="entry-title-meta">
-            <span class="entry-date">Journal Entry — 02</span>
-            <h2 class="entry-main-title">The Value of Analog Practice</h2>
-            <p class="entry-subtitle">Slowing down rhythm through film formats and deliberate framing</p>
+            <span class="entry-date">16th June 2024</span>
+            <h2 class="entry-main-title">The Memories that Made My Youth</h2>
+            <p class="entry-subtitle">Vietnam, and a childhood spent watching Top Gear</p>
           </div>
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
           <div class="entry-section-stacked">
             <div class="section-text">
-              <span class="section-subheading">The Pockett Journal — Note 02</span>
-              <h3 class="section-heading">Frame Discipline &amp; Tactile Grain</h3>
-              <p class="section-body-text">Carrying a camera with 36 exposures changes how you evaluate light. Every click requires consideration, sharpening anticipation and focus. Not seeing the image instantly allows you to evaluate your work with fresh eyes days later during development.</p>
+              <h3 class="section-heading">Childhood dreams of fishing scenes</h3>
+              <p class="section-body-text">Before the days of over-commercialised, commodified content, there were moments on our TV screens that seemed to chart the course of my youth. I’m thinking of those seminal television moments that framed our childhoods, shared cultural rituals we grew up with.</p>
+              <p class="section-body-text">For me, many of those moments came on Sundays, watching Top Gear. My older brothers and I would sit alongside our dad on the sofa, a ritual that built towards the excitement of a ‘special’ at the end of each season. The show’s dry, unfiltered humour, woven through those wild adventures, completely captured my imagination. I remember dreaming of going on similar journeys myself one day. It was my dad’s favourite programme, ours too, and now, years after his passing, I can only look back with nostalgia at the significance of those simple moments.</p>
+              <p class="section-body-text">We loved all the specials, but there was something about that Vietnam episode that always stayed with me. This one scene in particular, where Jeremy, not usually one for quiet reflection, stands looking out across a vast landscape and marvels at the beauty of its simplicity. Mountains undulate in the background; a bridge stands proud and strong; and a fishing boat clunks its way back toward its village.</p>
+              <p class="section-body-text">“It is a fabulous country, it really is.” He was not wrong.</p>
+              <p class="section-body-text">He was standing at the Hải Vân Pass, a view now forever associated with that moment.</p>
+              <p class="section-body-text">So years later, on an adventure of my own in that fabulous country, I was desperate to look out at that same view. I wanted to be there for the little kid who dreamed of adventure, for my brothers, for my dad. Perhaps that'll sound trite, but the memories of watching that show made my youth. Me, sat on the sofa with the people I loved. I wanted that full-circle "I did it" moment. And I got it.</p>
+              <p class="section-body-text">That memory is all mine, but before I reached the viewpoint, before winding up the stunning hillside roads, I stopped at a village where fishing canoes clunk back in to rest, and, I took this picture.</p>
+              <p class="section-body-text">It's the scene of a lifelong dream about to become reality.</p>
             </div>
-            <div class="landscape-grid-3">
-              <div class="img-box landscape">
-                <img src="journal-entry2-img1.jpg" alt="Analog photo 1">
-              </div>
-              <div class="img-box landscape">
-                <img src="journal-entry2-img2.jpg" alt="Analog photo 2">
-              </div>
-              <div class="img-box landscape">
-                <img src="journal-entry2-img3.jpg" alt="Analog photo 3">
-              </div>
+            <div class="img-box landscape">
+              <img src="journal-entry1-img1.jpg" alt="Vietnam fishing canoes returning to village">
             </div>
           </div>
         </div>
       </article>
 
-      <!-- JOURNAL ENTRY 3: 2 Landscapes equal size -->
+      <!-- JOURNAL ENTRY 2: One landscape at top -->
       <article class="entry-item">
         <div class="entry-header">
           <div class="entry-title-meta">
-            <span class="entry-date">Journal Entry — 03</span>
-            <h2 class="entry-main-title">Evolving Style &amp; Continuity</h2>
-            <p class="entry-subtitle">Notes on maintaining visual tone across varied projects</p>
+            <span class="entry-date">March 13th, 2025</span>
+            <h2 class="entry-main-title">The Beautiful Madness of Driving in India</h2>
+            <p class="entry-subtitle">Trust, chaos, and the beating heart</p>
           </div>
           <span class="entry-toggle-icon">&#9660;</span>
         </div>
         <div class="entry-body">
           <div class="entry-section-stacked">
-            <div class="section-text">
-              <span class="section-subheading">The Pockett Journal — Note 03</span>
-              <h3 class="section-heading">Finding the Thread</h3>
-              <p class="section-body-text">Style isn't a preset filter; it is a consistent way of seeing space, geometry, and human connection across different contexts. Removing good photos that don't serve the broader narrative is often harder than capturing them in the first place.</p>
+            <div class="img-box landscape">
+              <img src="journal-entry2-img1.jpg" alt="Surrender to the road in India">
             </div>
-            <div class="landscape-grid-2">
-              <div class="img-box landscape">
-                <img src="journal-entry3-img1.jpg" alt="Style landscape 1">
-              </div>
-              <div class="img-box landscape">
-                <img src="journal-entry3-img2.jpg" alt="Style landscape 2">
-              </div>
+            <div class="section-text">
+              <h3 class="section-heading">Surrender To the Road</h3>
+              <p class="section-body-text">You know when you watch those videos of a mountain biker bombing down a trail quicker than you’ve ever driven a car and think, <em>not a chance</em>. Or when you hear pundits say things like, “Messi does things in one game I’d never dream of doing in my entire career”? Well that’s how I feel about being driven in India.</p>
+              <p class="section-body-text">The moment-to-moment lunacy with which seemingly the entire population drives is something I would never even consider attempting myself. It shouldn’t work. And yet, despite moments of genuine fear, despite, at times, being convinced I’d soon be calling my insurance company, or ready to scream at a driver for swerving off the road, I really do trust it.</p>
+              <p class="section-body-text">There’s a kind of consent to the chaos. It’s deeply understood by everyone participating in it. By driving so close to danger, those same drivers are also acutely aware of it. It’s like they’re predicting the very mistakes they themselves might make. It’s utterly bonkers. But the madness works because everyone is fluent in the same bizarre language.</p>
+              <p class="section-body-text">Without doubt, they are the GOATs of controlled chaos. It’s both terrifying and tranquil. Traumatising and electrifying. The country swings on the wildest of extremes, and when it comes to the road, the only option is to take a deep breath, hold on, and enjoy the ride.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- JOURNAL ENTRY 3: One landscape at top -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div class="entry-title-meta">
+            <span class="entry-date">18th June 2024</span>
+            <h2 class="entry-main-title">One last ride in Vietnam</h2>
+            <p class="entry-subtitle">How I came to take one of my favourite photos</p>
+          </div>
+          <span class="entry-toggle-icon">&#9660;</span>
+        </div>
+        <div class="entry-body">
+          <div class="entry-section-stacked">
+            <div class="img-box landscape">
+              <img src="journal-entry3-img1.jpg" alt="Lady with Nón Lá in Hoi An">
+            </div>
+            <div class="section-text">
+              <h3 class="section-heading">The Butch to My Sundance</h3>
+              <p class="section-body-text">This photo was taken during the final ride on Butch, the beloved Honda Detech Win I’d bought in Hanoi a month earlier.</p>
+              <p class="section-body-text">The bike was a real piece of shit. A cyborg. Part-Chinese knock-off, part-happless pickup for wannabe Steve McQueens. Towards the end, it felt like a death trap I’d surely fall into.</p>
+              <p class="section-body-text">But it was all worth it. The previous month was indescribable in its simplicity. Exploring the epic mountain villages of Northern Vietnam. All I needed were books, Butch and my camera. I was truly alive. I was happy.</p>
+              <p class="section-body-text">So, whilst on this farewell ride, rattling along the back streets and waters of beautiful Hoi An, stretching out all 125ccs of the failing engine, I stopped at a bridge and waited for interesting subjects to pass me by. This lady, with her Nón Lá and a dash of pink, provided a subtle representation of the quiet beauty in this country. So thank you, whoever she may be, for your mystery.</p>
+              <p class="section-body-text">One of my favourite photos, taken on one of my favourite days.</p>
             </div>
           </div>
         </div>
