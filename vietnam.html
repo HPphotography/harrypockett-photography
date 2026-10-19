@@ -59,10 +59,10 @@
   .prev-btn { left: 1rem; }
   .next-btn { right: 1rem; }
 
-  /* Caption & Counter Info Bar */
-  .slide-info-bar { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 1.2rem; padding: 0 0.5rem; gap: 2rem; }
+  /* Counter & Fixed Caption Area */
+  .slide-info-bar { width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 1.2rem; padding: 0 0.5rem; }
   .slide-caption { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); max-width: 80%; line-height: 1.4; }
-  .slide-counter { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; white-space: nowrap; }
+  .slide-counter { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; }
 
   footer { background: var(--paper); border-top: 0.5px solid rgba(26,26,24,0.08); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.72rem; }
   footer a { color: var(--muted); text-decoration: none; }
@@ -71,8 +71,6 @@
     nav { padding: 1.8rem 1rem 1.5rem; } 
     .nav-links { display: none; } 
     .slideshow-container { padding: 11rem 1rem 2rem; } 
-    .slide-info-bar { flex-direction: column; gap: 0.5rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
@@ -96,23 +94,47 @@
     <div class="slide-wrapper landscape" id="slideWrapper">
       <!-- Slide 1 (Landscape) -->
       <div class="slide active" data-orientation="landscape">
-        <img src="vietnam-1.jpg" alt="Vietnam view 1">
+        <img src="vietnam-1.jpg" alt="Vietnam travel view 1">
       </div>
-      <!-- Slide 2 (Portrait) -->
-      <div class="slide" data-orientation="portrait">
-        <img src="vietnam-2.jpg" alt="Vietnam view 2">
-      </div>
-      <!-- Slide 3 (Landscape) -->
+      <!-- Slide 2 (Landscape) -->
       <div class="slide" data-orientation="landscape">
-        <img src="vietnam-3.jpg" alt="Vietnam view 3">
+        <img src="vietnam-2.jpg" alt="Vietnam travel view 2">
+      </div>
+      <!-- Slide 3 (Portrait) -->
+      <div class="slide" data-orientation="portrait">
+        <img src="vietnam-3.jpg" alt="Vietnam travel view 3">
       </div>
       <!-- Slide 4 (Landscape) -->
       <div class="slide" data-orientation="landscape">
-        <img src="vietnam-4.jpg" alt="Vietnam view 4">
+        <img src="vietnam-4.jpg" alt="Vietnam travel view 4">
       </div>
-      <!-- Slide 5 (Portrait) -->
+      <!-- Slide 5 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
+        <img src="vietnam-5.jpg" alt="Vietnam travel view 5">
+      </div>
+      <!-- Slide 6 (Portrait) -->
       <div class="slide" data-orientation="portrait">
-        <img src="vietnam-5.jpg" alt="Vietnam view 5">
+        <img src="vietnam-6.jpg" alt="Vietnam travel view 6">
+      </div>
+      <!-- Slide 7 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
+        <img src="vietnam-7.jpg" alt="Vietnam travel view 7">
+      </div>
+      <!-- Slide 8 (Portrait) -->
+      <div class="slide" data-orientation="portrait">
+        <img src="vietnam-8.jpg" alt="Vietnam travel view 8">
+      </div>
+      <!-- Slide 9 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
+        <img src="vietnam-9.jpg" alt="Vietnam travel view 9">
+      </div>
+      <!-- Slide 10 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
+        <img src="vietnam-10.jpg" alt="Vietnam travel view 10">
+      </div>
+      <!-- Slide 11 (Landscape) -->
+      <div class="slide" data-orientation="landscape">
+        <img src="vietnam-11.jpg" alt="Vietnam travel view 11">
       </div>
 
       <!-- Controls -->
@@ -123,14 +145,14 @@
     <!-- Info Bar: Fixed Caption + Counter -->
     <div class="slide-info-bar">
       <div class="slide-caption">A series of images from my time motorbiking across Vietnam. I fell for the country's tender, charming disposition. It'll always hold a special place in my heart, as the place where I began my photographic journey.</div>
-      <div class="slide-counter" id="slideCounter">1 / 5</div>
+      <div class="slide-counter" id="slideCounter">1 / 11</div>
     </div>
   </main>
 
-  <footer>
-    <span>© 2026 Harry Pockett Photography</span>
-    <span>Available in London &amp; South England</span>
-  </footer>
+<footer>
+  <span>© 2026 Harry Pockett Photography</span>
+  <span>Available in London &amp; South England</span>
+</footer>
 
   <script>
     let currentSlide = 0;
